@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var mindate = DateTime.Now.ToString("yyyy-MM-dd");
+   
+}
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            $('#submit').click(function () {
+                console.log("submit");
+                var noidi = $('#noidi').val();
+                var ngaydi = $('#ngaydi').val();
+                var noiden = $('#noiden').val();
+                sessionStorage.setItem("noiden", noiden);
+                sessionStorage.setItem("noidi", noidi);
+                sessionStorage.setItem("ngaydi", ngaydi);
+            });
+        });
+
+</script>
+@model IEnumerable<DAL_BanVeXe.NOIDI>
+<div class="ftco-blocks-cover-1">
+    <div class="ftco-cover-1 overlay" style="background-image: url('../Themes/images/phuong.jpg')">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <span style="font-size: 60px; color:white">CHỌN AN TOÀN - CHỌN PHUONGNGAN</span>
+                    <center>
+
+                        @*<h1>CHỌN AN TOÀN - CHỌN PHUONGNGAN</h1>*@
+                        <p style="font-size: 40px; color:white">PhuongNgan - Nhà xe khách lớn nhất Việt Nam</p>
+                    </center>                    
+                    <form method="POST" action="/Book/Index" id="form">
+                        <div class="form-group d-flex">
+
+                            <select id="noidi" class="form-control" placeholder="Chọn nơi đi" name="noidi">
+                                <option value="-1" disabled selected>Chọn nơi đi</option>
+                                @foreach (var item in ViewData["noidi"] as List<DAL_BanVeXe.NOIDI>)
+                                {
+                                    <option value="@item.ID">@item.TENNOIDI</option>
+                                }
+                            </select>
+
+                            <select id="noiden" class="form-control" placeholder="Chọn nơi đến" name="noiden">
+                                <option disabled selected>Chọn nơi đến</option>
+                                @*@foreach (var item in ViewData["noiden"] as List<DAL_BanVeXe.NOIDEN>)
+                                {
+                                    <option value="@item.TENNOIDEN">@item.TENNOIDEN</option>
+                                }*@
+                            </select>
+                          
+                           
+                            <input id="ngaydi" type="date" class="form-control" name="dateStart" placeholder="Ngày khởi hành" min="@mindate">
+
+
+                            @*<button id="submit" class="btn btn-primary text-white px-4" value="Mua vé" />*@
+                            <button id="btnSubmit" type="submit" class="btn btn-primary text-white px-4"
+                                    style="white-space:nowrap;padding-top: 15px;padding-bottom: 10px;">Mua vé
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- END .ftco-cover-1 -->
+    <div class="ftco-service-image-1 pb-5">
+        <div class="container">
+            <div class="owl-carousel owl-all">
+                <div class="service text-center">
+                    <a href="#"><img src="~/Themes/images/nen.jpg" alt="Image" class="img-fluid"></a>
+                    <div class="px-md-3">
+                        <h3><a href="#">AN TOÀN & TẬN TÂM</a></h3>
+                        <p>Đội ngũ lái xe của Phương Ngân được đào tạo bài bản để xử lý các tình huống xảy ra trên xa lộ một cách tốt nhất</p>
+                    </div>
+                </div>
+                <div class="service text-center">
+                    <a href="#"><img src="~/Themes/images/nen.jpg" alt="Image" class="img-fluid"></a>
+                    <div class="px-md-3">
+                        <h3><a href="#">GIÁ TỐT NHẤT</a></h3>
+                        <p>Phương Ngân đưa ra mức giá tốt nhất trên thị trường. Dịch vụ giá rẻ nhưng chất lượng cao và phù hợp cho nhiều đối tượng khách hàng</p>
+                    </div>
+                </div>
+                <div class="service text-center">
+                    <a href="#"><img src="~/Themes/images/nen.jpg" alt="Image" class="img-fluid"></a>
+                    <div class="px-md-3">
+                        <h3><a href="#">NHANH CHÓNG & THUẬN TIỆN</a></h3>
+                        <p>Hơn 50 chiếc xe hoạt động liên tục đáp ứng nhanh chóng nhu cầu di chuyển của khách hàng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="site-section bg-light" id="services-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+                <div class="block-heading-1">
+                    <h2>VỀ CHÚNG TÔI</h2>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel owl-all">
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="icon-people"></span>
+                </div>
+
+                <h3 class="mb-3">Hơn 10 triệu lượt khách</h3>
+                <p>Phương Ngân phục vụ hơn 10 triệu lượt khách/ bình quân 1 năm trên toàn quốc </p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="icon-home"></span>
+                </div>
+                <h3 class="mb-3">Hơn 100 Phòng vé</h3>
+                <p>Phương Ngân có hơn 100 Phòng vé, Trạm trung chuyển, Bến xe trên toàn quốc </p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="icon-bus"></span>
+                </div>
+                <h3 class="mb-3">Hơn 100 chuyến mỗi ngày</h3>
+                <p>Phương Ngân phục vụ hơn 100 chuyến xe đường dài và liên tỉnh mỗi ngày</p>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<script>
+    $("#noidi").on("change",
+        function () {
+            var noidi = $("#noidi").val()
+            if (noidi == "-1")
+                $("#noiden").html("<option value='-1' disabled selected>Chọn nơi đến</option>")
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/loadNoiDen",
+                    headers: {
+                        "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    data: {
+                        noidi: noidi
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $("#noiden").html("")
+                        for (var i = 0; i < response.length; i++) {
+                            $("<option value='" + response[i].id_noiden + "'/>").html(response[i].ten_noiden).appendTo($("#noiden"))
+                        }
+                    }
+                })
+            }
+        }
+    )
+</script>
+<script>
+    $('#form').submit(function () {
+        console.log('hello ba');
+        var val1 = $('#noidi').val();
+        var val2 = $('#noiden').val();
+        var val3 = $('#dayStart').val();
+        //if (val1 == null || val3 == null) {
+        //    alert("dm chon nhanh")
+        //    return;
+        //}
+        //else {
+            $.ajax({
+                type: "POST",
+                url: "/Book",
+                data: { "noidi": val1, "noiden": val2, "dayStart": val3 },
+                success: function () {
+                    alert(val1 + " ," + val2);
+                }
+            });
+        
+    });
+</script>
+
+

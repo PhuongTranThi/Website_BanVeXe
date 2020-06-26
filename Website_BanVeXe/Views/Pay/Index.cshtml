@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="border:1px solid #ddd; padding:15px">
+                    <h3 class="font-size-20" style="color:orangered; text-align:center">Chọn cổng thanh toán</h3>
+                    <div class="row" style="text-align:center; padding:15px;">
+                        <div class="col-md-4">
+                            <div style="border:1px dashed black; padding:15px;margin-right:5px;font-size:13px;">
+                                <p style="color:#333">Thanh toán thẻ tín dụng/ghi nợ</p>
+                                <img src="~/Themes/images/visa.png" style="max-width:100%;height:auto" />
+                                <input type="radio" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="border:1px dashed black; padding:15px;margin-right:5px;font-size:13px;">
+                                <p style="color:#333">Thanh toán thẻ ATM Nội địa</p>
+                                <img src="~/Themes/images/nganluong.png" style="max-width:100%;height:auto" />
+                                <input type="radio" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="border:1px dashed black; padding:15px;margin-right:5px;font-size:13px;">
+                                <p style="color:#333">Thanh toán thẻ ATM Nội địa</p>
+                                <img src="~/Themes/images/napas.png" style="max-width:100%;height:auto" />
+                                <input type="radio" />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-md-12 " style="float:right">
+                        <a href='@Url.Action("Index", "Info")' class="btn btn-primary text-white py-1"
+                           style="white-space:nowrap; width:100%">
+                            Thực hiện thanh toán
+                        </a>
+
+                    </div>
+
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="border:1px solid #ddd; padding:15px;height:420px;">
+                    <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin đặt vé</h3><br />
+                    <div style="line-height:12px; font-size:15px;">
+                        <p style="float:left; color:black;">Tuyến:</p>
+                        <br />
+                        <hr />
+
+                        <p style="float:left; color:black">Ngày đi:</p>
+                        <p style="float:left; color:black;margin-left:200px;">Ghế/giường:</p>
+                        <br />
+                        <hr />
+                        <p style="float:left; color:black;">Điểm lên xe:</p>
+                        <br />
+                        <hr />
+                        <p style="float:left; color:black">Họ tên:</p>
+                        <p style="float:left; color:black;margin-left:207px;">Ngày sinh:</p> <br />
+                        <hr />
+                        <p style="float:left; color:black">Email:</p>
+                        <p style="float:left; color:black;margin-left:214px;">SĐT:</p> <br />
+                        <hr />
+                        <p style="float:left; color:black;">Tổng tiền:</p><br />
+
+                        <hr />
+                        <br />
+                    </div>
+                    <div class="col-md-12 " style="float:right;">
+                        <a href='@Url.Action("Index", "Info")' class="btn btn-primary text-white py-1"
+                           style="white-space:nowrap; width:100%">
+                            Quay lại
+
+                        </a>
+                    </div>
+                    <br /> <br />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

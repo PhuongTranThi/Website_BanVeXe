@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="border:1px solid #ddd; padding:15px">
+                    <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin hành khách</h3>
+                    <p style="float:left; color:black">Họ tên</p>
+                    <br />
+                    <center>
+                        <input type="text" class="form-control" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
+                    </center>
+                    <br />
+                    <p style="float:left; color:black">Email</p>
+                    <p style="float:left; color:black; margin-left:220px">Ngày sinh</p>
+                    <br />
+
+                    <div class="col-md-6 " style="float:left;">
+                        <input type="text" class="form-control" style="width:100%; height:60%" placeholder="Địa chỉ email">
+                    </div>
+                    <div class="col-md-6" style="float:right;">
+                        <input type="date" class="form-control" style="width:100%; height:40%" placeholder="dd-mm-yyy">
+                    </div>
+                    <br />
+
+                    <br /><br />
+                    <p style="float:left; color:black">Di động</p>
+                    <p style="float:left; color:black; margin-left:200px">Di động 2</p>
+                    <br />
+                    <div class="col-md-6 " style="float:left;">
+                        <input type="text" class="form-control" style="width:100%; height:60%" placeholder="Số di động">
+                    </div>
+                    <div class="col-md-6" style="float:right;">
+                        <input type="text" class="form-control" style="width:100%; height:60%" placeholder="Số di động 2">
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <p style="float:left; color:black">Tỉnh/TP</p>
+                    <p style="float:left; color:black; margin-left:200px">Quận/Huyện</p>
+                    <br />
+                    <div class="col-md-6 " style="float:left;">
+                        <select class="form-control" style="width:100%; height:50%">
+                            <option>Hà Tĩnh</option>
+                            <option>Nghệ An</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 " style="float:right;">
+                        <select class="form-control" style="width:100%; height:50%">
+                            <option>Lộc Hà</option>
+                            <option>Can Lộc</option>
+                        </select>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-12 " style="float:left;">
+                        <p style="color:black; float:left; margin-bottom:auto"><input type="checkbox" style="float:left">&nbsp;Chấp nhận điều khoản đặt vé của PhuongNgan</p>
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="col-md-6 ">
+                        <a href='@Url.Action("Index", "Book")' class="btn btn-primary text-white py-1"
+                           style="white-space:nowrap;float:left; width:100%">
+                            Quay lại
+                        </a>
+                    </div>
+                    <div class="col-md-6 " style="float:right">
+                        <a href='@Url.Action("Index", "Pay")' class="btn btn-primary text-white py-1"
+                           style="white-space:nowrap; width:100%">
+                            Tiếp tục
+                        </a>
+
+                    </div>
+
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="border:1px solid #ddd; padding:15px">
+                    <h3 class="font-size-20 text-center" style="color:orangered">Điều khoản và lưu ý</h3>
+                    <p style="float:left; color:black">
+                        (*) Qúy khách vui lòng mang email có chứa mã vé đến văn phòng để đổi vé lên xe trước giờ xuất bến
+                        ít nhất 60 phút để chúng tôi trung chuyển.
+                    </p>
+                    <p style="float:left; color:black">
+
+                        (*) Thông tin hành khách phải chính xác, nếu không sẽ không thể lên xe hoặc hủy/đổi vé.
+                    </p>
+                    <p style="float:left; color:black">
+                        (*) Qúy khách không được đổi/trả vé vào các ngày Lễ Tết (ngày thường quý khách được quyền chuyển
+                        đổi hoặc hủy vé một lần duy nhất trước giờ xe chạy 24 giờ, phí hủy vé 10%).
+                    </p>
+                    <p style="float:left; color:black">
+                        (*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ số điện thoại 032 737 3434 trước khi đặt vé.
+                        Chúng tôi sẽ không đón/trung chuyển tại những điểm xe trung chuyển không thể tới được.
+                    </p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    <br /><br /><br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

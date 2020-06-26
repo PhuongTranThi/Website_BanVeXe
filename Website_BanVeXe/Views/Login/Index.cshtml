@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
+                <div class="block-heading-1">
+
+                    <h2>ĐĂNG NHẬP</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="background-color:white; width:35%; height:50%;margin:auto;">
+
+                <div class=" p-1 p-md-5">
+                    <form action="#" method="post">
+                        <div class="form-group row">
+
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Tên đăng nhập">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Mật khẩu">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-md-12 ">
+                                <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Đăng nhập">
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <center>
+            </br>
+            <p>Bạn chưa có tài khoản? @Html.ActionLink("Đăng ký ngay", "Index", "Registration")</p>
+        </center>
+
+    </div>
+</div>
+
+
+
+

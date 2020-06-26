@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+@model IEnumerable<DTO_BanVeXe.DTO_Ghe>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="font-size-20" style="color:orangered; text-align:center" id="references">
+                    @*<p id="demo"></p>*@
+                    <p id="tentuyen"></p>
+                </h3>
+                @foreach (var item in ViewData["tuyendi"] as List<DTO_BanVeXe.DTO_TuyenDi>)
+                {
+                <h3 class="font-size-20" style="color:orangered; text-align:center" value="@item.ID_Tuyen">@item.TenTuyen<span>&nbsp;Ngày:&nbsp;@ViewData["dateStart"]</span></h3>
+                    
+                }
+                <div style="border:1px solid #ddd; padding:15px">
+                    <p style="float:left; color:black">Chọn giờ khởi hành</p>
+                    <form method="post" id="form">
+                        <select class="form-control" style="width:100%; height:50%" name="giokhoihanh" id="giokhoihanh">
+                            @if (ViewData["giokhoihanh"] != null)
+                            {
+                                foreach (var item in ViewData["giokhoihanh"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                                {
+                                <option value="@item.BienSo">@item.GioKhoiHanh</option>
+                                }
+                            }
+                            @*@foreach (var item in ViewData["chuyendi"] as List<DAL_BanVeXe.CHUYENDI>)
+                            {
+                                <option value="@item.ID">@item.GIODI</option>
+                            }*@
+                        </select>
+                    </form>
+                    <br />
+                    <p style="float:left; color:black">Chọn địa điểm lên xe</p>
+                    <select class="form-control" style="width:100%; height:50%">
+                        @foreach (var item in ViewData["diadiem"] as List<DTO_BanVeXe.DTO_DiaDiemDon>)
+                        {
+                            <option value="@item.ID_DiaDiem">@item.TenDiaDiem</option>
+                        }
+                    </select>
+                    <br />
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            @*<input type="submit" class="btn btn-block btn-primary text-white py-1 px-3 " value="Quay lại">*@
+                            <a href='@Url.Action("Index", "Home")' class="btn btn-primary text-white py-1 "
+                               style="white-space:nowrap;float:left; width:100%">
+                                Quay lại
+                            </a>
+                        </div>
+                        <div class="col-md-6 ">
+                            @*<input type="submit" class="btn btn-block btn-primary text-white py-1 px-3" value="Tiếp tục">*@
+                            <a href='@Url.Action("Index", "Info")' class="btn btn-primary text-white py-1"
+                               style="white-space:nowrap;float:right; width:100%">
+                                Tiếp tục
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="border:1px solid #ddd; padding:15px">
+                    <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin chuyến</h3>
+                    @foreach (var item in ViewData["tuyendi"] as List<DTO_BanVeXe.DTO_TuyenDi>)
+                    {
+                        <p style="float:left; color:black" value="@item.ID_Tuyen">Khoảng cách:&nbsp;@item.KhoangCach km</p>
+
+                    }
+
+                    <br>
+
+                    <br>
+                    @foreach (var item in ViewData["tuyendi"] as List<DTO_BanVeXe.DTO_TuyenDi>)
+                    {
+                        <p style="float:left; color:black" value="@item.ID_Tuyen">Số giờ chạy:&nbsp;@item.SoGioChay tiếng</p>
+
+                    }
+                    <br />
+                    <p></p>
+                    <p style="float:left; color:black">Miễn phí</p> &nbsp;
+                    <span style="font-size:x-large; color:orangered" class=" icon-tv "></span> &nbsp;
+                    <span style="font-size:x-large; color:orangered" class="icon-coffee"></span>&nbsp;
+                    <span style="font-size:x-large; color:orangered" class="icon-wifi "></span>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div style="border:1px solid #ddd; padding:15px">
+                    <p style="float:left; color:black">SỐ GHẾ:</p>
+                    <p style="float:right; color:black; margin-right:90px">TỔNG TIỀN:</p>
+                    <br />
+                    <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
+                        <p></p>
+
+                    </div>
+
+                    <div>
+
+                        <div class="container">
+                            <div class="row" style="margin:20px 0 20px 40px;">
+
+                                <div class="col-md-5" style="background: #f1f5f8">
+                                    <h6 style="color:orangered; text-align:center; margin-top:10px;">TẦNG 1</h6>
+                                    <div class="container">
+                                        <div class="row">
+                                            @foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>)
+                                            {
+                                                for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
+                                                {
+                                                    if (i < 23)
+                                                    {
+                                                         <div class="col-md-4">
+                                                        <input id="ghe" type="button"
+                                                               class="optionItem ghe"
+                                                               value="A @i"
+                                                               style="background:#838486; width:50px; padding:6px; margin:5px"
+                                                               onclick={onCickItemChair(@i)} />
+                                                             </div>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-5" style="background: #f1f5f8">
+                                    <h6 style="color:orangered; text-align:center;margin-top:10px;">TẦNG 2</h6>
+                                    <div class="container">
+                                        <div class="row">
+                                            @foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>)
+                                            {
+                                                for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
+                                                {
+                                                    if (i >= 23)
+                                                    {
+                                                        <div class="col-md-4">
+                                                        <input id="ghe"type="button"
+                                                               class="optionItem ghe"
+                                                               value="A @i"
+                                                               style="background:#838486; width:50px; padding:6px; margin:5px"
+                                                               onclick={onCickItemChair(@i)} />
+                                                            </div>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
+                    <p></p>
+
+                </div>
+                <br />
+                <span style="float:left; color:black">Đang chọn</span>
+                <span style="margin-left:230px; color:black">Đã đặt</span>
+                <span style="float:right; color:black">Còn trống</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $('#giokhoihanh').change(function () {
+        console.log('hello ba');
+        var giokhoihanh = $('#giokhoihanh').val();
+        $.ajax({
+            type: "POST",
+            url: "/Book",
+            data: { "giokhoihanh": giokhoihanh },
+            success: function () {
+                alert(giokhoihanh);
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    //click lấy value ghế
+    function onCickItemChair(value) {
+        $(document).ready(function () {
+            $("body").on('click', ".ghe", function () {
+                var self = $(this);
+                self.css("background", "red");
+            });
+        });
+        //document.getElementById("optionItem").style.background = "red";
+        console.log(value);
+   
+        $(document).ready(
+            function () {
+                $('select').change(function () {
+                    sessionStorage.setItem("ghe", $('select').val().toString());
+                });
+            });
+    }
+</script>
+
