@@ -41,9 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_ChuyenDi.cs" />
+    <Compile Include="DTO_DiaDiemDon.cs" />
     <Compile Include="DTO_Ghe.cs" />
+    <Compile Include="DTO_LichTrinh.cs" />
     <Compile Include="DTO_NoiDi.cs" />
+    <Compile Include="DTO_TuyenDi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

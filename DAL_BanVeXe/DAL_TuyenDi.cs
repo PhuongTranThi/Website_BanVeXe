@@ -27,16 +27,7 @@ namespace DAL_BanVeXe
         public List<NOIDEN> LoadNoiDen()
         {
             return _db.NOIDENs.Select(p => p).ToList<NOIDEN>();
-            //var noiden = from nden in _db.NOIDENs
-            //             from ndi in _db.NOIDIs
-            //             from tuyen in _db.TUYENDIs
-            //             where ndi.ID == tuyen.ID_NOIDI
-            //             && nden.ID == tuyen.ID_NOIDEN
-            //             && ndi.ID ==
-            //             select new
-            //             {
-
-            //             };
+           
 
         }
 

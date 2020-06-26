@@ -21,8 +21,20 @@ namespace BUS_BanVeXe
         {
             return dal_Ghe.LoadGhe(bienSo);
         }
-        
 
+        public List<DTO_ChuyenDi> LoadChuyenDi(int tuyendi, string dateStart)
+        {
+            return dal_Ghe.LoadChuyenDi(tuyendi, dateStart);
+        }
 
+        public List<DTO_TuyenDi> LoadTuyenDi(int noidi, int noiden)
+        {
+            return dal_Ghe.LoadTuyenDi(noidi, noiden);
+        }
+
+        public List<DTO_DiaDiemDon> LoadDiaDiemDon(int tuyendi)
+        {
+            return dal_Ghe.LoadDiaDiemDon(tuyendi);
+        }
     }
 }

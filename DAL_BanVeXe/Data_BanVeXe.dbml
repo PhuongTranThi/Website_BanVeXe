@@ -8,7 +8,8 @@
       <Column Name="ID_TAIXE1" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_TAIXE2" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_PHUXE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="THOIGIANKHOIHANH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NGAYKHOIHANH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GIODI" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.CT_VE" Member="CT_VEs">
@@ -48,6 +49,14 @@
       <Column Name="YKIENDANHGIA" Type="System.String" DbType="NVarChar(550)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.LienHe" Member="LienHes">
+    <Type Name="LienHe">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_KHACHHANG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THOIGIANDONGGOP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.LOAINHANVIEN" Member="LOAINHANVIENs">
     <Type Name="LOAINHANVIEN">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -72,16 +81,16 @@
       <Column Name="DIACHI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NOIDEN" Member="NOIDENs">
-    <Type Name="NOIDEN">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TENNOIDEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.NOIDI" Member="NOIDIs">
     <Type Name="NOIDI">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TENNOIDI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NOIDEN" Member="NOIDENs">
+    <Type Name="NOIDEN">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TENNOIDEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PHUXE" Member="PHUXEs">
@@ -89,6 +98,17 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ID_LOAINV" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HOTENPX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAIXE" Member="TAIXEs">
+    <Type Name="TAIXE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_LOAINV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HOTENTX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="GIOITINH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="Char(10)" CanBeNull="true" />
@@ -107,15 +127,12 @@
       <Column Name="SOGIOCHAY" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TAIXE" Member="TAIXEs">
-    <Type Name="TAIXE">
+  <Table Name="dbo.XE" Member="XEs">
+    <Type Name="XE">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_LOAINV" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HOTENTX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="GIOITINH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ID_LOAIXE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BIENSO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.VE" Member="VEs">
@@ -123,14 +140,6 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NGAYDAT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TONGTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.XE" Member="XEs">
-    <Type Name="XE">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_LOAIXE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BIENSO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

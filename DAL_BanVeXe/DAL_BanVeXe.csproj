@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DAL_ChuyenDi.cs" />
     <Compile Include="DAL_Ghe.cs" />
+    <Compile Include="DAL_LichTrinh.cs" />
     <Compile Include="DAL_TuyenDi.cs" />
     <Compile Include="Data_BanVeXe.designer.cs">
       <AutoGen>True</AutoGen>

@@ -31,8 +31,8 @@
 
                         @*<h1>CHỌN AN TOÀN - CHỌN PHUONGNGAN</h1>*@
                         <p style="font-size: 40px; color:white">PhuongNgan - Nhà xe khách lớn nhất Việt Nam</p>
-                    </center>
-                    <form method="get" action="/Book/Index">
+                    </center>                    
+                    <form method="POST" action="/Book/Index" id="form">
                         <div class="form-group d-flex">
 
                             <select id="noidi" class="form-control" placeholder="Chọn nơi đi" name="noidi">
@@ -56,7 +56,7 @@
 
 
                             @*<button id="submit" class="btn btn-primary text-white px-4" value="Mua vé" />*@
-                            <button id="submit" type="submit" class="btn btn-primary text-white px-4"
+                            <button id="btnSubmit" type="submit" class="btn btn-primary text-white px-4"
                                     style="white-space:nowrap;padding-top: 15px;padding-bottom: 10px;">Mua vé
                             </button>
                         </div>
@@ -157,7 +157,6 @@
                     },
                     dataType: "json",
                     success: function (response) {
-                       
                         $("#noiden").html("")
                         for (var i = 0; i < response.length; i++) {
                             $("<option value='" + response[i].id_noiden + "'/>").html(response[i].ten_noiden).appendTo($("#noiden"))
@@ -168,6 +167,27 @@
         }
     )
 </script>
-
+<script>
+    $('#form').submit(function () {
+        console.log('hello ba');
+        var val1 = $('#noidi').val();
+        var val2 = $('#noiden').val();
+        var val3 = $('#dayStart').val();
+        //if (val1 == null || val3 == null) {
+        //    alert("dm chon nhanh")
+        //    return;
+        //}
+        //else {
+            $.ajax({
+                type: "POST",
+                url: "/Book",
+                data: { "noidi": val1, "noiden": val2, "dayStart": val3 },
+                success: function () {
+                    alert(val1 + " ," + val2);
+                }
+            });
+        
+    });
+</script>
 
 

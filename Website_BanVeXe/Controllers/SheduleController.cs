@@ -14,7 +14,9 @@ namespace Website_BanVeXe.Controllers
         public ActionResult Index()
         {
             BUS_TuyenDi busTuyenDi = new BUS_TuyenDi();
+            BUS_LichTrinh bus_lichtrinh = new BUS_LichTrinh();
             ViewData["tuyendi"] = busTuyenDi.LoadTuyenDi();
+            ViewData["lichtrinh"] = bus_lichtrinh.LoadLichTrinh();
             return View();
         }
     }

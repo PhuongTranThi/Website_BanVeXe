@@ -21,15 +21,10 @@ namespace Website_BanVeXe.Controllers
             ViewData["noidi"] = busTuyenDi.LoadNoiDi();
             ViewData["noiden"] = busTuyenDi.LoadNoiDen();
 
-            //lưu session
+            //truyền form từ view sang controller
             string noidi = form["noidi"];
             string noiden = form["noiden"];
             string date = form["dayStart"];
-
-            
-            //Session["noidi"] = noidi;
-            //Session["noiden"] = noiden;
-            //Session["ngaydi"] = date;
 
             return View();
         }
