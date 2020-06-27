@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
@@ -7,7 +8,7 @@
 
 @model IEnumerable<DTO_BanVeXe.DTO_Ghe>
 
-<div class="site-section" id="demo" >
+<div class="site-section" id="demo">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -22,7 +23,7 @@
                 }
                 <div style="border:1px solid #ddd; padding:15px">
                     <p style="float:left; color:black">Chọn giờ khởi hành</p>
-                    <form method="post" id="form" action="/Book">
+                    <form method="post" id="form">
                         <select class="form-control" style="width:100%; height:50%" name="giokhoihanh" id="giokhoihanh">
                             @if (ViewData["giokhoihanh"] != null)
                             {
@@ -115,10 +116,11 @@
                                         <div class="row">
                                             @if (ViewData["xe"] != null)
                                             {
-                                                foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>) {
+                                                foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>)
+                                                {
                                                     for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
                                                     {
-                                                        if (i < 23)
+                                                        if (i < int.Parse(item.SoChoNgoi.ToString())/2)
                                                         {
                                                             <div class="col-md-4">
                                                                 <input id="ghe" type="button"
@@ -131,52 +133,52 @@
                                                     }
                                                 }
                                             }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-5" style="background: #f1f5f8">
-                                <h6 style="color:orangered; text-align:center;margin-top:10px;">TẦNG 2</h6>
-                                <div class="container">
-                                    <div class="row">
-                                        @if (ViewData["xe"] != null)
-                                        {
-                                            foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>) {
-                                                for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
-                                                {
-                                                    if (i > 23)
+                                <div class="col-md-1"></div>
+                                <div class="col-md-5" style="background: #f1f5f8">
+                                    <h6 style="color:orangered; text-align:center;margin-top:10px;">TẦNG 2</h6>
+                                    <div class="container">
+                                        <div class="row">
+                                            @if (ViewData["xe"] != null)
+                                            {
+                                                foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>) {
+                                                    for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
                                                     {
-                                                        <div class="col-md-4">
-                                                            <input id="ghe" type="button"
-                                                                   class="optionItem ghe"
-                                                                   value="A @i"
-                                                                   style="background:#838486; width:50px; padding:6px; margin:5px"
-                                                                   onclick={onCickItemChair(@i)} />
-                                                        </div>
+                                                        if (i >= int.Parse(item.SoChoNgoi.ToString()) / 2)
+                                                        {
+                                                            <div class="col-md-4">
+                                                                <input id="ghe" type="button"
+                                                                       class="optionItem ghe"
+                                                                       value="A @i"
+                                                                       style="background:#838486; width:50px; padding:6px; margin:5px"
+                                                                       onclick={onCickItemChair(@i)} />
+                                                            </div>
+                                                        }
                                                     }
                                                 }
                                             }
-                                        }
+                                        </div>
                                     </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
+                </div>
+                <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
+                    <p></p>
 
                 </div>
+                <br />
+                <span style="float:left; color:black">Đang chọn</span>
+                <span style="margin-left:230px; color:black">Đã đặt</span>
+                <span style="float:right; color:black">Còn trống</span>
             </div>
         </div>
-        <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
-            <p></p>
 
-        </div>
-        <br />
-        <span style="float:left; color:black">Đang chọn</span>
-        <span style="margin-left:230px; color:black">Đã đặt</span>
-        <span style="float:right; color:black">Còn trống</span>
     </div>
-</div>
-
-</div>
 </div>
 
 <script>
@@ -191,7 +193,8 @@
             url: "/Book",
             data: { "noidi": noidi, "noiden": noiden, "dateStart": dateStart, "giokhoihanh": giokhoihanh },
             success: function (data) {
-                $("header").empty();
+                document.getElementById('bodyne').innerHTML = "";
+
                 document.getElementById('bodyne').innerHTML = data;
          },
         });
@@ -210,7 +213,7 @@
         });
         //document.getElementById("optionItem").style.background = "red";
         console.log(value);
-   
+
         $(document).ready(
             function () {
                 $('select').change(function () {
