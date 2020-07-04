@@ -21,40 +21,46 @@ namespace Website_BanVeXe.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
-            BUS_GHE bus_Ghe = new BUS_GHE();
-            BUS_ChuyenDi bus_chuyen = new BUS_ChuyenDi();
 
-           
-          
-            var ndi = form["noidi"];
-            var nden = form["noiden"];
-            var ngaykhoihanh = form["dateStart"];
-            var giokhoihanh = form["giokhoihanh"];
+                BUS_GHE bus_Ghe = new BUS_GHE();
+                BUS_ChuyenDi bus_chuyen = new BUS_ChuyenDi();
+
+                var noidi = form["noidi"];
+                var noiden = form["noiden"];
+                var ngaykhoihanh = form["dateStart"];
+                var giokhoihanh = form["giokhoihanh"];
 
 
-            ViewData["noidi"] = ndi;
-            ViewData["noiden"] = nden;
-            ViewData["dateStart"] = ngaykhoihanh;
+                ViewData["noidi"] = noidi;
+                ViewData["noiden"] = noiden;
+                ViewData["dateStart"] = ngaykhoihanh;
+                ViewData["diadiemdon"] = "1";
 
-            //ViewData["chuyendi"] = bus_Ghe.LoadChuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()), ngaykhoihanh);
-            var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()));
-            ViewData["tuyendi"] = tuyendi;
+                //ViewData["chuyendi"] = bus_Ghe.LoadChuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()), ngaykhoihanh);
+                var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(noidi.ToString()), int.Parse(noiden.ToString()));
+                ViewData["tuyendi"] = tuyendi;
 
-            ViewData["diadiem"] = bus_Ghe.LoadDiaDiemDon(tuyendi[0].ID_Tuyen);
-            if (ngaykhoihanh != null) {
-                var chuyendi = bus_Ghe.LoadChuyenDi(tuyendi[0].ID_Tuyen, ngaykhoihanh);
-                ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(chuyendi[0].BienSo);
-                ViewData["giokhoihanh"] = chuyendi;
-
-                //ViewData["chuyendi"] = bus_chuyen.LoadChuyenDi();
-                if (giokhoihanh != null) {
-                    ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(giokhoihanh);
-                }
-                else {
+                ViewData["diadiem"] = bus_Ghe.LoadDiaDiemDon(tuyendi[0].ID_Tuyen);
+                if (ngaykhoihanh != null)
+                {
+                    var chuyendi = bus_Ghe.LoadChuyenDi(tuyendi[0].ID_Tuyen, ngaykhoihanh);
                     ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(chuyendi[0].BienSo);
+                    ViewData["giokhoihanh"] = chuyendi;
+
+                    //ViewData["chuyendi"] = bus_chuyen.LoadChuyenDi();
+                    if (giokhoihanh != null)
+                    {
+                        ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(giokhoihanh);
+                        ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
+                    }
+                    else
+                    {
+                        ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(chuyendi[0].BienSo);
+                    }
                 }
-            }
-            return View();
+                return View();
+            
+
         }
         [HttpPost]
         public ActionResult ViewChair(FormCollection form)
@@ -64,18 +70,18 @@ namespace Website_BanVeXe.Controllers
 
 
 
-            var ndi = form["noidi"];
-            var nden = form["noiden"];
+            var noidi = form["noidi"];
+            var noiden = form["noiden"];
             var ngaykhoihanh = form["dateStart"];
             var giokhoihanh = form["giokhoihanh"];
 
 
-            ViewData["noidi"] = ndi;
-            ViewData["noiden"] = nden;
+            ViewData["noidi"] = noidi;
+            ViewData["noiden"] = noiden;
             ViewData["dateStart"] = ngaykhoihanh;
 
             //ViewData["chuyendi"] = bus_Ghe.LoadChuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()), ngaykhoihanh);
-            var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()));
+            var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(noidi.ToString()), int.Parse(noiden.ToString()));
             ViewData["tuyendi"] = tuyendi;
 
             ViewData["diadiem"] = bus_Ghe.LoadDiaDiemDon(tuyendi[0].ID_Tuyen);
@@ -88,7 +94,9 @@ namespace Website_BanVeXe.Controllers
                 //ViewData["chuyendi"] = bus_chuyen.LoadChuyenDi();
                 if (giokhoihanh != null)
                 {
-                    ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(giokhoihanh);
+                    var data = bus_Ghe.Load_Ghe_Xe(giokhoihanh);
+                    ViewData["xe"] = data;
+                    ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
                 }
                 else
                 {

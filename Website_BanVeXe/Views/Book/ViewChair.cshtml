@@ -120,7 +120,7 @@
                                                 {
                                                     for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
                                                     {
-                                                        if (i < int.Parse(item.SoChoNgoi.ToString())/2)
+                                                        if (i < int.Parse(item.SoChoNgoi.ToString())/2 )
                                                         {
                                                             <div class="col-md-4">
                                                                 <input id="ghe" type="button"
@@ -204,20 +204,20 @@
 
 <script type="text/javascript">
     //click lấy value ghế
-    function onCickItemChair(value) {
-        $(document).ready(function () {
-            $("body").on('click', ".ghe", function () {
-                var self = $(this);
-                self.css("background", "red");
-            });
+    $(document).ready(function () {
+        $(".ghe").on('click', function () {
+            $(this).toggleClass("btn-danger");
         });
-        //document.getElementById("optionItem").style.background = "red";
+    });
+    function onCickItemChair(value) {
+
         console.log(value);
 
         $(document).ready(
             function () {
                 $('select').change(function () {
-                    sessionStorage.setItem("ghe", $('select').val().toString());
+                    //sessionStorage.setItem("ghe", $('select').val().toString());
+                    console.log(sessionStorage.setItem("ghe", $('select').val().toString()));
                 });
             });
     }

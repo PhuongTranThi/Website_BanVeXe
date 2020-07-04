@@ -63,8 +63,26 @@
                             <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
                             <li>@Html.ActionLink("Lịch Trình", "Index", "Shedule")</li>
                             <li>@Html.ActionLink("Liên Hệ", "Index", "Contact")</li>
-                            <li>@Html.ActionLink("Đăng Nhập", "Index", "Login")</li>
-
+                            @{
+                                if (Session["user"] != null)
+                                {
+                                    if (Session["user"].ToString().CompareTo("") != 0)
+                                    {
+                                        <li href="#">@Session["user"].ToString()</li>
+                                        <li>@Html.ActionLink("Đăng xuất", "Index", "Logout")</li>
+                                    }
+                                    else
+                                    {
+                                        <li href="/login">@Html.ActionLink("Đăng Nhập", "Index", "Login")</li>
+                                        @*<li href="/signin">ĐĂNG KÍ</li>*@
+                                    }
+                                }
+                                else
+                                {
+                                        <li>@Html.ActionLink("Đăng Nhập", "Index", "Login")</li>
+                                        @*<li >@Html.ActionLink("Đăng kí", "Index", "Login")</li>*@
+                                }
+                            }
                         </ul>
                     </nav>
 

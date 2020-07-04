@@ -24,7 +24,7 @@ namespace Website_BanVeXe.Controllers
             //truyền form từ view sang controller
             string noidi = form["noidi"];
             string noiden = form["noiden"];
-            string date = form["dayStart"];
+            string date = form["dateStart"];
 
             return View();
         }

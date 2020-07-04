@@ -9,76 +9,66 @@
         <div class="row">
             <div class="col-md-6">
                 <div style="border:1px solid #ddd; padding:15px">
-                    <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin hành khách</h3>
-                    <p style="float:left; color:black">Họ tên</p>
-                    <br />
-                    <center>
-                        <input type="text" class="form-control" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
-                    </center>
-                    <br />
-                    <p style="float:left; color:black">Email</p>
-                    <p style="float:left; color:black; margin-left:220px">Ngày sinh</p>
-                    <br />
+                    <form action="/Pay/Index" method="post" id="form">
+                        <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin hành khách</h3>
+                        <p style="float:left; color:black">Họ tên</p>
+                        <br />
+                        <center>
+                            <input name="hoten" id="hoten" type="text" class="form-control hoten" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
+                        </center>
+                        <br />
+                        <p style="float:left; color:black">Email</p>
 
-                    <div class="col-md-6 " style="float:left;">
-                        <input type="text" class="form-control" style="width:100%; height:60%" placeholder="Địa chỉ email">
-                    </div>
-                    <div class="col-md-6" style="float:right;">
-                        <input type="date" class="form-control" style="width:100%; height:40%" placeholder="dd-mm-yyy">
-                    </div>
-                    <br />
+                        <br />
+                        <center>
+                            <input name="email" id="email" type="text" class="form-control email" style="width:93%; height:60%" placeholder="Địa chỉ email">
+                        </center>
+                        <center>
+                            <input name="diadiemSelect" value="@ViewData["diadiemSelect"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
+                            <input name="gheSelect" value="@ViewData["gheSelect"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
+                            <input name="donGiaNha" value="@ViewData["donGiaNha"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
 
-                    <br /><br />
-                    <p style="float:left; color:black">Di động</p>
-                    <p style="float:left; color:black; margin-left:200px">Di động 2</p>
-                    <br />
-                    <div class="col-md-6 " style="float:left;">
-                        <input type="text" class="form-control" style="width:100%; height:60%" placeholder="Số di động">
-                    </div>
-                    <div class="col-md-6" style="float:right;">
-                        <input type="text" class="form-control" style="width:100%; height:60%" placeholder="Số di động 2">
-                    </div>
-                    <br />
-                    <br />
-                    <br />
-                    <p style="float:left; color:black">Tỉnh/TP</p>
-                    <p style="float:left; color:black; margin-left:200px">Quận/Huyện</p>
-                    <br />
-                    <div class="col-md-6 " style="float:left;">
-                        <select class="form-control" style="width:100%; height:50%">
-                            <option>Hà Tĩnh</option>
-                            <option>Nghệ An</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 " style="float:right;">
-                        <select class="form-control" style="width:100%; height:50%">
-                            <option>Lộc Hà</option>
-                            <option>Can Lộc</option>
-                        </select>
-                    </div>
-                    <br />
-                    <br />
-                    <br />
-                    <div class="col-md-12 " style="float:left;">
-                        <p style="color:black; float:left; margin-bottom:auto"><input type="checkbox" style="float:left">&nbsp;Chấp nhận điều khoản đặt vé của PhuongNgan</p>
-                    </div>
-                    <br />
-                    <br />
+                            <input name="idChuyenDi" value="@ViewData["idChuyenDi"]" type="text" class="form-control email" style="width:93%; height:60%;display:none " placeholder="Địa chỉ email">
+                            <input name="dateStart" value="@ViewData["dateStart"]" type="text" class="form-control email" style="width:93%; height:60%; display:none" placeholder="Địa chỉ email">
+                            <input name="noidi" value="@ViewData["noidi"]" type="text" class="form-control email" style="width:93%; height:60%; display:none" placeholder="Địa chỉ email">
+                            <input name="noiden" value="@ViewData["noiden"]" type="text" class="form-control email" style="width:93%; height:60%; display:none" placeholder="Địa chỉ email">
+                        </center>
+                        <br />
+                        <p style="float:left; color:black">Di động</p>
+                        <br />
+                        <center>
+                            <input name="sdt" id="sdt" type="text" class="form-control sdt" style="width:93%; height:60%" placeholder="Số điện thoại">
+                        </center>
 
-                    <div class="col-md-6 ">
-                        <a href='@Url.Action("Index", "Book")' class="btn btn-primary text-white py-1"
-                           style="white-space:nowrap;float:left; width:100%">
-                            Quay lại
-                        </a>
-                    </div>
-                    <div class="col-md-6 " style="float:right">
-                        <a href='@Url.Action("Index", "Pay")' class="btn btn-primary text-white py-1"
-                           style="white-space:nowrap; width:100%">
-                            Tiếp tục
-                        </a>
+                        <br />
 
-                    </div>
+                        <p style="float:left; color:black">Địa chỉ</p>
+                        <br />
+                        <center>
+                            <input name="diachi" id="diachi" type="text" class="form-control diachi" style="width:93%; height:60%" placeholder="Địa chỉ">
+                        </center>
+                        <br />
 
+                        <div class="col-md-12 " style="float:left;">
+                            <p style="color:black; float:left; margin-bottom:auto"><input type="checkbox" style="float:left">&nbsp;Chấp nhận điều khoản đặt vé của PhuongNgan</p>
+                        </div>
+                        <br />
+                        <br />
+
+                        <div class="col-md-6 ">
+                            <a href='@Url.Action("Index", "Book")' class="btn btn-primary text-white py-1"
+                               style="white-space:nowrap;float:left; width:100%">
+                                Quay lại
+                            </a>
+                        </div>
+                        <div class="col-md-6 " style="float:right">
+                            <button class="btn btn-primary text-white py-1"
+                                    style="white-space:nowrap; width:100%">
+                                Tiếp tục
+                            </button>
+                        </div>
+
+                    </form>
                     <br />
                     <br />
                 </div>

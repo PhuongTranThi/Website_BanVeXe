@@ -16,5 +16,14 @@ namespace BUS_BanVeXe
         {
             return dal_chuyendi.LoadChuyen();
         }
+        public List<DTO_ChuyenDi> Load_Tuyen_BienSo(int id_chuyen)
+        {
+            return dal_chuyendi.LoadTuyen_BienSo(id_chuyen);
+        }
+        public List<DIADIEMLENXE> LoadDiaDiemLenXe(int id_diadiem)
+        {
+            // [{tenddd: "ten"}]
+            return dal_chuyendi.LoadDiaDiemLenXe(id_diadiem);
+        }
     }
 }

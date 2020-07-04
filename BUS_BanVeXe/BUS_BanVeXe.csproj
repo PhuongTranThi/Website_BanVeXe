@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_ChuyenDi.cs" />
+    <Compile Include="BUS_DangKy.cs" />
+    <Compile Include="BUS_DangNhap.cs" />
+    <Compile Include="BUS_DatVe.cs" />
     <Compile Include="BUS_GHE.cs" />
     <Compile Include="BUS_LichTrinh.cs" />
     <Compile Include="BUS_TuyenDi.cs" />
