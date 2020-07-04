@@ -18,24 +18,24 @@
             <div style="background-color:white; width:35%; height:50%;margin:auto;">
 
                 <div class=" p-1 p-md-5">
-                    <form action="#" method="post">
+                    <form id="form" action="/Login/DangNhap" method="post">
                         <div class="form-group row">
 
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Tên đăng nhập">
+                                <input name="email" id="email" type="text" class="form-control email" placeholder="Email">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Mật khẩu">
+                                <input  name="pass" id="pass" type="password" class="form-control pass" placeholder="Mật khẩu">
                             </div>
                         </div>
 
 
                         <div class="form-group row">
                             <div class="col-md-12 ">
-                                <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Đăng nhập">
+                                <input name="submit" id="submit" type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Đăng nhập">
                             </div>
                         </div>
 

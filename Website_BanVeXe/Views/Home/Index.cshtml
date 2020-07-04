@@ -3,7 +3,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var mindate = DateTime.Now.ToString("yyyy-MM-dd");
-   
+    var tomorow = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
+    //var maxdate = DateTime.Today.AddDays(3).ToString("yyyy-MM-dd");
+
+
+
 }
 <script type="text/javascript">
     $(document).ready(
@@ -18,7 +22,6 @@
                 sessionStorage.setItem("ngaydi", ngaydi);
             });
         });
-
 </script>
 @model IEnumerable<DAL_BanVeXe.NOIDI>
 <div class="ftco-blocks-cover-1">
@@ -52,7 +55,7 @@
                             </select>
                           
                            
-                            <input id="ngaydi" type="date" class="form-control" name="dateStart" placeholder="Ngày khởi hành" min="@mindate">
+                            <input id="ngaydi" type="date" class="form-control" name="dateStart" placeholder="Ngày khởi hành" min="@tomorow" max=""/>
 
 
                             @*<button id="submit" class="btn btn-primary text-white px-4" value="Mua vé" />*@
@@ -168,25 +171,23 @@
     )
 </script>
 <script>
-    $('#form').submit(function () {
-        console.log('hello ba');
+    $('#form').submit(function (event) {
+       
         var val1 = $('#noidi').val();
         var val2 = $('#noiden').val();
-        var val3 = $('#dayStart').val();
+        var val3 = $('#dateStart').val();
         //if (val1 == null || val3 == null) {
-        //    alert("dm chon nhanh")
-        //    return;
+        //    event.preventDefault();
+        //    return alert("dm chon nhanh");
         //}
         //else {
+            console.log('qua');
             $.ajax({
                 type: "POST",
                 url: "/Book",
                 data: { "noidi": val1, "noiden": val2, "dayStart": val3 },
-                success: function () {
-                    alert(val1 + " ," + val2);
-                }
             });
-        
+        //}
     });
 </script>
 

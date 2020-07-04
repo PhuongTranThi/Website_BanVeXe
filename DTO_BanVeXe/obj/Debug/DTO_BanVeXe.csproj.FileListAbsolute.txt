@@ -4,3 +4,9 @@ E:\Đồ án tốt nghiệp\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.cs
 E:\Đồ án tốt nghiệp\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.dll
 E:\Đồ án tốt nghiệp\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.pdb
 E:\Đồ án tốt nghiệp\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.csprojAssemblyReference.cache
+D:\2020\Website_BanVeXe\DTO_BanVeXe\bin\Debug\DTO_BanVeXe.dll
+D:\2020\Website_BanVeXe\DTO_BanVeXe\bin\Debug\DTO_BanVeXe.pdb
+D:\2020\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.csprojAssemblyReference.cache
+D:\2020\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.csproj.CoreCompileInputs.cache
+D:\2020\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.dll
+D:\2020\Website_BanVeXe\DTO_BanVeXe\obj\Debug\DTO_BanVeXe.pdb

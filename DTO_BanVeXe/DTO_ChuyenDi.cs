@@ -13,6 +13,7 @@ namespace DTO_BanVeXe
         private string _NgayKhoiHanh;
         private string _GioKhoiHanh;
         private int _ID_Tuyen;
+        private string _TenTuyen;
         private int _ID_Xe;
 
         private string _BienSo;
@@ -27,10 +28,11 @@ namespace DTO_BanVeXe
         public string BienSo { get => _BienSo; set => _BienSo = value; }
         public int ID_LoaiXe { get => _ID_LoaiXe; set => _ID_LoaiXe = value; }
         public int SoGhe { get => _SoGhe; set => _SoGhe = value; }
+        public string TenTuyen { get => _TenTuyen; set => _TenTuyen = value; }
 
         public DTO_ChuyenDi() { }
 
-        public DTO_ChuyenDi(int ID_Chuyen, string NgayKhoiHanh, string GioKhoiHanh, int ID_Tuyen, int ID_Xe, string BienSo, int ID_LoaiXe, int SoGhe)
+        public DTO_ChuyenDi(int ID_Chuyen, string NgayKhoiHanh, string GioKhoiHanh, int ID_Tuyen, int ID_Xe, string BienSo, int ID_LoaiXe, int SoGhe, string TenTuyen)
         {
             this.ID_Chuyen = ID_Chuyen;
             this.NgayKhoiHanh = NgayKhoiHanh;
@@ -40,7 +42,7 @@ namespace DTO_BanVeXe
             this.BienSo = BienSo;
             this.ID_LoaiXe = ID_LoaiXe;
             this.SoGhe = SoGhe;
-           
+            this.TenTuyen = TenTuyen;
         }
     }
 }

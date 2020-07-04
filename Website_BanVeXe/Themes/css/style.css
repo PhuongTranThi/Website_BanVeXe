@@ -289,7 +289,7 @@ h1, h2, h3, h4, h5,
   padding: 2.5em 0; }
   @media (min-width: 768px) {
     .site-section {
-      padding: 5em 0; } }
+     } }
   .site-section.site-section-sm {
     padding: 4em 0; }
 
@@ -803,8 +803,7 @@ h1, h2, h3, h4, h5,
     font-size: 18px;
     color: #fff; }
 
-.site-section {
-  padding: 7rem 0; }
+.site-section { }
   @media (max-width: 991.98px) {
     .site-section {
       padding: 3rem 0; } }

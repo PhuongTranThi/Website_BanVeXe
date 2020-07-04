@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model IEnumerable<DTO_BanVeXe.DTO_ChuyenDi>
 <div class="site-section">
     <div class="container">
         <div class="row">
@@ -47,41 +47,81 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div style="border:1px solid #ddd; padding:15px;height:420px;">
-                    <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin đặt vé</h3><br />
-                    <div style="line-height:12px; font-size:15px;">
-                        <p style="float:left; color:black;">Tuyến:</p>
-                        <br />
-                        <hr />
+                <form method="post" action="/Pay/DatVe">
+                    <div style="border:1px solid #ddd; padding:15px;height:420px;">
+                        <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin đặt vé</h3><br />
+                        <div style="line-height:12px; font-size:15px;">
+                              @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                                {
+                                  <p style="float:left; color:black;" >Tuyến: @item.TenTuyen</p>
+                                }
+                            @*<p style="float:left; color:black;">Tuyến: @ViewData["idChuyenDi"]</p>*@
+                            <br />
+                            <hr />
+                            @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                                {
+                                  <p style="float:left; color:black;">Biển số: @item.BienSo</p>
+                                }
+                             <br />
+                            <hr />
+                             @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                                {
+                                  <p style="float:left; color:black;">Giờ đi: @item.GioKhoiHanh</p>
+                                }
+                             <br />
+                            <hr />
+                            <p style="float:left; color:black">Ngày đi: @ViewData["dateStart"]</p>
+                            <p style="float:left; color:black;margin-left:200px;">Ghế/giường: @ViewData["gheSelect"]</p>
+                            <br />
+                            <hr />
+                            <p style="float:left; color:black;" id="diadiem" name="diadiem" value="@ViewData["diadiem"]">Điểm lên xe:@ViewData["diadiem"]</p>
+                            <br />
+                            <hr />
+                            @*<p style="float:left; color:black" id="hoten" name="hoten" value="@ViewData["hoten"]">Họ tên: @ViewData["hoten"]</p>*@
+                            <input style="float:left; color:black;border:0" id="hoten" name="hoten" value="@ViewData["hoten"]" />
+                            <br />
+                            <hr />
+                            @*<p style="float:left; color:black"id="email" name="email" value="@ViewData["email"]">Email: @ViewData["email"]</p>*@
+                            <input style="float:left; color:black;border:0" id="email" name="email" value="@ViewData["email"]" />
+                            <br />
+                            <hr />
+                            @*<p style="float:left; color:black;"id="sdt" name="sdt">SĐT: @ViewData["sdt"]</p>*@ <br />
+                            <input style="float:left; color:black;border:0" id="sdt" name="sdt" value="@ViewData["sdt"]" />
 
-                        <p style="float:left; color:black">Ngày đi:</p>
-                        <p style="float:left; color:black;margin-left:200px;">Ghế/giường:</p>
-                        <br />
-                        <hr />
-                        <p style="float:left; color:black;">Điểm lên xe:</p>
-                        <br />
-                        <hr />
-                        <p style="float:left; color:black">Họ tên:</p>
-                        <p style="float:left; color:black;margin-left:207px;">Ngày sinh:</p> <br />
-                        <hr />
-                        <p style="float:left; color:black">Email:</p>
-                        <p style="float:left; color:black;margin-left:214px;">SĐT:</p> <br />
-                        <hr />
-                        <p style="float:left; color:black;">Tổng tiền:</p><br />
+                            <hr />
+                            <p style="float:left; color:black;">Tổng tiền: </p>
+                            <input style="float:left; color:black;border:0" id="donGiaNha" name="donGiaNha" value="@ViewData["donGiaNha"]" />
 
-                        <hr />
-                        <br />
+                            <br />
+
+                            <hr />
+                            <br />
+                            <div>
+                                <input style="float:left; color:black" id="id_chuyendi" name="id_chuyendi" value="@ViewData["idChuyenDi"]" />
+                                <input style="float:left; color:black" id="id_diadiem" name="id_diadiem" value="@ViewData["diadiemSelect"]" />
+                                <input style="float:left; color:black" id="gheSelect" name="gheSelect" value="@ViewData["gheSelect"]" />
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 " style="float:left;">
+                            <button class="btn btn-primary text-white py-1" id="datve"
+                                    style="white-space:nowrap; width:100%">
+                                Đặt vé
+                            </button>
+                        </div>
+
+                        <div class="col-md-6 " style="float:right;">
+                            <a href='@Url.Action("Index", "Info")' class="btn btn-primary text-white py-1"
+                               style="white-space:nowrap; width:100%">
+                                Quay lại
+
+                            </a>
+                        </div>
+                        <br /> <br />
                     </div>
-                    <div class="col-md-12 " style="float:right;">
-                        <a href='@Url.Action("Index", "Info")' class="btn btn-primary text-white py-1"
-                           style="white-space:nowrap; width:100%">
-                            Quay lại
+                </form>
 
-                        </a>
-                    </div>
-                    <br /> <br />
-
-                </div>
             </div>
         </div>
     </div>
