@@ -21,7 +21,12 @@ namespace Website_BanVeXe.Controllers
                 var gheSelect = form["gheSelect"];
                 var donGiaNha = form["donGiaNha"];
 
-                ViewData["idChuyenDi"] = idChuyen;
+                ViewData["nameKH"] = Session["nameKH"] != null ? Session["nameKH"].ToString() : "";
+                ViewData["email"] = Session["email"] != null ? Session["email"].ToString() : "";
+                ViewData["diachi"] = Session["diachi"] != null ? Session["diachi"].ToString() : "";
+                ViewData["sdt"] = Session["sdt"] != null ? Session["sdt"].ToString() : "";
+
+            ViewData["idChuyenDi"] = idChuyen;
                 ViewData["dateStart"] = dateStart;
                 ViewData["noidi"] = noidi;
                 ViewData["noiden"] = noiden;

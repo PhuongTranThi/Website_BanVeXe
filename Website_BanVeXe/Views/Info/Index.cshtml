@@ -14,14 +14,14 @@
                         <p style="float:left; color:black">Họ tên</p>
                         <br />
                         <center>
-                            <input required maxlength="30" name="hoten" id="hoten" type="text" value="@Session["nameKH"] != null? @Session["nameKH"].ToString()" class="form-control hoten" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
+                            <input required maxlength="30" name="hoten" id="hoten" type="text" value="@ViewData["nameKH"]" class="form-control hoten" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
                         </center>
                         <br />
                         <p style="float:left; color:black">Email</p>
 
                         <br />
                         <center>
-                            <input required maxlength="100" name="email" id="email" type="email" value="@Session["email"]!= null ?  @Session["sdt"].ToString()" class="form-control email" style="width:93%; height:60%" placeholder="Địa chỉ email">
+                            <input required maxlength="100" name="email" id="email" type="email" value="@ViewData["email"]" class="form-control email" style="width:93%; height:60%" placeholder="Địa chỉ email">
                         </center>
                         <center style="display:none">
                             <input name="diadiemSelect" value="@ViewData["diadiemSelect"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
@@ -37,7 +37,7 @@
                         <p style="float:left; color:black">Di động</p>
                         <br />
                         <center>
-                            <input required maxlength="11" value="@Session["sdt"]!= null ? @Session["sdt"].ToString()" name="sdt" id="sdt" type="tel" class="form-control sdt" style="width:93%; height:60%" placeholder="Số điện thoại">
+                            <input required maxlength="11" value="@ViewData["sdt"]" name="sdt" id="sdt" type="tel" class="form-control sdt" style="width:93%; height:60%" placeholder="Số điện thoại">
                         </center>
 
                         <br />
@@ -45,7 +45,7 @@
                         <p style="float:left; color:black">Địa chỉ</p>
                         <br />
                         <center>
-                            <input required maxlength="100" value="@Session["diachi"]!= null ? @Session["diachi"].ToString()" name="diachi" id="diachi" type="text" class="form-control diachi" style="width:93%; height:60%" placeholder="Địa chỉ">
+                            <input required maxlength="100" value="@ViewData["diachi"]" name="diachi" id="diachi" type="text" class="form-control diachi" style="width:93%; height:60%" placeholder="Địa chỉ">
                         </center>
                         <br />
 
