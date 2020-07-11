@@ -49,13 +49,33 @@ namespace Website_BanVeXe.Controllers
                     ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(chuyendi[0].BienSo);
                     ViewData["giokhoihanh"] = chuyendi;
                     ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
-                //    List<VE> a = bus_Ghe.LoadGheDaDat(chuyendi[0].ID_Chuyen);
-                //List<string> ghedat = new List<string>();
-                //    for(int i = 0;i < a.Count; i++)
-                //{
-                //    ghedat.Add(a[i].ID_CHUYEN.ToString());
-                //}
-                //List<string> x = ghedat;
+                    List<VE> a = bus_Ghe.LoadGheDaDat(chuyendi[0].ID_Chuyen);
+                    List<string> ghedat = new List<string>();
+                    for (int i = 0; i < a.Count; i++)
+                    {
+                        ghedat.Add(a[i].ID_GHE.ToString());
+                    }
+                var ghedadat = "";
+                for(int i=0; i< ghedat.Count; i ++)
+                {
+                    if(i== ghedat.Count - 1)
+                    {
+                        ghedadat += ghedat[i];
+                    }
+                    else
+                    {
+                        ghedadat += ghedat[i]+ ", ";
+                    }
+                }
+
+                List<string> dataGheDaDat = new List<string>();
+                string[] dt = ghedadat.Split(',');
+                for (int i = 0; i < dt.Length; i++)
+                {
+                    dataGheDaDat.Add(dt[i]);
+                }
+
+                ViewData["getDat"] = ghedadat;
                 if (giokhoihanh != null)
                     {
                         ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(giokhoihanh);

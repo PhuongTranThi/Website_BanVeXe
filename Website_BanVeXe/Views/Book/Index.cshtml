@@ -36,21 +36,23 @@
                     </select>
                     <br />
                     <div class="form-group row">
-                        @*<div>@ViewData["xe"].</div>*@
-                        <div class="col-md-6 ">
-                            @*<input type="submit" class="btn btn-block btn-primary text-white py-1 px-3 " value="Quay lại">*@
-                            <a href='@Url.Action("Index", "Home")' class="btn btn-primary text-white py-1 "
-                               style="white-space:nowrap;float:left; width:100%">
-                                Quay lại
-                            </a>
-                        </div>
+                        @*<div>@ViewData["xe"].</div>*@<div></div>
+                                                       <div class="col-md-6 ">
+                                                           @*<input type="submit" class="btn btn-block btn-primary text-white py-1 px-3 " value="Quay lại">*@
+                                                           <input type="submit" class="btn btn-block btn-primary text-white py-1 px-3 " value="Quay lại">
+                                                           <a href='@Url.Action("Index", "Home")' class="btn btn-primary text-white py-1 "
+                                                              style="white-space:nowrap;float:left; width:100%">
+                                                               Quay lại
+                                                           </a>
+                                                       </div>
+                        <input value="@ViewData["getDat"]" />
                         <div class="col-md-6 ">
                             <form action="/Info" method="post" id="form">
-                                <input id="diadiemSelect" name="diadiemSelect"  />
+                                <input id="diadiemSelect" name="diadiemSelect" />
                                 <input id="gheSelect" name="gheSelect" />
-                                <input id="donGiaNha" name="donGiaNha"  />
-                                <input value="@ViewData["ghedat"]" id="ghedat" name="ghedat" style="display : none"/>
-                                <input value="@ViewData["chuyendi"]" id="idChuyenDi" name="idChuyenDi"  />
+                                <input id="donGiaNha" name="donGiaNha" />
+                                <input value="@ViewData["ghedat"]" id="ghedat" name="ghedat" style="display : none" />
+                                <input value="@ViewData["chuyendi"]" id="idChuyenDi" name="idChuyenDi" />
                                 <input value="@ViewData["dateStart"]" id="dateStart" style="display : none" name="dateStart" />
                                 <input value="@ViewData["noidi"]" id="noidi" style="display : none" name="noidi" />
                                 <input value="@ViewData["noiden"]" id="noiden" style="display : none" name="noiden" />
@@ -96,7 +98,6 @@
                         {
                             <input id="donGia" name="donGia" value="@item.DonGia" style="display:none"/>
                         }
-                        
                     </span>
                     <br />
                     <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
@@ -105,7 +106,6 @@
                     <div>
                         <div class="container">
                             <div class="row" style="margin:20px 0 20px 40px;">
-
                                 <div class="col-md-5" style="background: #f1f5f8">
                                     <h6 style="color:orangered; text-align:center; margin-top:10px;">TẦNG 1</h6>
                                     <div class="container">
@@ -188,7 +188,6 @@
         console.log(giokhoihanh)
 
         const a = giokhoihanh.toString().split(',');
-        console.log(a);
 
         document.getElementById("idChuyenDi").value = a[1];
 
@@ -210,20 +209,20 @@
 
 
 <script type="text/javascript">
+
     //click doi mau ghế
     $(document).ready(function () {
         $(".ghe").on('click', function () {
             $(this).toggleClass("btn-danger");
         });
     });
+
     //click lay chuoi so ghe
     var listChair = [];
     function onCickItemChair(value) {
-        //console.log(listChair);
         var check = null;
         check = listChair.filter(item => item === value);//kiểm tra item trùng
 
-        console.log('check',check)
         function removeA(arr) {//xóa item trùng
             var what, a = arguments, L = a.length, ax;
             while (L > 1 && arr.length) {
@@ -243,39 +242,30 @@
             listChair.push(value);
         };
 
-
         var listSelect = "";
-        listChair.map(item => {
-            listSelect = listSelect + item + ", ";
+        listChair.map((item, index) => {
+            if (index === listChair.length - 1) {
+                listSelect=listSelect + item;
+            } else {
+                listSelect = listSelect + item + ", ";
+            }
         });
-        //for (var i = 0; i < listSelect.length-4; i++) {
-        //    if (listSelect[i] === listSelect[i]) {
-        //        listSelect.filter(i, );   
-        //    }
-        //}
-       
-        //tính tổng tiền
-        var tong = listChair.length * $('#donGia').val();
 
-        document.getElementById('donGiane').value = tong;
-
-        document.getElementById('donGiaNha').value = tong;
         //xóa số ghế trùng nhau
-        
-        
-        //console.log('listSelect', listSelect);
+        var tong = listChair.length * $('#donGia').val();
+        document.getElementById('donGiane').value = tong;
+        document.getElementById('donGiaNha').value = tong;
         document.getElementById('gheSelect').value = listSelect;
-
         document.getElementById('soGhe').value = listSelect;
 
+        //click lấy value ghế
         $(document).ready(
-            function () {//click lấy value ghế
+            function () {
                 $('select').change(function () {
                     sessionStorage.setItem("ghe", $('select').val().toString());
                     console.log(sessionStorage.setItem("ghe", $('select').val().toString()))
                 });
             });
-       
     }
 </script>
 
@@ -299,7 +289,6 @@
             return alert("Vui lòng chọn ghế!");
         }
         else {
-            console.log('qua');
             $.ajax({
                 type: "POST",
                 url: "/Info",

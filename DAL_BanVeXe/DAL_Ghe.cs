@@ -59,7 +59,7 @@ namespace DAL_BanVeXe
             });
             return result.ToList<VE>();
         }
-
+        //
         public List<DTO_ChuyenDi> LoadChuyenDi(int tuyendi, string dateStart)
         {
             var a = "2020/06/24";
