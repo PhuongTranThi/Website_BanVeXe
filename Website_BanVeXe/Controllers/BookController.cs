@@ -36,6 +36,8 @@ namespace Website_BanVeXe.Controllers
                 ViewData["dateStart"] = ngaykhoihanh;
                 ViewData["diadiemdon"] = "1";
 
+            //load ghe da dat
+            
                 //ViewData["chuyendi"] = bus_Ghe.LoadChuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()), ngaykhoihanh);
                 var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(noidi.ToString()), int.Parse(noiden.ToString()));
                 ViewData["tuyendi"] = tuyendi;
@@ -46,12 +48,19 @@ namespace Website_BanVeXe.Controllers
                     var chuyendi = bus_Ghe.LoadChuyenDi(tuyendi[0].ID_Tuyen, ngaykhoihanh);
                     ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(chuyendi[0].BienSo);
                     ViewData["giokhoihanh"] = chuyendi;
-
-                    //ViewData["chuyendi"] = bus_chuyen.LoadChuyenDi();
-                    if (giokhoihanh != null)
+                    ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
+                //    List<VE> a = bus_Ghe.LoadGheDaDat(chuyendi[0].ID_Chuyen);
+                //List<string> ghedat = new List<string>();
+                //    for(int i = 0;i < a.Count; i++)
+                //{
+                //    ghedat.Add(a[i].ID_CHUYEN.ToString());
+                //}
+                //List<string> x = ghedat;
+                if (giokhoihanh != null)
                     {
                         ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(giokhoihanh);
                         ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
+                        //ViewData["ghedat"] = bus_Ghe.LoadGheDaDat(chuyendi[0].ID_Chuyen);
                     }
                     else
                     {

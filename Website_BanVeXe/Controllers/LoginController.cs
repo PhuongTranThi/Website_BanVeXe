@@ -30,7 +30,11 @@ namespace Website_BanVeXe.Controllers
                 {
                     DTO_DangKy dto_dangky = new DTO_DangKy();
                     KHACHHANG kh = bus_dangnhap.getKhachHang(email, pass);
-                    Session["user"] = kh.HOTENKH.ToString();
+                    Session["nameKH"] = kh.HOTENKH.ToString();
+                    Session["idKH"] = kh.ID.ToString();
+                    Session["email"] = kh.EMAIL.ToString();
+                    Session["diachi"] = kh.DIACHI.ToString();
+                    Session["sdt"] = kh.SDT.ToString();
                     return RedirectToAction("Index", "Home");
                 }
                 else

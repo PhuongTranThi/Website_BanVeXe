@@ -4,32 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model IEnumerable<DTO_BanVeXe.DTO_ChuyenDi>
+
 <div class="site-section">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div style="border:1px solid #ddd; padding:15px">
                     <h3 class="font-size-20" style="color:orangered; text-align:center">Chọn cổng thanh toán</h3>
-                    <div class="row" style="text-align:center; padding:15px;">
+                    <div class="row" style="text-align:center; padding:15px;" >
                         <div class="col-md-4">
                             <div style="border:1px dashed black; padding:15px;margin-right:5px;font-size:13px;">
                                 <p style="color:#333">Thanh toán thẻ tín dụng/ghi nợ</p>
                                 <img src="~/Themes/images/visa.png" style="max-width:100%;height:auto" />
-                                <input type="radio" />
+                                <input type="radio" name="radio1" id="radio1" class="radio1"/>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div style="border:1px dashed black; padding:15px;margin-right:5px;font-size:13px;">
                                 <p style="color:#333">Thanh toán thẻ ATM Nội địa</p>
                                 <img src="~/Themes/images/nganluong.png" style="max-width:100%;height:auto" />
-                                <input type="radio" />
+                                <input type="radio"  name="radio2" id="radio2" class="radio2"/>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div style="border:1px dashed black; padding:15px;margin-right:5px;font-size:13px;">
                                 <p style="color:#333">Thanh toán thẻ ATM Nội địa</p>
                                 <img src="~/Themes/images/napas.png" style="max-width:100%;height:auto" />
-                                <input type="radio" />
+                                <input type="radio"  name="radio3" id="radio3" class="radio3"/>
                             </div>
                         </div>
                     </div>
@@ -39,16 +40,14 @@
                            style="white-space:nowrap; width:100%">
                             Thực hiện thanh toán
                         </a>
-
                     </div>
-
                     <br />
                     <br />
                 </div>
             </div>
             <div class="col-md-6">
                 <form method="post" action="/Pay/DatVe">
-                    <div style="border:1px solid #ddd; padding:15px;height:420px;">
+                    <div style="border:1px solid #ddd; padding:15px;height:500px;">
                         <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin đặt vé</h3><br />
                         <div style="line-height:12px; font-size:15px;">
                               @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
@@ -62,41 +61,44 @@
                                 {
                                   <p style="float:left; color:black;">Biển số: @item.BienSo</p>
                                 }
-                             <br />
-                            <hr />
+                             @*<br />
+                            <hr />*@
                              @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
                                 {
-                                  <p style="float:left; color:black;">Giờ đi: @item.GioKhoiHanh</p>
+                                  <p style="float:left; color:black;margin-left:200px">Giờ đi: @item.GioKhoiHanh</p>
                                 }
                              <br />
                             <hr />
                             <p style="float:left; color:black">Ngày đi: @ViewData["dateStart"]</p>
-                            <p style="float:left; color:black;margin-left:200px;">Ghế/giường: @ViewData["gheSelect"]</p>
+                            <p style="float:left; color:black;margin-left:190px;">Ghế/giường: @ViewData["gheSelect"]</p>
                             <br />
                             <hr />
-                            <p style="float:left; color:black;" id="diadiem" name="diadiem" value="@ViewData["diadiem"]">Điểm lên xe:@ViewData["diadiem"]</p>
+                            <p style="float:left; color:black;line-height:1.2" id="diadiem" name="diadiem" value="@ViewData["diadiem"]">Điểm lên xe:@ViewData["diadiem"]</p>
+                            <br />
                             <br />
                             <hr />
-                            @*<p style="float:left; color:black" id="hoten" name="hoten" value="@ViewData["hoten"]">Họ tên: @ViewData["hoten"]</p>*@
-                            <input style="float:left; color:black;border:0" id="hoten" name="hoten" value="@ViewData["hoten"]" />
+                            <p style="float:left; color:black" id="hoten" name="hoten" value="@ViewData["hoten"]">Họ tên: @ViewData["hoten"]</p>
+                            <input style="float:left; color:black;border:0;display : none" id="hoten" name="hoten" value="@ViewData["hoten"]" />
+
+                             <p style="float:left; color:black;margin-left:175px"id="sdt" name="sdt">SĐT: @ViewData["sdt"]</p> <br />
+                            <input style="float:left; color:black;border:0;display : none" id="sdt" name="sdt" value="@ViewData["sdt"]" />
+                            
+                            <hr />
+                            <p style="float:left; color:black"id="email" name="email" value="@ViewData["email"]">Email: @ViewData["email"]</p>
+                            <input style="float:left; color:black;border:0;display : none" id="email" name="email" value="@ViewData["email"]" />
                             <br />
                             <hr />
-                            @*<p style="float:left; color:black"id="email" name="email" value="@ViewData["email"]">Email: @ViewData["email"]</p>*@
-                            <input style="float:left; color:black;border:0" id="email" name="email" value="@ViewData["email"]" />
+                           
+
+                            @*<hr />*@
+                            <p style="float:left; color:black;">Tổng tiền: @ViewData["donGiaNha"]</p>
+                            <input style="float:left; color:black;border:0;display : none" id="donGiaNha" name="donGiaNha" value="@ViewData["donGiaNha"]" />
+
                             <br />
-                            <hr />
-                            @*<p style="float:left; color:black;"id="sdt" name="sdt">SĐT: @ViewData["sdt"]</p>*@ <br />
-                            <input style="float:left; color:black;border:0" id="sdt" name="sdt" value="@ViewData["sdt"]" />
 
                             <hr />
-                            <p style="float:left; color:black;">Tổng tiền: </p>
-                            <input style="float:left; color:black;border:0" id="donGiaNha" name="donGiaNha" value="@ViewData["donGiaNha"]" />
-
                             <br />
-
-                            <hr />
-                            <br />
-                            <div>
+                            <div style="display : none">
                                 <input style="float:left; color:black" id="id_chuyendi" name="id_chuyendi" value="@ViewData["idChuyenDi"]" />
                                 <input style="float:left; color:black" id="id_diadiem" name="id_diadiem" value="@ViewData["diadiemSelect"]" />
                                 <input style="float:left; color:black" id="gheSelect" name="gheSelect" value="@ViewData["gheSelect"]" />

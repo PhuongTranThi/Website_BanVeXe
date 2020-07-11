@@ -21,7 +21,10 @@ namespace BUS_BanVeXe
         {
             return dal_Ghe.LoadGhe(bienSo);
         }
-
+        public List<VE> LoadGheDaDat(int id_chuyen)
+        {
+            return dal_Ghe.LoadGheDaDat(id_chuyen);
+        }
         public List<DTO_ChuyenDi> LoadChuyenDi(int tuyendi, string dateStart)
         {
             return dal_Ghe.LoadChuyenDi(tuyendi, dateStart);

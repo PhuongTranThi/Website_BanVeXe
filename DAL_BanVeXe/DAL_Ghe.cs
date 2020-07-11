@@ -44,6 +44,21 @@ namespace DAL_BanVeXe
             });
             return result.ToList<DTO_Ghe>();
         }
+        //load ghe dax dat
+        public List<VE> LoadGheDaDat(int id_chuyen)
+        {
+            var ghedat = from ve in _db.VEs
+                    where ve.ID_CHUYEN == int.Parse(id_chuyen.ToString())
+                    select new
+                    {
+                        id_ghe = ve.ID_GHE,
+                    };
+            List<VE> result = ghedat.ToList().ConvertAll(t => new VE
+            {
+                ID_GHE = t.id_ghe,
+            });
+            return result.ToList<VE>();
+        }
 
         public List<DTO_ChuyenDi> LoadChuyenDi(int tuyendi, string dateStart)
         {
@@ -153,5 +168,6 @@ namespace DAL_BanVeXe
             });
             return result.ToList<DTO_DiaDiemDon>();
         }
+
     }
 }

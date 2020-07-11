@@ -7,7 +7,6 @@
 <div class="site-section" id="demo" >
     <div class="container">
         <div class="row" id="" >
-          
             <div class="col-md-4">
                 @foreach (var item in ViewData["tuyendi"] as List<DTO_BanVeXe.DTO_TuyenDi>)
                 {
@@ -46,15 +45,16 @@
                             </a>
                         </div>
                         <div class="col-md-6 ">
-                            <form action="/Info" method="post">
-                                <input id="diadiemSelect" name="diadiemSelect" />
+                            <form action="/Info" method="post" id="form">
+                                <input id="diadiemSelect" name="diadiemSelect"  />
                                 <input id="gheSelect" name="gheSelect" />
-                                <input id="donGiaNha" name="donGiaNha" />
-                                <input value="@ViewData["chuyendi"]" id="idChuyenDi" name="idChuyenDi" />
+                                <input id="donGiaNha" name="donGiaNha"  />
+                                <input value="@ViewData["ghedat"]" id="ghedat" name="ghedat" style="display : none"/>
+                                <input value="@ViewData["chuyendi"]" id="idChuyenDi" name="idChuyenDi"  />
                                 <input value="@ViewData["dateStart"]" id="dateStart" style="display : none" name="dateStart" />
                                 <input value="@ViewData["noidi"]" id="noidi" style="display : none" name="noidi" />
                                 <input value="@ViewData["noiden"]" id="noiden" style="display : none" name="noiden" />
-                                <button type="submit" name="submit" class="btn btn-primary text-white py-1 submit"
+                                <button type="submit" name="submit" id="submit" class="btn btn-primary text-white py-1 submit"
                                         style="white-space:nowrap;float:right; width:100%">
                                     Tiếp tục
                                 </button>
@@ -68,7 +68,6 @@
                     @foreach (var item in ViewData["tuyendi"] as List<DTO_BanVeXe.DTO_TuyenDi>)
                     {
                         <p style="float:left; color:black" value="@item.ID_Tuyen">Khoảng cách:&nbsp;@item.KhoangCach km</p>
-
                     }
                     <br>
                     <br>
@@ -173,19 +172,26 @@
         <span style="float:right; color:black">Còn trống</span>
     </div>
 </div>
+</div>
+</div>
 
-</div>
-</div>
 <script type="text/javascript">
     $('#diadiem').val();
     document.getElementById('diadiemSelect').value = $('#diadiem').val()
 </script>
-<script>
 
+
+<script>
     $('#giokhoihanh').change(function () {
         var giokhoihanh = $('#giokhoihanh').val();
+
+        console.log(giokhoihanh)
+
         const a = giokhoihanh.toString().split(',');
+        console.log(a);
+
         document.getElementById("idChuyenDi").value = a[1];
+
         var noidi = $('#noidi').val();
         var noiden = $('#noiden').val();
         var dateStart = $('#dateStart').val();
@@ -197,7 +203,7 @@
                 success: function (data) {
 
                 },
-            });
+        });
     });
     window.onload();
 </script>
@@ -265,7 +271,7 @@
         $(document).ready(
             function () {//click lấy value ghế
                 $('select').change(function () {
-                    //sessionStorage.setItem("ghe", $('select').val().toString());
+                    sessionStorage.setItem("ghe", $('select').val().toString());
                     console.log(sessionStorage.setItem("ghe", $('select').val().toString()))
                 });
             });
@@ -280,20 +286,25 @@
                     console.log($('#diadiem').val())
                     document.getElementById('diadiemSelect').value = $('#diadiem').val();
                 });
+               
             });
 </script>
 
-
 <script>
-    $("#submit").submit(function (event) {
-        console.log('qua');
-        $.ajax({
-            type: "POST",
-            url: "/Info",
-            data: { "tentuyen": val1, "giokhoihaanh": val2, "diadiem": val3, "ghe": val4 },
-        });
+    $('#form').submit(function (event) {
+        var val1 = $('#soGhe').val();
+      
+        if (val1 == "") {
+            event.preventDefault();
+            return alert("Vui lòng chọn ghế!");
+        }
+        else {
+            console.log('qua');
+            $.ajax({
+                type: "POST",
+                url: "/Info",
+                data: {"ghe": val1 },
+            });
+        }
     });
-</script>
-<script>
-
 </script>

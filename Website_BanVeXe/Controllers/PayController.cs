@@ -15,7 +15,7 @@ namespace Website_BanVeXe.Controllers
         {
             string ngaydat = form["ngaydat"];
            
-            string id_chuyen = form["id_chuyen"];
+          
             string id_diadiemlenxe = form["id_diadiemlenxe"];
             string id_ghe = form["id_ghe"];
             string id_khachhang = form["id_khachhang"];
@@ -32,7 +32,7 @@ namespace Website_BanVeXe.Controllers
 
             ViewData["ngaydat"] = ngaydat;
            
-            ViewData["id_chuyen"] = id_chuyen;
+            
             ViewData["id_diadiemlenxe"] = id_diadiemlenxe;
             ViewData["id_ghe"] = id_ghe;
             ViewData["id_khachhang"] = id_khachhang;
@@ -47,18 +47,23 @@ namespace Website_BanVeXe.Controllers
             ViewData["gheSelect"] = gheSelect;
             ViewData["donGiaNha"] = donGiaNha;
 
+            if(idChuyenDi != null)
+            {
+                BUS_ChuyenDi bus_chuyendi = new BUS_ChuyenDi();
 
-            BUS_ChuyenDi bus_chuyendi = new BUS_ChuyenDi();
-            var chuyen = bus_chuyendi.Load_Tuyen_BienSo(int.Parse(idChuyenDi.ToString()));
+                var chuyen = bus_chuyendi.Load_Tuyen_BienSo(int.Parse(idChuyenDi));
 
-            ViewData["tuyen_bienso"] = chuyen;
+                ViewData["tuyen_bienso"] = chuyen;
 
-            // [{tendd:"ten"}, {tendd:"ten2"}]
-            var diadiem = bus_chuyendi.LoadDiaDiemLenXe(int.Parse(diadiemSelect.ToString()))[0].TENDD.ToString();
+                // [{tendd:"ten"}, {tendd:"ten2"}]
+                var diadiem = bus_chuyendi.LoadDiaDiemLenXe(int.Parse(diadiemSelect.ToString()))[0].TENDD.ToString();
 
-            ViewData["diadiem"] = diadiem;
+                ViewData["diadiem"] = diadiem;
 
+               
+            }
             return View();
+
 
 
         }
@@ -97,7 +102,8 @@ namespace Website_BanVeXe.Controllers
                 dto_datve.ID_Chuyen = int.Parse(id_chuyendi.ToString());
                     dto_datve.ID_DiaDiemLenXe = int.Parse(id_diadiem.ToString());
                 dto_datve.ID_Ghe = id_ghe;
-                dto_datve.ID_KhachHang = 1;
+                var id = int.Parse(Session["idKH"].ToString());
+                dto_datve.ID_KhachHang = int.Parse(Session["idKH"].ToString());
                 dto_datve.HoTenKhachHang = hoten;
                     dto_datve.Email = email;
                     dto_datve.SDT = sdt;

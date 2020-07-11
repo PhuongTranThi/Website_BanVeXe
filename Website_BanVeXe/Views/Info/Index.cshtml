@@ -9,21 +9,21 @@
         <div class="row">
             <div class="col-md-6">
                 <div style="border:1px solid #ddd; padding:15px">
-                    <form action="/Pay/Index" method="post" id="form">
+                    <form action="/Pay/Index" method="post" id="form" name="form" >
                         <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin hành khách</h3>
                         <p style="float:left; color:black">Họ tên</p>
                         <br />
                         <center>
-                            <input name="hoten" id="hoten" type="text" class="form-control hoten" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
+                            <input required maxlength="30" name="hoten" id="hoten" type="text" value="@Session["nameKH"] != null? @Session["nameKH"].ToString()" class="form-control hoten" style="width:93%; height:60%" placeholder="Họ tên của hành khách">
                         </center>
                         <br />
                         <p style="float:left; color:black">Email</p>
 
                         <br />
                         <center>
-                            <input name="email" id="email" type="text" class="form-control email" style="width:93%; height:60%" placeholder="Địa chỉ email">
+                            <input required maxlength="100" name="email" id="email" type="email" value="@Session["email"]!= null ?  @Session["sdt"].ToString()" class="form-control email" style="width:93%; height:60%" placeholder="Địa chỉ email">
                         </center>
-                        <center>
+                        <center style="display:none">
                             <input name="diadiemSelect" value="@ViewData["diadiemSelect"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
                             <input name="gheSelect" value="@ViewData["gheSelect"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
                             <input name="donGiaNha" value="@ViewData["donGiaNha"]" type="text" class="form-control email" style="width:93%; height:60%; " placeholder="Địa chỉ email">
@@ -37,7 +37,7 @@
                         <p style="float:left; color:black">Di động</p>
                         <br />
                         <center>
-                            <input name="sdt" id="sdt" type="text" class="form-control sdt" style="width:93%; height:60%" placeholder="Số điện thoại">
+                            <input required maxlength="11" value="@Session["sdt"]!= null ? @Session["sdt"].ToString()" name="sdt" id="sdt" type="tel" class="form-control sdt" style="width:93%; height:60%" placeholder="Số điện thoại">
                         </center>
 
                         <br />
@@ -45,12 +45,12 @@
                         <p style="float:left; color:black">Địa chỉ</p>
                         <br />
                         <center>
-                            <input name="diachi" id="diachi" type="text" class="form-control diachi" style="width:93%; height:60%" placeholder="Địa chỉ">
+                            <input required maxlength="100" value="@Session["diachi"]!= null ? @Session["diachi"].ToString()" name="diachi" id="diachi" type="text" class="form-control diachi" style="width:93%; height:60%" placeholder="Địa chỉ">
                         </center>
                         <br />
 
                         <div class="col-md-12 " style="float:left;">
-                            <p style="color:black; float:left; margin-bottom:auto"><input type="checkbox" style="float:left">&nbsp;Chấp nhận điều khoản đặt vé của PhuongNgan</p>
+                            <p style="color:black; float:left; margin-bottom:auto"><input required type="checkbox" style="float:left">&nbsp;Chấp nhận điều khoản đặt vé của PhuongNgan</p>
                         </div>
                         <br />
                         <br />
@@ -62,7 +62,7 @@
                             </a>
                         </div>
                         <div class="col-md-6 " style="float:right">
-                            <button class="btn btn-primary text-white py-1"
+                            <button class="btn btn-primary text-white py-1 submit" name="submit" type="submit" id="submit"
                                     style="white-space:nowrap; width:100%">
                                 Tiếp tục
                             </button>
@@ -98,8 +98,7 @@
             </div>
         </div>
     </div>
-
-
 </div>
+
 
 
