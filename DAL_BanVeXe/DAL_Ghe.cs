@@ -62,6 +62,7 @@ namespace DAL_BanVeXe
         //
         public List<DTO_ChuyenDi> LoadChuyenDi(int tuyendi, string dateStart)
         {
+
             var a = "2020/06/24";
             if (dateStart != null)
             {
@@ -82,6 +83,7 @@ namespace DAL_BanVeXe
                                    id_loaixe = loaixe.ID,
                                    soghe = loaixe.SOCHONGOI,
                                };
+
                 List<DTO_ChuyenDi> result = chuyendi.ToList().ConvertAll(t => new DTO_ChuyenDi
                 {
                     ID_Chuyen = t.id_chuyen,
@@ -90,8 +92,28 @@ namespace DAL_BanVeXe
                     BienSo = t.bienso,
                     ID_LoaiXe = int.Parse(t.id_loaixe.ToString()),
                     SoGhe = int.Parse(t.soghe.ToString()),
-
+                    GheDaDat = ""
                 });
+
+                List<string> gheDat = new List<string>();
+                foreach (DTO_ChuyenDi item in result)
+                {
+                    List<VE> x = LoadGheDaDat(item.ID_Chuyen);
+                    string veDaBan = "";
+                    foreach(VE itemVe in x)
+                    {
+                        veDaBan += itemVe.ID_GHE+",";
+                    }
+
+                    gheDat.Add(veDaBan);
+                }
+
+                for(int i =0; i< result.Count; i++)
+                {
+                    result[i].GheDaDat = gheDat[i].Replace(" ","");
+                }
+                var l = result;
+
                 return result.ToList<DTO_ChuyenDi>();
             }
             else

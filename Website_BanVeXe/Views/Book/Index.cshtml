@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var dem = 0;
+    var dem2 = 0;
 }
 @model IEnumerable<DTO_BanVeXe.DTO_Ghe>
 
@@ -15,15 +17,23 @@
                 <div style="border:1px solid #ddd; padding:15px">
                     <p style="float:left; color:black">Chọn giờ khởi hành</p>
                     @*<form method="post" id="form" action="/Book">*@
-                        <select class="form-control" style="width:100%; height:50%" name="giokhoihanh" id="giokhoihanh">
-                            @if (ViewData["giokhoihanh"] != null)
+                    <select class="form-control" style="width:100%; height:50%" name="giokhoihanh" id="giokhoihanh">
+                        @if (ViewData["giokhoihanh"] != null)
+                        {
+                            foreach (var item in ViewData["giokhoihanh"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
                             {
-                                foreach (var item in ViewData["giokhoihanh"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                                if (dem == 0)
                                 {
-                                    <option name="giokhoihanh" class="giokhoihanh" value="@item.BienSo , @item.ID_Chuyen" onclick={onClickGioKhoiHanh(@item.GioKhoiHanh)}>@item.GioKhoiHanh</option>
+                                    <option name="giokhoihanh" selected class="giokhoihanh" value="@item.BienSo | @item.ID_Chuyen | @item.SoGhe | @item.GheDaDat.Replace(" ","")" onclick={onClickGioKhoiHanh(@item.GioKhoiHanh)}>@item.GioKhoiHanh</option>
                                 }
+                                else
+                                {
+                                    <option name="giokhoihanh"  class="giokhoihanh" value="@item.BienSo | @item.ID_Chuyen | @item.SoGhe | @item.GheDaDat.Replace(" ","")" onclick={onClickGioKhoiHanh(@item.GioKhoiHanh)}>@item.GioKhoiHanh</option>
+                                }
+                                dem++;
                             }
-                        </select>
+                        }
+                    </select>
                    
                     <br />
                    
@@ -31,28 +41,33 @@
                     <select class="form-control" style="width:100%; height:50%" id="diadiem">
                         @foreach (var item in ViewData["diadiem"] as List<DTO_BanVeXe.DTO_DiaDiemDon>)
                         {
-                            <option  name="diadiem" class="diadiem" value="@item.ID_DiaDiem">@item.TenDiaDiem</option>
+                            if (dem2 == 0) {
+                                 <option  name="diadiem" selected class="diadiem" value="@item.ID_DiaDiem">@item.TenDiaDiem</option>
+                            }
+                            else
+                            {
+                                 <option  name="diadiem" class="diadiem" value="@item.ID_DiaDiem">@item.TenDiaDiem</option>
+                            }
+                            dem2++;
                         }
                     </select>
                     <br />
                     <div class="form-group row">
                         @*<div>@ViewData["xe"].</div>*@<div></div>
                                                        <div class="col-md-6 ">
-                                                           @*<input type="submit" class="btn btn-block btn-primary text-white py-1 px-3 " value="Quay lại">*@
-                                                           <input type="submit" class="btn btn-block btn-primary text-white py-1 px-3 " value="Quay lại">
                                                            <a href='@Url.Action("Index", "Home")' class="btn btn-primary text-white py-1 "
                                                               style="white-space:nowrap;float:left; width:100%">
                                                                Quay lại
                                                            </a>
                                                        </div>
-                        <input value="@ViewData["getDat"]" />
+                        <input value="@ViewData["getDat"]" style="display : none"/>
                         <div class="col-md-6 ">
                             <form action="/Info" method="post" id="form">
                                 <input id="diadiemSelect" name="diadiemSelect" />
-                                <input id="gheSelect" name="gheSelect" />
-                                <input id="donGiaNha" name="donGiaNha" />
+                                <input id="gheSelect" name="gheSelect"style="display : none" />
+                                <input id="donGiaNha" name="donGiaNha" style="display : none"/>
                                 <input value="@ViewData["ghedat"]" id="ghedat" name="ghedat" style="display : none" />
-                                <input value="@ViewData["chuyendi"]" id="idChuyenDi" name="idChuyenDi" />
+                                <input value="@ViewData["chuyendi"]" id="idChuyenDi" name="idChuyenDi" style="display : none"/>
                                 <input value="@ViewData["dateStart"]" id="dateStart" style="display : none" name="dateStart" />
                                 <input value="@ViewData["noidi"]" id="noidi" style="display : none" name="noidi" />
                                 <input value="@ViewData["noiden"]" id="noiden" style="display : none" name="noiden" />
@@ -89,7 +104,7 @@
             <div class="col-md-8">
                 <div style="border:1px solid #ddd; padding:15px">
                     <span style="float:left; color:black">SỐ GHẾ: 
-                    <input id="soGhe" name="soGhe" style="border:0;color:orangered;font-weight:bold;width:40%" disabled/>
+                    <input id="soGhe" name="soGhe" style="border:0;color:orangered;font-weight:bold;width:60%" disabled/>
                     </span>
                     <span style="float:right; color:black; margin-right:-100px">
                         TỔNG TIỀN:
@@ -103,121 +118,94 @@
                     <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
                         <p></p>
                     </div>
-                    <div>
-                        <div class="container">
-                            <div class="row" style="margin:20px 0 20px 40px;">
-                                <div class="col-md-5" style="background: #f1f5f8">
-                                    <h6 style="color:orangered; text-align:center; margin-top:10px;">TẦNG 1</h6>
-                                    <div class="container">
-                                        <div class="row">
-                                            @if (ViewData["xe"] != null)
-                                            {
-                                                foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>) {
-                                                    for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
-                                                    {
-                                                        if (i < 23)
-                                                        {
-                                                            <div class="col-md-4">
-                                                                <input id="ghe" type="button"
-                                                                       class="optionItem ghe "
-                                                                       value="A @i"
-                                                                       style="background-color:gray; width:50px; padding:6px; margin:5px"
-                                                                       onclick={onCickItemChair(@i)} />
-                                                            </div>
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-5" style="background: #f1f5f8">
-                                <h6 style="color:orangered; text-align:center;margin-top:10px;">TẦNG 2</h6>
-                                <div class="container">
-                                    <div class="row">
-                                        @if (ViewData["xe"] != null)
-                                        {
-                                            foreach (var item in ViewData["xe"] as List<DTO_BanVeXe.DTO_Ghe>) {
-                                                for (var i = 1; i <= int.Parse(item.SoChoNgoi.ToString()); i++)
-                                                {
-                                                    if (i >= 23)
-                                                    {
-                                                        <div class="col-md-4">
-                                                            
-                                                            <input id="ghe" type="button" 
-                                                                   class="optionItem ghe"
-                                                                   value="A @i"
-                                                                   style="background-color:grey; width:50px; padding:6px; margin:5px"
-                                                                   onclick={onCickItemChair(@i)} />
-                                                        </div>
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="render-chair">
 
-                </div>
-            </div>
-        </div>
-        <div class=" text-center rounded h-100" style=" border-bottom: 1px solid #e9ecef;">
-            <p></p>
+                    </div>
         </div>
         <br />
         <span style="float:left; color:black">Đang chọn</span>
-        <span style="margin-left:230px; color:black">Đã đặt</span>
-        <span style="float:right; color:black">Còn trống</span>
+        <span style="margin-left:230px; color:black">Đã đặt: <span id="soghedadat"></span></span>
+        <span style="float:right; color:black">Còn trống:  <span id="controng"></span></span>
     </div>
 </div>
 </div>
 </div>
 
-<script type="text/javascript">
+<script>
     $('#diadiem').val();
-    document.getElementById('diadiemSelect').value = $('#diadiem').val()
+    var giokhoihanh = $('#giokhoihanh').val();
+
+    const a = giokhoihanh.toString().split('|');
+
+    document.getElementById("idChuyenDi").value = a[1];
+
+    var soghe = a[2];
+    var gheDaDat = a[3].split(",");
+
+    document.getElementById("soghedadat").innerHTML = gheDaDat.length - 1;
+    document.getElementById("controng").innerHTML = soghe - (gheDaDat.length - 1);
+
+    function checkGheDaDat(array, k) {
+        for (var j = 0; j < array.length - 1; j++) {
+            if (array[j].trim() === k.toString()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    var up = "";
+    var down = "";
+    
+    for (var i = 1; i <= soghe; i++) {
+        if (i <= soghe / 2) {
+            if (checkGheDaDat(gheDaDat, i)) {
+                down = down + `<div class="col-md-3" style="margin : 10px">
+                            <button class="btn-danger" style="width : 45px">${i}</button>
+                        </div>`;
+            }
+            else {
+                down = down + `<div class="col-md-3" style="margin : 10px">
+                            <button class="ghe" style="width : 45px" onClick={onCickItemChair(${i})}>${i}</button>
+                        </div>`;
+            }
+        } else {
+            if (checkGheDaDat(gheDaDat, i)) {
+                up = up + `<div class="col-md-3" style="margin : 10px">
+                            <button class="btn-danger" style="width : 45px">${i}</button>
+                        </div>`;
+            }
+            else {
+                up = up + `<div class="col-md-3" style="margin : 10px">
+                            <button class="ghe" style="width : 45px" onClick={onCickItemChair(${i})}>${i}</button>
+                        </div>`;
+            }
+        }
+        
+    }
+
+
+    document.getElementById("render-chair").innerHTML = `
+    <div class="row">
+        <div class="col-md-5" style="text-align: center">
+            <div class="row">
+                ${down}
+            </div>
+        </div>
+        <div class="col-md-2" style="text-align: center">
+       
+        </div>
+        <div class="col-md-5" style="text-align: center">
+            <div class="row">
+                ${up}
+            </div>
+        </div>
+    </div>`
 </script>
 
 
 <script>
-    $('#giokhoihanh').change(function () {
-        var giokhoihanh = $('#giokhoihanh').val();
 
-        console.log(giokhoihanh)
-
-        const a = giokhoihanh.toString().split(',');
-
-        document.getElementById("idChuyenDi").value = a[1];
-
-        var noidi = $('#noidi').val();
-        var noiden = $('#noiden').val();
-        var dateStart = $('#dateStart').val();
-        
-            $.ajax({
-                type: "POST",
-                url: "/Book",
-                data: { "noidi": noidi, "noiden": noiden, "dateStart": dateStart, "giokhoihanh": a[0] },
-                success: function (data) {
-
-                },
-        });
-    });
-    window.onload();
-</script>
-
-
-<script type="text/javascript">
-
-    //click doi mau ghế
-    $(document).ready(function () {
-        $(".ghe").on('click', function () {
-            $(this).toggleClass("btn-danger");
-        });
-    });
-
-    //click lay chuoi so ghe
     var listChair = [];
     function onCickItemChair(value) {
         var check = null;
@@ -245,7 +233,7 @@
         var listSelect = "";
         listChair.map((item, index) => {
             if (index === listChair.length - 1) {
-                listSelect=listSelect + item;
+                listSelect = listSelect + item;
             } else {
                 listSelect = listSelect + item + ", ";
             }
@@ -267,6 +255,113 @@
                 });
             });
     }
+    $('#giokhoihanh').change(function () {
+        var giokhoihanh = $('#giokhoihanh').val();
+        listChair = [];
+        const a = giokhoihanh.toString().split('|');
+        var tong = listChair.length * $('#donGia').val();
+        document.getElementById('donGiane').value = tong;
+        document.getElementById('donGiaNha').value = tong;
+        document.getElementById('gheSelect').value = "";
+        document.getElementById('soGhe').value = "";
+        document.getElementById("idChuyenDi").value = a[1];
+
+        var soghe = a[2];
+        var gheDaDat = a[3].split(",");
+
+        document.getElementById("soghedadat").innerHTML = gheDaDat.length - 1;
+        document.getElementById("controng").innerHTML = soghe - (gheDaDat.length - 1);
+
+        function checkGheDaDat(array, k) {
+            for (var j = 0; j < array.length - 1; j++) {
+                if (array[j].trim() === k.toString()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var up = "";
+        var down = "";
+
+        for (var i = 1; i <= soghe; i++) {
+            if (i <= soghe / 2) {
+                if (checkGheDaDat(gheDaDat, i)) {
+                    down = down + `<div class="col-md-3" style="margin : 10px">
+                            <button class="btn-danger" style="width : 45px">${i}</button>
+                        </div>`;
+                }
+                else {
+                    down = down + `<div class="col-md-3" style="margin : 10px">
+                            <button class="ghe" style="width : 45px" onClick={onCickItemChair(${i})}>${i}</button>
+                        </div>`;
+                }
+            } else {
+                if (checkGheDaDat(gheDaDat, i)) {
+                    up = up + `<div class="col-md-3" style="margin : 10px">
+                            <button class="btn-danger" style="width : 45px">${i}</button>
+                        </div>`;
+                }
+                else {
+                    up = up + `<div class="col-md-3" style="margin : 10px">
+                            <button class="ghe" style="width : 45px" onClick={onCickItemChair(${i})}>${i}</button>
+                        </div>`;
+                }
+            }
+
+        }
+
+
+        document.getElementById("render-chair").innerHTML = `
+    <div class="row">
+        <div class="col-md-5" style="text-align: center">
+            <div class="row">
+                ${down}
+            </div>
+        </div>
+        <div class="col-md-2" style="text-align: center">
+       
+        </div>
+        <div class="col-md-5" style="text-align: center">
+            <div class="row">
+                ${up}
+            </div>
+        </div>
+    </div>`
+
+
+        var noidi = $('#noidi').val();
+        var noiden = $('#noiden').val();
+        var dateStart = $('#dateStart').val();
+        
+            $.ajax({
+                type: "POST",
+                url: "/Book",
+                data: { "noidi": noidi, "noiden": noiden, "dateStart": dateStart, "giokhoihanh": a[0], idChuyenDi: a[1]},
+                success: function (data) {
+
+                },
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+
+    //click doi mau ghế
+    $(document).ready(function () {
+        $(".ghe").on('click', function () {
+            $(this).toggleClass("btn-primary");
+        });
+    });
+    $(document).ready(function () {
+        $(".ghe2").on('click', function () {
+            $(this).toggleClass("btn-primary");
+        });
+    });
+
+    //click lay chuoi so ghe
+    
 </script>
 
 <script type="text/javascript">

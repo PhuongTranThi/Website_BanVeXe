@@ -29,16 +29,14 @@ namespace Website_BanVeXe.Controllers
                 var noiden = form["noiden"];
                 var ngaykhoihanh = form["dateStart"];
                 var giokhoihanh = form["giokhoihanh"];
-
+                var idChuyenDi = form["idChuyenDi"];
 
                 ViewData["noidi"] = noidi;
                 ViewData["noiden"] = noiden;
                 ViewData["dateStart"] = ngaykhoihanh;
                 ViewData["diadiemdon"] = "1";
 
-            //load ghe da dat
             
-                //ViewData["chuyendi"] = bus_Ghe.LoadChuyenDi(int.Parse(ndi.ToString()), int.Parse(nden.ToString()), ngaykhoihanh);
                 var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(noidi.ToString()), int.Parse(noiden.ToString()));
                 ViewData["tuyendi"] = tuyendi;
 
@@ -49,12 +47,14 @@ namespace Website_BanVeXe.Controllers
                     ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(chuyendi[0].BienSo);
                     ViewData["giokhoihanh"] = chuyendi;
                     ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
+                    ViewData["giokhoihanhfdefault"] = chuyendi[0];
                     List<VE> a = bus_Ghe.LoadGheDaDat(chuyendi[0].ID_Chuyen);
                     List<string> ghedat = new List<string>();
                     for (int i = 0; i < a.Count; i++)
                     {
                         ghedat.Add(a[i].ID_GHE.ToString());
                     }
+
                 var ghedadat = "";
                 for(int i=0; i< ghedat.Count; i ++)
                 {
