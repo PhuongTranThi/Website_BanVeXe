@@ -31,8 +31,6 @@ namespace Website_BanVeXe.Controllers
             var donGiaNha = form["donGiaNha"];
 
             ViewData["ngaydat"] = ngaydat;
-           
-            
             ViewData["id_diadiemlenxe"] = id_diadiemlenxe;
             ViewData["id_ghe"] = id_ghe;
             ViewData["id_khachhang"] = id_khachhang;
@@ -47,7 +45,10 @@ namespace Website_BanVeXe.Controllers
             ViewData["gheSelect"] = gheSelect;
             ViewData["donGiaNha"] = donGiaNha;
 
-            if(idChuyenDi != null)
+  
+
+
+            if (idChuyenDi != null)
             {
                 BUS_ChuyenDi bus_chuyendi = new BUS_ChuyenDi();
 
@@ -71,54 +72,43 @@ namespace Website_BanVeXe.Controllers
         [HttpPost]
         public ActionResult DatVe(FormCollection form)
         {
-           
-            if (1== 1)
-                {
-                //string ngaydat = form["ngaydat"];
-                string tongtien = form["donGiaNha"];
-               
-                string id_ghe = form["gheSelect"];
-                //string id_khachhang = form["id_khachhang"];
-                string hoten = form["hoten"];
-                string email = form["email"];
-                string sdt = form["sdt"];
-                string id_chuyendi = form["id_chuyendi"];
-                string id_diadiem = form["id_diadiem"];
-                //string diachi = form["diachi"];
+            string tongtien = form["donGiaNha"];
+            string id_ghe = form["gheSelect"];
+            string hoten = form["hoten"];
+            string email = form["email"];
+            string sdt = form["sdt"];
+            string id_chuyendi = form["id_chuyendi"];
+            string id_diadiem = form["id_diadiem"];
 
-                //string ngaydat = "2020-06-29";
-                //string tongtien = "230000";
-                //string id_chuyen = "1";
-                //string id_diadiemlenxe = "1";
-                //string id_ghe = "2,3";
-                //string id_khachhang = "1";
-                //string hoten = "hihi";
-                //string email = "hihi";
-                //string sdt = "06545454884";
-                //string diachi = "hihi";
+            DTO_DatVe dto_datve = new DTO_DatVe();
+            dto_datve.TongTien = float.Parse(tongtien.ToString());
+            dto_datve.ID_Chuyen = int.Parse(id_chuyendi.ToString());
+            dto_datve.ID_DiaDiemLenXe = int.Parse(id_diadiem.ToString());
+            dto_datve.ID_Ghe = id_ghe;
+            int id = -1;
 
-                DTO_DatVe dto_datve = new DTO_DatVe();
-                dto_datve.TongTien = float.Parse(tongtien.ToString());
-                dto_datve.ID_Chuyen = int.Parse(id_chuyendi.ToString());
-                    dto_datve.ID_DiaDiemLenXe = int.Parse(id_diadiem.ToString());
-                dto_datve.ID_Ghe = id_ghe;
-                var id = int.Parse(Session["idKH"].ToString());
-                dto_datve.ID_KhachHang = int.Parse(Session["idKH"].ToString());
-                dto_datve.HoTenKhachHang = hoten;
-                    dto_datve.Email = email;
-                    dto_datve.SDT = sdt;
-                dto_datve.DiaChi = "163 Tan Thoi Nhat 8";
+            if (Session["idKH"] != null)
+            {
+                id = int.Parse(Session["idKH"].ToString());
+            }
 
 
-                BUS_DatVe bus_datve = new BUS_DatVe();
 
-                    if (bus_datve.DatVe(dto_datve))
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else return RedirectToAction("Index", "Home");
-                }
- 
+            dto_datve.ID_KhachHang = id;
+            dto_datve.HoTenKhachHang = hoten;
+            dto_datve.Email = email;
+            dto_datve.SDT = sdt;
+            dto_datve.DiaChi = "163 Tan Thoi Nhat 8";
+
+
+            BUS_DatVe bus_datve = new BUS_DatVe();
+
+            if (bus_datve.DatVe(dto_datve))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else return RedirectToAction("Index", "Home");
+
 
         }
 
