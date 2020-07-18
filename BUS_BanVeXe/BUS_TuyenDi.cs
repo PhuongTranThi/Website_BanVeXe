@@ -24,5 +24,9 @@ namespace BUS_BanVeXe
         {
             return dalTuyenDi.LoadNoiDen();
         }
+        public List<DTO_Admin_TuyenDi> LoadTuyenDiAdmin()
+        {
+            return dalTuyenDi.LoadTuyenDiAdmin();
+        }
     }
 }

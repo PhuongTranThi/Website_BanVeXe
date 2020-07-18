@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+    var dem = 1;
+}
+
+<br /><br /><br /><br />
+<section class="p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">DANH SÁCH TUYẾN ĐI</h3>
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <div class="rs-select2--light rs-select2--md">
+                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                <option selected="selected">Tất cả tuyến đi</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select> <div class="dropDownSelect2"></div>
+                        </div>
+                      
+                        <button class="au-btn-filter">
+                            <i class="zmdi zmdi-filter-list"></i>Lọc
+                        </button>
+                    </div>
+                    <div class="table-data__tool-right">
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <i class="zmdi zmdi-plus"></i>Thêm tuyến đi
+                        </button>
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                            <select class="js-select2 select2-hidden-accessible" name="type" tabindex="-1" aria-hidden="true">
+                                <option selected="selected" disabled>In</option>
+                                <option value="">Word</option>
+                                <option value="">Excel</option>
+                            </select>  <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên tuyến</th>
+                                <th>Nơi đi</th>
+                                <th>Nơi đến</th>
+                                <th>Loại xe</th>
+                                <th>Đơn giá</th>
+                                <th>Khoảng cách</th>
+                                <th>Số giờ chạy</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewData["tuyendi"] as List<DTO_BanVeXe.DTO_Admin_TuyenDi>)
+                            {
+                                <tr class="tr-shadow">
+                                    <td>@dem</td>
+                                    <td>@item.TenTuyen</td>
+                                    <td>@item.TenNoiDi</td>
+                                    <td>@item.TenNoiDen</td>
+                                    <td>@item.TenLoaiXe</td>
+                                    <td>@item.DonGia VNĐ</td>
+                                    <td>@item.KhoangCach km</td>
+                                    <td>@item.SoGioChay tiếng</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="spacer"></tr>
+                                dem++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

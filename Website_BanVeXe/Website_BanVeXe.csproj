@@ -45,6 +45,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Mvc5.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -122,8 +129,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\Admin_QLBanVeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ShareController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChuyenDiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DiemDonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DSKhachHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaiVaPhuXeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TuyenDiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\XeController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -141,8 +154,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Themes\css\aos.css" />
+    <Content Include="Areas\Admin\Themes\css\bootstrap-datepicker.css" />
     <Content Include="Areas\Admin\Themes\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Areas\Admin\Themes\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Themes\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Areas\Admin\Themes\css\bootstrap\bootstrap.css" />
     <Content Include="Areas\Admin\Themes\css\font-face.css" />
+    <Content Include="Areas\Admin\Themes\css\jquery-ui.css" />
+    <Content Include="Areas\Admin\Themes\css\jquery.fancybox.min.css" />
+    <Content Include="Areas\Admin\Themes\css\magnific-popup.css" />
+    <Content Include="Areas\Admin\Themes\css\mediaelementplayer.css" />
+    <Content Include="Areas\Admin\Themes\css\owl.carousel.min.css" />
+    <Content Include="Areas\Admin\Themes\css\owl.theme.default.min.css" />
+    <Content Include="Areas\Admin\Themes\css\style.css" />
     <Content Include="Areas\Admin\Themes\css\theme.css" />
     <Content Include="Areas\Admin\Themes\fonts\poppins\poppins-v5-latin-100.svg" />
     <Content Include="Areas\Admin\Themes\fonts\poppins\poppins-v5-latin-100italic.svg" />
@@ -164,6 +189,7 @@
     <Content Include="Areas\Admin\Themes\fonts\poppins\poppins-v5-latin-regular.svg" />
     <Content Include="Areas\Admin\Themes\images\bg-title-01.jpg" />
     <Content Include="Areas\Admin\Themes\images\bg-title-02.jpg" />
+    <Content Include="Areas\Admin\Themes\images\icon\acc.jpg" />
     <Content Include="Areas\Admin\Themes\images\icon\avatar-01.jpg" />
     <Content Include="Areas\Admin\Themes\images\icon\avatar-02.jpg" />
     <Content Include="Areas\Admin\Themes\images\icon\avatar-03.jpg" />
@@ -179,7 +205,6 @@
     <Content Include="Areas\Admin\Themes\js\bootstrap-datetimepicker.js" />
     <Content Include="Areas\Admin\Themes\js\main.js" />
     <Content Include="Areas\Admin\Themes\js\moment.js" />
-    <Content Include="Areas\Admin\Themes\media\9606031aabebde32fa96edeff071a132.jpg" />
     <Content Include="Areas\Admin\Themes\vendor\animsition\animsition.min.css" />
     <Content Include="Areas\Admin\Themes\vendor\animsition\animsition.min.js" />
     <Content Include="Areas\Admin\Themes\vendor\bootstrap-4.1\bootstrap.min.css" />
@@ -356,7 +381,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Share\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Themes\css\.DS_Store" />
+    <Content Include="Areas\Admin\Themes\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Themes\fonts\poppins\poppins-v5-latin-100.eot" />
     <Content Include="Areas\Admin\Themes\fonts\poppins\poppins-v5-latin-100.ttf" />
     <Content Include="Areas\Admin\Themes\fonts\poppins\poppins-v5-latin-100.woff" />
@@ -460,7 +488,12 @@
     <Content Include="Areas\Admin\Themes\vendor\slick\slick-theme.scss" />
     <Content Include="Areas\Admin\Themes\vendor\slick\slick.less" />
     <Content Include="Areas\Admin\Themes\vendor\slick\slick.scss" />
-    <Content Include="Areas\Admin\Views\Admin_QLBanVe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DSKhachHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Xe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDon\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenDi\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenDi\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -785,8 +818,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\QL_BanVe\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>

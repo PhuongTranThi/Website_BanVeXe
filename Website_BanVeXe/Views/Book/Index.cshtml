@@ -63,7 +63,7 @@
                         <input value="@ViewData["getDat"]" style="display : none"/>
                         <div class="col-md-6 ">
                             <form action="/Info" method="post" id="form">
-                                <input id="diadiemSelect" name="diadiemSelect" />
+                                <input id="diadiemSelect" name="diadiemSelect" style="display : none"/>
                                 <input id="gheSelect" name="gheSelect"style="display : none" />
                                 <input id="donGiaNha" name="donGiaNha" style="display : none"/>
                                 <input value="@ViewData["ghedat"]" id="ghedat" name="ghedat" style="display : none" />
@@ -177,7 +177,7 @@
             }
             else {
                 up = up + `<div class="col-md-3" style="margin : 10px">
-                            <button class="ghe" style="width : 45px" onClick={onCickItemChair(${i})}>${i}</button>
+                            <button class="ghe2 ghe" style="width : 45px" onClick={onCickItemChair(${i})}>${i}</button>
                         </div>`;
             }
         }
@@ -284,7 +284,7 @@
         var up = "";
         var down = "";
 
-        for (var i = 1; i <= soghe; i++) {
+        for (let i = 1; i <= soghe; i++) {
             if (i <= soghe / 2) {
                 if (checkGheDaDat(gheDaDat, i)) {
                     down = down + `<div class="col-md-3" style="margin : 10px">
@@ -347,18 +347,18 @@
 
 
 <script type="text/javascript">
-
     //click doi mau ghế
     $(document).ready(function () {
         $(".ghe").on('click', function () {
             $(this).toggleClass("btn-primary");
+
         });
-    });
-    $(document).ready(function () {
         $(".ghe2").on('click', function () {
-            $(this).toggleClass("btn-primary");
+            $(this).addClass("btn-primary");
+            console.log("dsfsfs");
         });
     });
+  
 
     //click lay chuoi so ghe
     

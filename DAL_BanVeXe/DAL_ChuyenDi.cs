@@ -54,5 +54,52 @@ namespace DAL_BanVeXe
             // [{}]
             return result.ToList<DIADIEMLENXE>();
         }
+
+        //load chuyen admin
+        public List<DTO_Admin_ChuyenDi> LoadChuyenAdmin()
+        {
+            var phuong = from chuyen in _db.CHUYENDIs
+                            from tuyen in _db.TUYENDIs
+                            from xe in _db.XEs
+                            from taixe in _db.TAIXEs
+                            from phuxe in _db.PHUXEs
+                            where chuyen.ID_TUYENDI == tuyen.ID
+                            && chuyen.ID_XE == xe.ID
+                            && chuyen.ID_TAIXE1 == taixe.ID
+                            && chuyen.ID_PHUXE == phuxe.ID
+                            select new
+                            {
+                                id_chuyen = chuyen.ID,
+                                id_xe = chuyen.ID_XE,
+                                id_tuyen = chuyen.ID_TUYENDI,
+                                id_tentaixe1 = chuyen.ID_TAIXE1,
+                                id_tentaixe2 = chuyen.ID_TAIXE2,
+                                id_phuxe = chuyen.ID_PHUXE,
+                                ngaykhoihanh = chuyen.NGAYKHOIHANH,
+                                giodi = chuyen.GIODI,
+                                tentuyendi = tuyen.TENTUYEN,
+                                bienso = xe.BIENSO,
+                                tentaixe1 = taixe.HOTENTX,
+                                tentaixe2 = taixe.HOTENTX,
+                                tenphuxe = phuxe.HOTENPX,
+                            };
+            List<DTO_Admin_ChuyenDi> result = phuong.ToList().ConvertAll(t => new DTO_Admin_ChuyenDi
+            {
+                ID_ChuyenDi = t.id_chuyen,
+                ID_Xe = int.Parse(t.id_xe.ToString()),
+                ID_TaiXe1 = int.Parse(t.id_tentaixe1.ToString()),
+                ID_TaiXe2 = int.Parse(t.id_tentaixe2.ToString()),
+                ID_PhuXe = int.Parse(t.id_phuxe.ToString()),
+                ID_TuyenDi = int.Parse(t.id_tuyen.ToString()),
+                NgayKhoiHanh = t.ngaykhoihanh.ToString(),
+                GioDi = t.giodi.ToString(),
+                TenTuyenDi = t.tentuyendi,
+                BienSoXe = t.bienso,
+                TenPhuXe = t.tenphuxe,
+                TenTaiXe1 = t.tentaixe1,
+                TenTaiXe2 = t.tentaixe2
+            });
+            return result.ToList<DTO_Admin_ChuyenDi>();
+        }
     }
 }

@@ -22,3 +22,15 @@ D:\2020\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.csproj.CoreCompileInpu
 D:\2020\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.csproj.CopyComplete
 D:\2020\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.dll
 D:\2020\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.pdb
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\BUS_BanVeXe.dll
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\BUS_BanVeXe.pdb
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\DAL_BanVeXe.dll
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\DTO_BanVeXe.dll
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\DAL_BanVeXe.pdb
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\DAL_BanVeXe.dll.config
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\bin\Debug\DTO_BanVeXe.pdb
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.csprojAssemblyReference.cache
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.csproj.CoreCompileInputs.cache
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.csproj.CopyComplete
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.dll
+D:\2020\DoAn\Website_BanVeXe\BUS_BanVeXe\obj\Debug\BUS_BanVeXe.pdb

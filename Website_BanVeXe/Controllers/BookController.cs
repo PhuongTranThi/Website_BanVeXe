@@ -21,7 +21,8 @@ namespace Website_BanVeXe.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
-
+            try
+            {
                 BUS_GHE bus_Ghe = new BUS_GHE();
                 BUS_ChuyenDi bus_chuyen = new BUS_ChuyenDi();
 
@@ -36,7 +37,7 @@ namespace Website_BanVeXe.Controllers
                 ViewData["dateStart"] = ngaykhoihanh;
                 ViewData["diadiemdon"] = "1";
 
-            
+
                 var tuyendi = bus_Ghe.LoadTuyenDi(int.Parse(noidi.ToString()), int.Parse(noiden.ToString()));
                 ViewData["tuyendi"] = tuyendi;
 
@@ -55,28 +56,28 @@ namespace Website_BanVeXe.Controllers
                         ghedat.Add(a[i].ID_GHE.ToString());
                     }
 
-                var ghedadat = "";
-                for(int i=0; i< ghedat.Count; i ++)
-                {
-                    if(i== ghedat.Count - 1)
+                    var ghedadat = "";
+                    for (int i = 0; i < ghedat.Count; i++)
                     {
-                        ghedadat += ghedat[i];
+                        if (i == ghedat.Count - 1)
+                        {
+                            ghedadat += ghedat[i];
+                        }
+                        else
+                        {
+                            ghedadat += ghedat[i] + ", ";
+                        }
                     }
-                    else
+
+                    List<string> dataGheDaDat = new List<string>();
+                    string[] dt = ghedadat.Split(',');
+                    for (int i = 0; i < dt.Length; i++)
                     {
-                        ghedadat += ghedat[i]+ ", ";
+                        dataGheDaDat.Add(dt[i]);
                     }
-                }
 
-                List<string> dataGheDaDat = new List<string>();
-                string[] dt = ghedadat.Split(',');
-                for (int i = 0; i < dt.Length; i++)
-                {
-                    dataGheDaDat.Add(dt[i]);
-                }
-
-                ViewData["getDat"] = ghedadat;
-                if (giokhoihanh != null)
+                    ViewData["getDat"] = ghedadat;
+                    if (giokhoihanh != null)
                     {
                         ViewData["xe"] = bus_Ghe.Load_Ghe_Xe(giokhoihanh);
                         ViewData["chuyendi"] = chuyendi[0].ID_Chuyen;
@@ -88,8 +89,11 @@ namespace Website_BanVeXe.Controllers
                     }
                 }
                 return View();
-            
-
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public ActionResult ViewChair(FormCollection form)

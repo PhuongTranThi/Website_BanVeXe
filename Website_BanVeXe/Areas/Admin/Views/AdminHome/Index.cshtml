@@ -1,25 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale= 1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="keywords" content="au theme template">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Page-->
-    <title>Trang chủ</title>
-
+    <title>Home</title>
     <!-- Fontfaces CSS-->
     <link href="~/Areas/Admin/Themes/css/font-face.css" rel="stylesheet" media="all">
     <link href="~/Areas/Admin/Themes/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="~/Areas/Admin/Themes/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="~/Areas/Admin/Themes/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
     <!-- Bootstrap CSS-->
     <link href="~/Areas/Admin/Themes/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
     <!-- Vendor CSS-->
     <link href="~/Areas/Admin/Themes/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="~/Areas/Admin/Themes/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
@@ -28,19 +21,16 @@
     <link href="~/Areas/Admin/Themes/vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="~/Areas/Admin/Themes/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="~/Areas/Admin/Themes/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
     <!-- Main CSS-->
     <link href="~/Areas/Admin/Themes/css/theme.css" rel="stylesheet" media="all">
-
 </head>
-
 <body class="animsition">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="~/Areas/Admin/Themes/images/icon/logo.png" alt="Cool Admin" />
+                    <h2 style="color:#ff8b00">PHUONGNGAN</h2>
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -48,43 +38,55 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                                <i class="fas fa-table"></i>Quản lý chung
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href='@Url.Action("Index", "DSKhachHang")'>Danh sách khách hàng</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
+                                    <a href='@Url.Action("Index", "TaiVaPhuXe")'>Tài và phụ xe</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <a href='@Url.Action("Index", "Xe")'>Xe lưu hành</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <a href='@Url.Action("Index", "DiemDon")'>Điểm đón khách</a>
                                 </li>
+                                <li>
+                                    <a href='@Url.Action("Index", "TuyenDi")'>Tuyến đường chạy</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Đặt chỗ/ Bán vé
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                               
+                                <li>
+                                    <a href='@Url.Action("Index", "ChuyenDi")'>Lịch khởi hành</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Đặt vé cho khách</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Báo cáo tiền bán</a>
+                                </li>
+                              
                             </ul>
                         </li>
                         <li>
                             <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts
+                                <i class="fas fa-chart-bar"></i>Bảng kê
                             </a>
                         </li>
                         <li>
                             <a href="table.html">
-                                <i class="fas fa-table"></i>Tables
+                                <i class="fas fa-table"></i>Quản trị hệ thống
                             </a>
                         </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms
-                            </a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>
+                      
                     </ul>
                 </nav>
             </div>
@@ -98,8 +100,8 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Tìm kiếm" />
+                                <button style="background-color:#ff8b00" class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>
@@ -110,30 +112,21 @@
                                         <span class="quantity">1</span>
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
-                                                <p>You have 2 news message</p>
+                                                <p>Bạn có 1 tin nhắn mới</p>
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
                                                     <img src="~/Areas/Admin/Themes/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6>Michelle Moreno</h6>
-                                                    <p>Have sent a photo</p>
-                                                    <span class="time">3 min ago</span>
+                                                    <h6>Tiên Ngân</h6>
+                                                    <p>Đã gửi cho bạn một hình ảnh</p>
+                                                    <span class="time">3 phút trước</span>
                                                 </div>
                                             </div>
-                                            <div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/Areas/Admin/Themes/images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Diane Myers</h6>
-                                                    <p>You are now connected on message</p>
-                                                    <span class="time">Yesterday</span>
-                                                </div>
-                                            </div>
+                                          
                                             <div class="mess__footer">
-                                                <a href="#">View all messages</a>
+                                                <a href="#">Xem tất cả tin nhắn</a>
                                             </div>
                                         </div>
                                     </div>
@@ -142,37 +135,21 @@
                                         <span class="quantity">1</span>
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
-                                                <p>You have 3 New Emails</p>
+                                                <p>Bạn có 1 email mới</p>
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
                                                     <img src="~/Areas/Admin/Themes/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
+                                                    <p>Cuộc họp về team FrontEnd...</p>
+                                                    <span>Sếp, 3 phút trước</span>
                                                 </div>
                                             </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/Areas/Admin/Themes/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/Areas/Admin/Themes/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, April 12,,2018</span>
-                                                </div>
-                                            </div>
+                                          
+                                         
                                             <div class="email__footer">
-                                                <a href="#">See all emails</a>
+                                                <a href="#">Xem tất cả các email</a>
                                             </div>
                                         </div>
                                     </div>
@@ -181,15 +158,17 @@
                                         <span class="quantity">3</span>
                                         <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__title">
-                                                <p>You have 3 Notifications</p>
+                                                <p>Bạn có 3 thông báo</p>
                                             </div>
                                             <div class="notifi__item">
                                                 <div class="bg-c1 img-cir img-40">
                                                     <i class="zmdi zmdi-email-open"></i>
                                                 </div>
                                                 <div class="content">
-                                                    <p>You got a email notification</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
+                                                    <p>
+                                                        Bạn đã nhận được một thông báo qua email
+                                                    </p>
+                                                    <span class="date">23:40, 16/07/2020</span>
                                                 </div>
                                             </div>
                                             <div class="notifi__item">
@@ -197,8 +176,10 @@
                                                     <i class="zmdi zmdi-account-box"></i>
                                                 </div>
                                                 <div class="content">
-                                                    <p>Your account has been blocked</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
+                                                    <p>
+                                                        Tài khoản của bạn đã bị khóa
+                                                    </p>
+                                                    <span class="date">23:40, 16/07/2020</span>
                                                 </div>
                                             </div>
                                             <div class="notifi__item">
@@ -206,12 +187,14 @@
                                                     <i class="zmdi zmdi-file-text"></i>
                                                 </div>
                                                 <div class="content">
-                                                    <p>You got a new file</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
+                                                    <p>
+                                                        Bạn có một tập tin mới
+                                                    </p>
+                                                    <span class="date">23:40, 16/07/2020</span>
                                                 </div>
                                             </div>
                                             <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
+                                                <a href="#">Tất cả thông báo</a>
                                             </div>
                                         </div>
                                     </div>
@@ -219,46 +202,38 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="~/Areas/Admin/Themes/images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="~/Areas/Admin/Themes/images/icon/acc.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#" style="color:#ff8b00">Trần Thị Phương</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="~/Areas/Admin/Themes/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="~/Areas/Admin/Themes/images/icon/acc.jpg" alt="John Doe" />
                                                     </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">john doe</a>
-                                                    </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                 
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account
+                                                        <i class="zmdi zmdi-account"></i>Tài khoản
                                                     </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting
+                                                        <i class="zmdi zmdi-settings"></i>Cài đặt
                                                     </a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing
-                                                    </a>
-                                                </div>
+                                               
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout
+                                                <a href='@Url.Action("Index", "Login")'>
+                                                    <i class="zmdi zmdi-power"></i>Đăng xuất
                                                 </a>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -269,12 +244,15 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-            @RenderBody()
+            <!-- MAIN CONTENT-->
+            <div>
+                @RenderBody()
+            </div>
+            
+            <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
-
     </div>
-
     <!-- Jquery JS-->
     <script src="~/Areas/Admin/Themes/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
@@ -295,11 +273,8 @@
     <script src="~/Areas/Admin/Themes/vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="~/Areas/Admin/Themes/vendor/select2/select2.min.js">
     </script>
-
     <!-- Main JS-->
     <script src="~/Areas/Admin/Themes/js/main.js"></script>
-
 </body>
-
 </html>
 <!-- end document-->

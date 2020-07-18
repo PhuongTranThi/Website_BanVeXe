@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_Admin_ChuyenDi.cs" />
+    <Compile Include="DTO_Admin_TuyenDi.cs" />
     <Compile Include="DTO_ChuyenDi.cs" />
     <Compile Include="DTO_DangKy.cs" />
     <Compile Include="DTO_DatVe.cs" />
     <Compile Include="DTO_DiaDiemDon.cs" />
     <Compile Include="DTO_Ghe.cs" />
     <Compile Include="DTO_LichTrinh.cs" />
+    <Compile Include="DTO_NhanVienBanVe.cs" />
     <Compile Include="DTO_NoiDi.cs" />
+    <Compile Include="DTO_PhuXe.cs" />
+    <Compile Include="DTO_TaiXe.cs" />
     <Compile Include="DTO_TuyenDi.cs" />
+    <Compile Include="DTO_Xe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -25,5 +25,9 @@ namespace BUS_BanVeXe
             // [{tenddd: "ten"}]
             return dal_chuyendi.LoadDiaDiemLenXe(id_diadiem);
         }
+        public List<DTO_Admin_ChuyenDi> LoadChuyenAdmin()
+        {
+            return dal_chuyendi.LoadChuyenAdmin();
+        }
     }
 }
