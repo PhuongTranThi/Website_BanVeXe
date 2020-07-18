@@ -149,6 +149,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmailService.cs" />
     <Compile Include="Models\ModelSelectTuyen.cs" />
     <Compile Include="Models\Model_DangKy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -494,6 +495,8 @@
     <Content Include="Areas\Admin\Views\DiemDon\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenDi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChuyenDi\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DSKhachHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DSKhachHang\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -590,7 +593,9 @@
     <Content Include="Themes\js\popper.min.js" />
     <Content Include="Themes\js\slick.min.js" />
     <Content Include="Themes\js\typed.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

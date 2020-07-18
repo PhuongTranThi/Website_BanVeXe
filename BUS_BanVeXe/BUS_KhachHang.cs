@@ -17,5 +17,25 @@ namespace BUS_BanVeXe
             return dal_khachhang.LoadKhachHang();
         }
 
+        public KHACHHANG LoadKhachHangByID(int id)
+        {
+            return dal_khachhang.LoadKhachHangByID(id);
+        }
+
+        public bool UpdateKhachHangByID(int id,  KHACHHANG kh)
+        {
+            return dal_khachhang.UpdateKhachHangByID(id, kh);
+        }
+
+        public bool DeleteKhachHangByID(int id)
+        {
+            return dal_khachhang.DeleteKhachHangByID(id);
+        }
+
+        public bool InsertKhachHang(KHACHHANG kh)
+        {
+            return dal_khachhang.InsertKhachHang(kh);
+        }
+        
     }
 }

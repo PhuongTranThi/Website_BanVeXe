@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using DTO_BanVeXe;
 using BUS_BanVeXe;
+using System.Net.Mail;
+using System.Net;
+using Website_BanVeXe.Models;
 
 namespace Website_BanVeXe.Controllers
 {
@@ -45,9 +48,6 @@ namespace Website_BanVeXe.Controllers
             ViewData["gheSelect"] = gheSelect;
             ViewData["donGiaNha"] = donGiaNha;
 
-  
-
-
             if (idChuyenDi != null)
             {
                 BUS_ChuyenDi bus_chuyendi = new BUS_ChuyenDi();
@@ -64,9 +64,6 @@ namespace Website_BanVeXe.Controllers
                
             }
             return View();
-
-
-
         }
 
         [HttpPost]
@@ -79,6 +76,9 @@ namespace Website_BanVeXe.Controllers
             string sdt = form["sdt"];
             string id_chuyendi = form["id_chuyendi"];
             string id_diadiem = form["id_diadiem"];
+            string tentuyen = form["tentuyen"];
+            string bienso = form["bienso"];
+            string giokhoihanh = form["giokhoihanh"];
 
             DTO_DatVe dto_datve = new DTO_DatVe();
             dto_datve.TongTien = float.Parse(tongtien.ToString());
@@ -91,9 +91,6 @@ namespace Website_BanVeXe.Controllers
             {
                 id = int.Parse(Session["idKH"].ToString());
             }
-
-
-
             dto_datve.ID_KhachHang = id;
             dto_datve.HoTenKhachHang = hoten;
             dto_datve.Email = email;
@@ -105,6 +102,28 @@ namespace Website_BanVeXe.Controllers
 
             if (bus_datve.DatVe(dto_datve))
             {
+                EmailService a = new EmailService();
+
+                string smtpUserName = "tranthiphuong061298ht@gmail.com";
+                string smtpPassword = "Truongcntptphcm1";
+                string smtpHost = "smtp.gmail.com";
+                int smtpPort = 587;
+
+                string emailTo = "lethanhtuyen10081998@gmail.com";
+                string subject = "Chu de....";
+                string body = string.Format("" +
+                    "Bạn vừa nhận được liên hê từ: <b>{0}</b><br/>Email: {1}" +
+                    "<br/>" +
+                    "<div>" +
+                    "<div>Nội dung: </div><br/> " +
+                    "<div>Tên tuyến : {2}</div>"+
+                    "<div>Biển số : {3}</div>" +
+                    "<div>Giờ khởi hành : {4}</div>" +
+                    "<div>Danh sách ghế : {5}</div>" +
+                    "<div>Số điện thoại của bạn : {6}</div>" +
+                    "</div>", "Trần Thị Phương", "tranthiphuong061298ht@gmail.com", tentuyen, bienso, giokhoihanh, id_ghe, sdt);
+                EmailService service = new EmailService();
+                bool kq = service.Send(smtpUserName, smtpPassword, smtpHost, smtpPort, emailTo, subject, body);
                 return RedirectToAction("Index", "Home");
             }
             else return RedirectToAction("Index", "Home");

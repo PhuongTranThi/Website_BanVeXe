@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+
+
+<div>hello</div>
+<div>
+    @if (ViewData["data"] != null)
+    {
+        var x = ViewData["data"] as DAL_BanVeXe.KHACHHANG;
+    <form id="form" method="post">
+        <input value="@ViewData["id"]" id="id" style="display : none"/>
+        <input value="@x.CMND" name="cmnd" />
+        <input value="@x.EMAIL" name="email" />
+        <input value="@x.HOTENKH" name="hoten" />
+        <input value="@x.DIACHI" name="diachi" />
+        <input value="@x.SDT" name="sdt" />
+        <button type="submit">Cập nhật</button>
+    </form>
+    }
+</div>

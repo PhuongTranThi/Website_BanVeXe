@@ -4,10 +4,6 @@
     Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
     var dem = 1;
 }
-<script>
-    alert("Đăng nhập thành công!");
-</script>
-<br /><br /><br /><br />
 <section class="p-t-20">
     <div class="container">
         <div class="row">
@@ -72,12 +68,11 @@
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
+                                                <a href="DSKhachHang/Edit/@item.ID"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <button onclick="deleteKH(@item.ID)" class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
-                                           
                                         </div>
                                     </td>
                                 </tr>
@@ -91,3 +86,13 @@
         </div>
     </div>
 </section>
+<script>
+    function deleteKH(id) {
+        var r = confirm("Bạn có muốn xóa khách hàng này không!");
+        if (r == true) {
+            return location.href = `/Admin/DSKhachHang/Delete/${id}`;
+        } else {
+          // cancel
+        }
+    }
+</script>

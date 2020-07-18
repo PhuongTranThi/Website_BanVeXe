@@ -50,22 +50,29 @@
                     <div style="border:1px solid #ddd; padding:15px;height:500px;">
                         <h3 class="font-size-20" style="color:orangered; text-align:center">Thông tin đặt vé</h3><br />
                         <div style="line-height:12px; font-size:15px;">
-                              @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
-                                {
-                                  <p style="float:left; color:black;" >Tuyến: @item.TenTuyen</p>
+                              @if(ViewData["tuyen_bienso"]!= null){
+                                  var item = ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>;
+                                    <input style="display: none" name="tentuyen" value="@item[0].TenTuyen" />
+                                  <p style="float:left; color:black;" >Tuyến: @item[0].TenTuyen</p>
                                 }
+                                
                             @*<p style="float:left; color:black;">Tuyến: @ViewData["idChuyenDi"]</p>*@
                             <br />
                             <hr />
-                            @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                           <hr />
+                            @if (ViewData["tuyen_bienso"] != null)
                                 {
-                                  <p style="float:left; color:black;">Biển số: @item.BienSo</p>
+                                 var item2 = ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>;
+                                  <input style="display: none" name="bienso" value="@item2[0].BienSo" />
+                                  <p style="float:left; color:black;">Biển số: @item2[0].BienSo</p>
                                 }
                              @*<br />
                             <hr />*@
-                             @foreach (var item in ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>)
+                             @if (ViewData["tuyen_bienso"] != null)
                                 {
-                                  <p style="float:left; color:black;margin-left:200px">Giờ đi: @item.GioKhoiHanh</p>
+                                 var item3 = ViewData["tuyen_bienso"] as List<DTO_BanVeXe.DTO_ChuyenDi>;
+                                  <input style="display: none" name="giokhoihanh" value="@item3[0].GioKhoiHanh" />
+                                  <p style="float:left; color:black;margin-left:200px">Giờ đi: @item3[0].GioKhoiHanh</p>
                                 }
                              <br />
                             <hr />
@@ -127,8 +134,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
 
