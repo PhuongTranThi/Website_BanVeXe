@@ -65,7 +65,7 @@ namespace Website_BanVeXe.Controllers
             }
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult DatVe(FormCollection form)
         {
@@ -79,8 +79,11 @@ namespace Website_BanVeXe.Controllers
             string tentuyen = form["tentuyen"];
             string bienso = form["bienso"];
             string giokhoihanh = form["giokhoihanh"];
+            string ngaydi = form["ngaydi"];
+            string diadiemlenxe = form["diadiemlenxe"];
 
             DTO_DatVe dto_datve = new DTO_DatVe();
+            DTO_ChuyenDi dto_chuyendi= new DTO_ChuyenDi();
             dto_datve.TongTien = float.Parse(tongtien.ToString());
             dto_datve.ID_Chuyen = int.Parse(id_chuyendi.ToString());
             dto_datve.ID_DiaDiemLenXe = int.Parse(id_diadiem.ToString());
@@ -96,32 +99,38 @@ namespace Website_BanVeXe.Controllers
             dto_datve.Email = email;
             dto_datve.SDT = sdt;
             dto_datve.DiaChi = "163 Tan Thoi Nhat 8";
-
+            
 
             BUS_DatVe bus_datve = new BUS_DatVe();
 
             if (bus_datve.DatVe(dto_datve))
             {
+               
                 EmailService a = new EmailService();
-
+             
                 string smtpUserName = "tranthiphuong061298ht@gmail.com";
                 string smtpPassword = "Truongcntptphcm1";
                 string smtpHost = "smtp.gmail.com";
                 int smtpPort = 587;
 
-                string emailTo = "lethanhtuyen10081998@gmail.com";
-                string subject = "Chu de....";
+                string emailTo = email;
+                string subject = "THÔNG TIN VÉ XE - NHÀ XE PHƯƠNG NGÂN";
                 string body = string.Format("" +
-                    "Bạn vừa nhận được liên hê từ: <b>{0}</b><br/>Email: {1}" +
+                    "Bạn vừa nhận được liên hệ từ: <b>{0}</b><br/>Email: {1}" +
                     "<br/>" +
                     "<div>" +
                     "<div>Nội dung: </div><br/> " +
-                    "<div>Tên tuyến : {2}</div>"+
-                    "<div>Biển số : {3}</div>" +
-                    "<div>Giờ khởi hành : {4}</div>" +
-                    "<div>Danh sách ghế : {5}</div>" +
-                    "<div>Số điện thoại của bạn : {6}</div>" +
-                    "</div>", "Trần Thị Phương", "tranthiphuong061298ht@gmail.com", tentuyen, bienso, giokhoihanh, id_ghe, sdt);
+                    "<div>Tên tuyến : {2}<span> &emsp;&emsp;Biển số xe : {3}</span></div>" +
+                    
+                    "<div>Ngày đi: {4}<span> &emsp;&emsp;Giờ khởi hành : {5}</span></div>" +
+                 
+                    "<div>Danh sách ghế : {6}</div>" +
+                     "<div>Địa điểm lên xe : {10}</div>" +
+                    "<div>Họ tên khách hàng : {8}<span> &emsp;&emsp;Số điện thoại : {7}</span></div>" +
+                    "<div>Tổng tiền : {9}</div>" +
+                    "<br/>" +
+                    "<div><i>Mọi thông tin đóng góp, phản ánh quý khách vui lòng gửi qua <p>Email: tranthiphuong061298ht@gmail.com</p></i></div>" +
+                    "</div>", "Nhà xe Phương Ngân", "tranthiphuong061298ht@gmail.com", tentuyen, bienso, ngaydi, giokhoihanh, id_ghe, sdt, hoten, tongtien, diadiemlenxe);
                 EmailService service = new EmailService();
                 bool kq = service.Send(smtpUserName, smtpPassword, smtpHost, smtpPort, emailTo, subject, body);
                 return RedirectToAction("Index", "Home");

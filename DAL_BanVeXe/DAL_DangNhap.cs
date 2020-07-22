@@ -28,7 +28,6 @@ namespace DAL_BanVeXe
                         email = kh.EMAIL,
                         password = kh.PASSWORD,
                         diachi = kh.DIACHI,
-                        idLoai = kh.ID_LoaiNguoiDung,
                         cmnd = kh.CMND
                     };
             var kq = a.ToList().ConvertAll(t => new KHACHHANG
@@ -39,10 +38,37 @@ namespace DAL_BanVeXe
                 EMAIL = t.email,
                 PASSWORD = t.password,
                 DIACHI = t.diachi,
-                ID_LoaiNguoiDung = t.idLoai,
                 CMND = t.cmnd
             });
             return kq.ToList<KHACHHANG>()[0];
+        }
+
+        //========================================
+        public bool getDangNhap(string user, string pass)
+        {
+            return _db.USERs.Any(p => p.USERNAME == user && p.PASSWORD == pass);
+        }
+        public USER DangNhapAdmin(string user, string pass)
+        {
+            var phuong = from ad in _db.USERs
+
+                    where ad.USERNAME == user && ad.PASSWORD == pass
+                    select new
+                    {
+                        id = ad.ID,
+                        user = ad.USERNAME,
+                        password = ad.PASSWORD,
+                        id_loainguoidung = ad.ID_LOAINGUOIDUNG
+                        
+                    };
+            var kq = phuong.ToList().ConvertAll(t => new USER
+            {
+                ID = t.id,
+                USERNAME = t.user,
+                PASSWORD = t.password,
+                ID_LOAINGUOIDUNG = t.id_loainguoidung
+            });
+            return kq.ToList<USER>()[0];
         }
     }
 }

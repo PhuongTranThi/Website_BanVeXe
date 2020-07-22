@@ -40,7 +40,6 @@ namespace Website_BanVeXe.Areas.Admin.Controllers
             insert.EMAIL = email;
             insert.HOTENKH = hoten;
             insert.SDT = sdt;
-            insert.ID_LoaiNguoiDung = 1;
             insert.PASSWORD = "1231";
 
             if (bus_khachhang.InsertKhachHang(insert))

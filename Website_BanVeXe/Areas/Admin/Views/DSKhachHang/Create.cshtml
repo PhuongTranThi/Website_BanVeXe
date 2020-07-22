@@ -4,16 +4,80 @@
     Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
 }
 
+<style>
+    span {
+        margin-left: 100px;
+    }
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">THÊM KHÁCH HÀNG</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                            <form id="form" method="post">
+                                <input id="id" style="display : none" />
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Họ tên khách hàng:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:1px">
+                                        <input maxlength="30" required class="au-input au-input--xl" name="hoten" placeholder="Nhập họ tên" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Số điện thoại:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:54px">
+                                        <input  maxlength="11" required class="au-input au-input--xl" type="tel" name="sdt" placeholder="Nhập số điện thoại"/>
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Email:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:107px">
+                                        <input  maxlength="70" required class="au-input au-input--xl" type="email" name="email" placeholder="Nhập địa email"/>
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Địa chỉ:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:97px">
+                                        <input  maxlength="100" required class="au-input au-input--xl" name="diachi" placeholder="Nhập địa chỉ"/>
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Chứng minh nhân dân:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:-30px">
+                                        <input maxlength="11" required type="tel" class="au-input au-input--xl" name="cmnd" placeholder="Nhập chứng minh nhân dân"/>
+                                    </span>
 
-<div>hello</div>
-<div>
-        <form id="form" method="post">
-            <input id="id" style="display : none" />
-            <input name="cmnd" />
-            <input name="email" />
-            <input name="hoten" />
-            <input name="diachi" />
-            <input name="sdt" />
-            <button type="submit">Cập nhật</button>
-        </form>
-</div>
+
+                                    
+                                </div>
+                                <div class="table-data__tool-right" style="text-align:center;">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <a style="color:white" href='@Url.Action("Index", "DSKhachHang")'>
+                                            <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                        </a>
+                                    </button>
+                                    <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>Thêm
+                                    </button>
+                                </div>
+                            </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

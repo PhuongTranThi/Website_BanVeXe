@@ -77,10 +77,12 @@
                              <br />
                             <hr />
                             <p style="float:left; color:black">Ngày đi: @ViewData["dateStart"]</p>
+                            <input name="ngaydi" value="@ViewData["dateStart"]" style="display:none"/>
                             <p style="float:left; color:black;margin-left:190px;">Ghế/giường: @ViewData["gheSelect"]</p>
                             <br />
                             <hr />
                             <p style="float:left; color:black;line-height:1.2" id="diadiem" name="diadiem" value="@ViewData["diadiem"]">Điểm lên xe:@ViewData["diadiem"]</p>
+                            <input style="display:none" value="@ViewData["diadiem"]" name="diadiemlenxe"/>
                             <br />
                             <br />
                             <hr />

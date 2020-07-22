@@ -4,20 +4,89 @@
     Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
 }
 
-
-<div>hello</div>
-<div>
-    @if (ViewData["data"] != null)
-    {
-        var x = ViewData["data"] as DAL_BanVeXe.KHACHHANG;
-    <form id="form" method="post">
-        <input value="@ViewData["id"]" id="id" style="display : none"/>
-        <input value="@x.CMND" name="cmnd" />
-        <input value="@x.EMAIL" name="email" />
-        <input value="@x.HOTENKH" name="hoten" />
-        <input value="@x.DIACHI" name="diachi" />
-        <input value="@x.SDT" name="sdt" />
-        <button type="submit">Cập nhật</button>
-    </form>
+<style>
+    span{
+       margin-left:100px;
     }
-</div>
+    input{
+        margin-bottom:20px;
+    }
+</style>
+<section class="p-t-20" style="height:600px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">CẬP NHẬT KHÁCH HÀNG</h3>
+                <div class="table-responsive table-responsive-data2" >
+                    <table class="table table-data2" style="text-align:center">
+                       
+                            @if (ViewData["data"] != null)
+                            {
+                                var x = ViewData["data"] as DAL_BanVeXe.KHACHHANG;
+                                <form id="form" method="post">
+                                    <input value="@ViewData["id"]" id="id" style="display : none" />
+                                    <div class="table-data__tool-right">
+                                        <span class="col-md-3"></span>
+                                        <span class="col-md-2">Họ tên khách hàng:&nbsp;</span>
+                                        <span class="col-md-4" style="margin-left:1px">
+                                            <input  maxlength="30" required class="au-input au-input--xl" value="@x.HOTENKH" name="hoten"/>
+                                        </span>
+                                        <span class="col-md-3"></span>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <span class="col-md-3"></span>
+                                        <span class="col-md-2">Số điện thoại:&nbsp;</span>
+                                        <span class="col-md-4" style="margin-left:54px">
+                                            <input  maxlength="11" required class="au-input au-input--xl" value="@x.SDT" type="tel" name="sdt"/>
+                                        </span>
+                                        <span class="col-md-3"></span>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <span class="col-md-3"></span>
+                                        <span class="col-md-2">Email:&nbsp;</span>
+                                        <span class="col-md-4" style="margin-left:107px">
+                                            <input maxlength="70" required class="au-input au-input--xl" value="@x.EMAIL"type="email" name="email"/>
+                                        </span>
+                                        <span class="col-md-3"></span>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <span class="col-md-3"></span>
+                                        <span class="col-md-2">Địa chỉ:&nbsp;</span>
+                                        <span class="col-md-4" style="margin-left:97px">
+                                            <input maxlength="100" required class="au-input au-input--xl" value="@x.DIACHI" name="diachi"/>
+                                        </span>
+                                        
+                                        <span class="col-md-3"></span>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <span class="col-md-3"></span>
+                                        <span class="col-md-2">Chứng minh nhân dân:&nbsp;</span>
+                                        <span class="col-md-4" style="margin-left:-30px">
+                                            <input  maxlength="11" required class="au-input au-input--xl" value="@x.CMND" type="tel" name="cmnd"/>
+                                        </span>
+
+                                       
+                                       
+                                    </div>
+                                    <div class="table-data__tool-right" style="text-align:center;">
+                                        <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <a style="color:white" href='@Url.Action("Index", "DSKhachHang")'>
+                                                <i class="zmdi zmdi-edit"></i>&nbsp;Quay lại
+                                            </a>
+                                            
+                                        </button>
+                                        <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-edit"></i>Cập nhật
+                                        </button>
+                                    </div>
+                                    
+                                </form>
+                            }
+                       
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

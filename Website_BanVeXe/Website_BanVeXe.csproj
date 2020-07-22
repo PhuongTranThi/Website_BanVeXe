@@ -133,7 +133,7 @@
     <Compile Include="Areas\Admin\Controllers\ChuyenDiController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\DSKhachHangController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiVaPhuXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TuyenDiController.cs" />
     <Compile Include="Areas\Admin\Controllers\XeController.cs" />
@@ -382,7 +382,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Themes\css\.DS_Store" />
     <Content Include="Areas\Admin\Themes\css\bootstrap.min.css.map" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
@@ -497,6 +496,7 @@
     <Content Include="Areas\Admin\Views\ChuyenDi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DSKhachHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DSKhachHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
