@@ -497,6 +497,7 @@
     <Content Include="Areas\Admin\Views\DSKhachHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DSKhachHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -102,5 +102,53 @@ namespace DAL_BanVeXe
             });
             return result.ToList<DTO_NhanVienBanVe>();
         }
+        //thêm xóa sửa admin tài xế, phụ xe
+        public bool InsertTaiXe(TAIXE tx)
+        {
+            try
+            {
+                _db.TAIXEs.InsertOnSubmit(tx);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteTaiXeByID(int id)
+        {
+            try
+            {
+                TAIXE del = _db.TAIXEs.Where(p => p.ID == id).SingleOrDefault();
+                _db.TAIXEs.DeleteOnSubmit(del);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdateTaiXeByID(int id, TAIXE tx)
+        {
+            TAIXE update = _db.TAIXEs.Where(p => p.ID == id).SingleOrDefault();
+            try
+            {
+                update.ID_LOAINV = tx.ID_LOAINV;
+                update.DIACHI = tx.DIACHI;
+                update.HOTENTX = tx.HOTENTX;
+                update.NGAYSINH = tx.NGAYSINH;
+                update.GIOITINH = tx.GIOITINH;
+                update.SDT = tx.SDT;
+                _db.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
