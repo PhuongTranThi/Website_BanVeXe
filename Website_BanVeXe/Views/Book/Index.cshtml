@@ -63,7 +63,7 @@
                         <input value="@ViewData["getDat"]" style="display : none"/>
                         <div class="col-md-6 ">
                             <form action="/Info" method="post" id="form">
-                                <input id="diadiemSelect" name="diadiemSelect" style="display : none"/>
+                                <input id="diadiemSelect" name="diadiemSelect" />
                                 <input id="gheSelect" name="gheSelect"style="display : none" />
                                 <input id="donGiaNha" name="donGiaNha" style="display : none"/>
                                 <input value="@ViewData["ghedat"]" id="ghedat" name="ghedat" style="display : none" />
@@ -132,19 +132,24 @@
 </div>
 
 <script>
-    $('#diadiem').val();
-    var giokhoihanh = $('#giokhoihanh').val();
 
-    const a = giokhoihanh.toString().split('|');
+    @*var a = @ViewData["diadiem"] as List<DTO_BanVeXe.DTO_DiaDiemDon>;
+ console.log(a)
+     document.getElementById('diadiem').value = a[0].ID_Tuyen;*@
 
-    document.getElementById("idChuyenDi").value = a[1];
-
-    var soghe = a[2];
-    var gheDaDat = a[3].split(",");
-
-    document.getElementById("soghedadat").innerHTML = gheDaDat.length - 1;
-    document.getElementById("controng").innerHTML = soghe - (gheDaDat.length - 1);
-
+     
+     var giokhoihanh = $('#giokhoihanh').val();
+ 
+     const a = giokhoihanh.toString().split('|');
+ 
+     document.getElementById("idChuyenDi").value = a[1];
+ 
+     var soghe = a[2];
+     var gheDaDat = a[3].split(",");
+ 
+     document.getElementById("soghedadat").innerHTML = gheDaDat.length - 1;
+     document.getElementById("controng").innerHTML = soghe - (gheDaDat.length - 1);
+ 
     function checkGheDaDat(array, k) {
         for (var j = 0; j < array.length - 1; j++) {
             if (array[j].trim() === k.toString()) {
@@ -365,14 +370,10 @@
 </script>
 
 <script type="text/javascript">
-        $(document).ready(
-            function () {
-                $('#diadiem').change(function () {
-                    console.log($('#diadiem').val())
-                    document.getElementById('diadiemSelect').value = $('#diadiem').val();
-                });
-               
-            });
+    $('#diadiem').change(function () {
+        console.log($('#diadiem').val())
+        document.getElementById('diadiemSelect').value = $('#diadiem').val();
+    });
 </script>
 
 <script>

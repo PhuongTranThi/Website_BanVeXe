@@ -21,7 +21,12 @@ namespace Website_BanVeXe.Areas.Admin.Controllers
             ViewData["nvbanve"] = bus_nhanvien.LoadNVBanVe();
             return View();
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+       
 
-    
+
     }
 }
