@@ -2,6 +2,119 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+    var dem = 1;
 }
+<section class="p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">DANH SÁCH CHUYẾN ĐI</h3>
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <div class="rs-select2--light rs-select2--md">
+                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                <option selected="selected">Tất cả chuyến đi</option>
+
+                            </select> <div class="dropDownSelect2"></div>
+                        </div>
+
+                        <button class="au-btn-filter">
+                            <i class="zmdi zmdi-filter-list"></i>Lọc
+                        </button>
+                    </div>
+                    <div class="table-data__tool-right">
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <a href="ChuyenDi/CreateChuyenDi" style="color:white">
+                                <i class="zmdi zmdi-plus"></i>Thêm chuyến đi
+                            </a>
+                        </button>
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                            <select class="js-select2 select2-hidden-accessible" name="type" tabindex="-1" aria-hidden="true">
+                                <option selected="selected" disabled>In</option>
+                                <option value="">Word</option>
+                                <option value="">Excel</option>
+                            </select>  <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên tuyến</th>
+                                <th>Ngày khởi hành</th>
+                                <th>Giờ đi</th>
+                                <th>Biển số xe</th>
+                                <th>Tài xế </th>
+                                <th>Phụ xe</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewData["chuyendi"] as List<DTO_BanVeXe.DTO_Admin_ChuyenDi>)
+                            {
+                                var date = Convert.ToDateTime(item.NgayKhoiHanh);
+                                var ngay = "";
+                                var thang = "";
+                                var ngaydi = "";
+                                if (date.Month < 10)
+                                {
+                                    thang = "0" + date.Month.ToString();
+                                }
+                                else
+                                {
+                                    thang = date.Month.ToString();
+                                }
+
+                                if (date.Day < 10)
+                                {
+                                    ngay = "0" + date.Day.ToString();
+                                }
+                                else
+                                {
+                                    ngay = date.Day.ToString();
+                                }
+                                ngaydi = ngay + "-" + thang + "-" + date.Year;
+                                <tr class="tr-shadow">
+                                    <td>@dem</td>
+                                    <td>@item.TenTuyenDi</td>
+                                    <td>@ngaydi</td>
+                                    <td>@item.GioDi</td>
+                                    <td>@item.BienSoXe</td>
+                                    <td>@item.TenTaiXe</td>
+                                    <td>@item.TenPhuXe</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                <a href="ChuyenDi/EditChuyenDi/@item.ID_ChuyenDi"><i class="zmdi zmdi-edit"></i></a>
+                                            </button>
+                                            <button onclick="deleteChuyenDi(@item.ID_ChuyenDi)" class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="spacer"></tr>
+                                dem++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function deleteChuyenDi(id) {
+        var r = confirm("Bạn có muốn xóa chuyến đi này không!");
+        if (r == true) {
+            return location.href = `/Admin/ChuyenDi/DeleteChuyenDi/${id}`;
+        } else {
+            // cancel
+        }
+    }
+</script>
 
 

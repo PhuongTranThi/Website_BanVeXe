@@ -15,8 +15,7 @@
                         <div class="rs-select2--light rs-select2--md">
                             <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
                                 <option selected="selected">Tất cả tuyến đi</option>
-                                <option value=""></option>
-                                <option value=""></option>
+                               
                             </select> <div class="dropDownSelect2"></div>
                         </div>
                       
@@ -26,7 +25,9 @@
                     </div>
                     <div class="table-data__tool-right">
                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                            <i class="zmdi zmdi-plus"></i>Thêm tuyến đi
+                            <a href="TuyenDi/CreateTuyenDi" style="color:white">
+                                <i class="zmdi zmdi-plus"></i>Thêm tuyến đi
+                            </a>
                         </button>
                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                             <select class="js-select2 select2-hidden-accessible" name="type" tabindex="-1" aria-hidden="true">
@@ -67,9 +68,9 @@
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
+                                                <a href="TuyenDi/EditTuyenDi/@item.ID_Tuyen"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <button onclick="deleteTuyenDi(@item.ID_Tuyen)" class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
 
@@ -86,5 +87,15 @@
         </div>
     </div>
 </section>
+<script>
+    function deleteTuyenDi(id) {
+        var r = confirm("Bạn có muốn xóa tuyến đi này không!");
+        if (r == true) {
+            return location.href = `/Admin/TuyenDi/DeleteTuyenDi/${id}`;
+        } else {
+            // cancel
+        }
+    }
+</script>
 
 

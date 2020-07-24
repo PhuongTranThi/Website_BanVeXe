@@ -1,137 +1,137 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 15.375" name="Data_BanVeXe">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 14.375" name="Data_BanVeXe">
   <DataContextMoniker Name="/Data_BanVeXeDataContext" />
   <nestedChildShapes>
-    <classShape Id="6c20d2b6-ccae-4d3a-b999-48285ad95958" absoluteBounds="0.75, 0.75, 2, 2.3478011067708335">
+    <classShape Id="1b344fe9-6bba-47d6-823f-8b42e4615dad" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/Data_BanVeXeDataContext/CHUYENDI" />
       <nestedChildShapes>
-        <elementListCompartment Id="71185451-9fa0-46dc-b254-01643e212cdb" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="dfd27fd9-140f-4531-b32f-459a2a0e83c4" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f628e4a9-bf45-47ba-bc19-bc29bed4e0f8" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/XE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b4fb94f6-b29c-4f62-a2c0-3bba2a5e078e" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="4d32a9b4-73c8-4090-b741-c58a2c1943f9" absoluteBounds="3.75, 3.75, 2, 2.9247054036458326">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/VE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ae9512ac-ea44-4ea1-95dc-1330e70a993f" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="f80c03b5-61c7-4dc4-886d-7eb0f874ea50" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/USER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a8bb3e72-ca81-4f04-870e-4056f57d1e16" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="55bcabd4-b0ec-47dd-ab06-c600be8ecbde" absoluteBounds="6.75, 3.75, 2, 2.347801106770834">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/TUYENDI" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a3e68ff2-b8b8-414b-b097-fdde2e805dba" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="004f2172-112e-422e-9319-61098865db23" absoluteBounds="0.75, 7.75, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/TAIXE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="91ca37a9-2fcd-4c29-81f3-4a742c528082" absoluteBounds="0.765, 8.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="b46952ab-ca02-42e5-be73-39700829fba6" absoluteBounds="3.75, 7.75, 2, 1.3862939453124996">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_PHANQUYEN" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8f8244d0-80e4-45f7-83e7-36874a073e2c" absoluteBounds="3.765, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="68963293-7893-4be8-a2f1-c8be12a01d1f" absoluteBounds="6.75, 7.75, 2, 1.3862939453124996">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_NHOMNGUOIDUNG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5f84bfdb-18b6-4345-b6cd-a3e5d0088b67" absoluteBounds="6.765, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="c65a0241-a114-41ee-a2de-b63431c4c20d" absoluteBounds="9.75, 0.75, 2, 1.3862939453125003">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_NGUOIDUNG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="96417708-2c01-457c-8f1c-440235c6ba09" absoluteBounds="9.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="147ddcb4-1f99-470a-bca3-c7dbbc5cf267" absoluteBounds="9.75, 3.75, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_NGUOIDUNGNHOMNGUOIDUNG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ebc4b01f-4ca1-4060-b1ea-ae0ba23e6580" absoluteBounds="9.765, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="a360cd7e-7e25-4dc3-a0f7-0bf1703a850c" absoluteBounds="9.75, 6.75, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/PHUXE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2585eb23-43d4-44b0-9f3e-9886d2c43e07" absoluteBounds="9.765, 7.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="2084ee62-a517-45ec-b5d9-2a8cd74b7bee" absoluteBounds="9.75, 9.75, 2, 1.1939925130208344">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/NOIDI" />
-      <nestedChildShapes>
-        <elementListCompartment Id="beaafa3d-a807-44f3-b863-6875947c273f" absoluteBounds="9.765, 10.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="e77223b0-cc36-4365-a508-19655718f94b" absoluteBounds="0.75, 10.75, 2, 1.1939925130208344">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/NOIDEN" />
-      <nestedChildShapes>
-        <elementListCompartment Id="1693cb4e-b9c9-4b68-98ec-19e313ad429f" absoluteBounds="0.765, 11.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="d90a0a9a-03b1-44dc-8d17-84f7385ed224" absoluteBounds="3.75, 10.75, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/NHANVIEN" />
-      <nestedChildShapes>
-        <elementListCompartment Id="684dc1d9-3008-48aa-99c8-0b1a050e357f" absoluteBounds="3.765, 11.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="ab57c933-d68a-48d0-ac49-d1685f2c56dc" absoluteBounds="6.75, 11.75, 2, 1.3862939453124987">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/LOAIXE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7b24f358-5847-4116-b8ef-bbf6a342645e" absoluteBounds="6.765, 12.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="ec6636ca-406a-44cc-8209-4797dc044a0a" absoluteBounds="9.75, 11.75, 2, 1.1939925130208344">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/LOAINHANVIEN" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f69318b5-5fc5-4b0a-a8d1-2d15ee3f0011" absoluteBounds="9.765, 12.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="9cfed928-0083-4bd0-908e-3d2345082fb1" absoluteBounds="12.75, 0.75, 2, 1.1939925130208335">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/LOAINGUOIDUNG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6bf3517a-d5a0-4336-bfc0-662b035c7b33" absoluteBounds="12.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="05c46d76-62f4-4d25-8d49-ff22a732d94e" absoluteBounds="12.75, 2.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/LIENHE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="05cacb86-9d1f-431a-b083-d981dbd6047f" absoluteBounds="12.765, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="2969c0c4-80e3-47af-8d1a-8c5fd28d4622" absoluteBounds="12.75, 5.75, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/KHACHHANG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="c48e1472-f4d8-4a6c-aa40-00a1af68435d" absoluteBounds="12.765, 6.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="b73322f4-d8d4-49e9-a01b-3411074e7c66" absoluteBounds="12.75, 8.75, 2, 1.3862939453124987">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/GHE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="c11ca226-9a2d-4091-bc04-5ac0a9851780" absoluteBounds="12.765, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="959689c1-6eb7-4191-9472-bc3bab2daa01" absoluteBounds="12.75, 11.75, 2, 1.1939925130208344">
-      <DataClassMoniker Name="/Data_BanVeXeDataContext/DM_MANHINH" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5093ae83-7ae1-4225-b360-abfba02d2064" absoluteBounds="12.765, 12.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="24f12dec-cb68-400f-9e77-36f752078d7b" absoluteBounds="0.75, 13.75, 2, 1.3862939453124987">
+    <classShape Id="e78eed50-a3cb-44bf-9bb3-bbf683687fc3" absoluteBounds="3.75, 0.75, 2, 1.3862939453125">
       <DataClassMoniker Name="/Data_BanVeXeDataContext/DIADIEMLENXE" />
       <nestedChildShapes>
-        <elementListCompartment Id="daea484e-4cb2-4f0f-b6b8-f64ae8ce2bcd" absoluteBounds="0.765, 14.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8788035c-e5e8-4a66-b445-3587f42e2089" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="afafccc4-0089-4d02-b0e5-ecf5b6ac1595" absoluteBounds="0.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/DM_MANHINH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59e9dc24-7730-4eb0-a9f8-10caedb7cc1c" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3412f94-977c-4e40-880a-c940291c5eed" absoluteBounds="3.75, 3.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/GHE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="617a45ce-8d32-4588-820a-8b077ad4ec7f" absoluteBounds="3.765, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19715d8e-88f6-4a54-9e30-d5b3740ad9cc" absoluteBounds="6.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/KHACHHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eccd5ee8-44e3-4061-98ed-8c7dc673ee2a" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="992cb0a4-0032-485a-a792-d109f0e43058" absoluteBounds="0.75, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/LIENHE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e9dfebf-7a61-41ae-b56d-d69d1ef30598" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d93681fa-95da-42f7-aebe-b1ef6e5dfe38" absoluteBounds="6.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/LOAINGUOIDUNG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49d6e497-2441-4387-b17c-14bddfcec6ed" absoluteBounds="6.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0fbfbcee-aa7c-4b03-9653-be96b0180979" absoluteBounds="3.75, 6.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/LOAINHANVIEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c88282a-a2c7-4642-b239-5beed9b8fea1" absoluteBounds="3.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="436adc9a-cbb7-4158-b961-2f071fc4349c" absoluteBounds="6.75, 5.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/LOAIXE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa848b59-1cee-4d03-860f-38aa5b82e413" absoluteBounds="6.765, 6.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="211720e6-f5f9-4fda-a895-c6c81abb8dd9" absoluteBounds="3.75, 8.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/NHANVIEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a66217f4-78dd-41f3-8a14-10b657069c8f" absoluteBounds="3.765, 9.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96c33fe9-5cc6-41f2-bac4-ac39ea07f790" absoluteBounds="6.75, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/NOIDEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7212068b-1183-4dd2-832e-94b43c5cb57f" absoluteBounds="6.765, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10204ea9-15c7-4f05-9afe-9117b79f7250" absoluteBounds="9.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/PHUXE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e78768d-f871-46c1-b120-49dfc44f7063" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c439295c-7e22-4925-8280-a98e2a33d2fa" absoluteBounds="9.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/NOIDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61485404-2d34-4afc-91e7-033e8ebeb65c" absoluteBounds="9.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46ec05df-6ca1-4ec4-a24a-93505f88563b" absoluteBounds="9.75, 5.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_NGUOIDUNG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="db0de708-b863-4b31-b0d8-a73c60eddd46" absoluteBounds="9.765, 6.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="232d3edb-ab1c-43f3-8cf3-bfec1815d779" absoluteBounds="9.75, 8.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_NGUOIDUNGNHOMNGUOIDUNG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b85a4df-c465-42cf-a8fb-95c7a9d69ad8" absoluteBounds="9.765, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00e12046-48d3-4262-a1f7-8d487be098f1" absoluteBounds="0.75, 11.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_NHOMNGUOIDUNG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6196eed-1742-4790-b0f2-133036e97b4b" absoluteBounds="0.765, 12.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a58185d-6a38-4df5-a0e8-8072fc5a069f" absoluteBounds="3.75, 11.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/QL_PHANQUYEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2fb228dc-2cfc-402c-a894-defaff055a49" absoluteBounds="3.765, 12.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b4498cf-1cc3-4bd3-a4c0-315f098301c8" absoluteBounds="6.75, 11.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/TAIXE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="967f4d37-d353-474f-9e03-234e011254f1" absoluteBounds="6.765, 12.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d07f250-aef6-495a-8dec-a9190a23c1e5" absoluteBounds="9.75, 11.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/TUYENDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89e81cbd-ec72-4910-97e2-1ba6e4c722b4" absoluteBounds="9.765, 12.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fb79633c-6f7b-4827-8b10-1359dc703f61" absoluteBounds="12.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7512ae15-cdae-4934-9491-7d8b25170c9e" absoluteBounds="12.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91aef1a2-fb37-4d46-976c-d7b67e71dd30" absoluteBounds="12.75, 3.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/VE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5faea9ac-205c-48d9-9707-9d02096591a5" absoluteBounds="12.765, 4.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e058d74-23a9-45ae-b4ec-3360ab49a9eb" absoluteBounds="12.75, 7.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Data_BanVeXeDataContext/XE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d1a12bf-e6a2-47f8-ad9e-b3c350ceaafe" absoluteBounds="12.765, 8.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

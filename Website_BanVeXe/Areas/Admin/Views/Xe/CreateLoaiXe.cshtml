@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "CreateLoaiXe";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">THÊM LOẠI XE</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        <form id="form" method="post">
+                            <input id="id" style="display : none" />
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Tên loại xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:36px">
+                                    <input maxlength="100" required class="au-input au-input--xl" name="tenloaixe" placeholder="Nhập tên loại xe" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Số lượng ghế:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:16px">
+                                    <input maxlength="100" required class="au-input au-input--xl" name="sochongoi" placeholder="Nhập số lượng ghế" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+
+                            <div class="table-data__tool-right" style="text-align:center;">
+                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <a style="color:white" href='@Url.Action("Index", "Xe")'>
+                                        <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                    </a>
+                                </button>
+                                <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-plus"></i>Thêm
+                                </button>
+                            </div>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

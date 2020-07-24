@@ -24,9 +24,30 @@ namespace BUS_BanVeXe
         {
             return dalTuyenDi.LoadNoiDen();
         }
+        public List<LOAIXE> LoadLoaiXe()
+        {
+            return dalTuyenDi.LoadLoaiXe();
+        }
         public List<DTO_Admin_TuyenDi> LoadTuyenDiAdmin()
         {
             return dalTuyenDi.LoadTuyenDiAdmin();
+        }
+        //them xóa sửa admin
+        public TUYENDI LoadTuyenDiByID(int id)
+        {
+            return dalTuyenDi.LoadTuyenDiByID(id);
+        }
+        public bool UpdateTuyenDiByID(int id, TUYENDI td)
+        {
+            return dalTuyenDi.UpdateTuyenDiByID(id, td);
+        }
+        public bool DeleteTuyenDiByID(int id)
+        {
+            return dalTuyenDi.DeleteTuyenDiByID(id);
+        }
+        public bool InsertTuyeDi(TUYENDI td)
+        {
+            return dalTuyenDi.InsertTuyenDi(td);
         }
     }
 }

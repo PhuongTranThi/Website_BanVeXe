@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "EditTuyenDi";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">CẬP NHẬT TUYẾN ĐI</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        @if (ViewData["data"] != null)
+                        {
+                            var x = ViewData["data"] as DAL_BanVeXe.TUYENDI;
+                            <form id="form" method="post">
+
+
+                                <input id="id" style="display : none" />
+
+
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Tên tuyến:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:36px">
+                                        <input maxlength="100" required class="au-input au-input--xl" name="tentuyen" value="@x.TENTUYEN" placeholder="Nhập tên tuyến" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right" style="margin-bottom:20px;">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Nơi đi:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:71px">
+                                        <select id="noidi" class="au-input au-input--xl" name="noidi" style="height:48px">
+                                            <option value="1">TP. Hồ Chí Minh</option>
+                                            <option value="2">Bình Định</option>
+                                            <option value="3">Hà Tĩnh</option>
+                                            <option value="4">Đà Lạt</option>
+                                            <option value="5">Bến Tre</option>
+                                            <option value="6">Đà Nẵng</option>
+                                        </select>
+                                        <input id="noidiSelect" name="noidiSelect" value="@x.ID_NOIDI" style="display:none"/>
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right" style="margin-bottom:20px;">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Nơi đến:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:57px">
+                                        <select id="noiden" class="au-input au-input--xl" name="noiden" style="height:48px">
+                                            <option value="1">TP. Hồ Chí Minh</option>
+                                            <option value="2">Bình Định</option>
+                                            <option value="3">Hà Tĩnh</option>
+                                            <option value="4">Đà Lạt</option>
+                                            <option value="5">Bến Tre</option>
+
+                                        </select>
+                                        <input id="noidenSelect" name="noidenSelect" value="@x.ID_NOIDEN" style="display:none"/>
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right" style="margin-bottom:20px;">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Loại xe:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:62px">
+                                        <select id="loaixe" class="au-input au-input--xl" name="loaixe" style="height:48px">
+                                            <option value="1">Xe giường nằm 44 chỗ</option>
+                                            <option value="2">Xe ghế 34 chỗ</option>
+                                        </select>
+                                        <input id="loaixeSelect" name="loaixeSelect" value="@x.ID_LOAIXE" style="display:none"/>
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Đơn giá:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:52px">
+                                        <input maxlength="100" required class="au-input au-input--xl" name="dongia" value="@x.DONGIA" placeholder="Nhập đơn giá" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Khoảng cách:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:9px">
+                                        <input maxlength="100" required class="au-input au-input--xl" value="@x.KHOANGCACH" name="khoangcach" placeholder="Nhập khoảng cách (km)" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Số giờ chạy:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:26px">
+                                        <input maxlength="100" required class="au-input au-input--xl" value="@x.SOGIOCHAY" name="sogiochay" placeholder="Nhập số giờ chạy (tiếng)" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <br />
+                                <div class="table-data__tool-right" style="text-align:center;">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <a style="color:white" href='@Url.Action("Index", "TuyenDi")'>
+                                            <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                        </a>
+                                    </button>
+                                    <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>Cập nhật
+                                    </button>
+                                </div>
+                            </form>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#noidi').change(function () {
+            console.log($('#noidiSelect').val())
+            document.getElementById('noidiSelect').value = $('#noidi').val();
+        });
+        $('#noiden').change(function () {
+            console.log($('#noidenSelect').val())
+            document.getElementById('noidenSelect').value = $('#noiden').val();
+        });
+        $('#loaixe').change(function () {
+            console.log($('#loaixeSelect').val())
+            document.getElementById('loaixeSelect').value = $('#loaixe').val();
+        });
+    });
+</script>
+
+
+

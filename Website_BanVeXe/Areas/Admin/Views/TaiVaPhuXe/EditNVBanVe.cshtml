@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "EditNVBanVe";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">CẬP NHẬT NHÂN VIÊN BÁN VÉ</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        @if (ViewData["data"] != null)
+                        {
+                            var x = ViewData["data"] as DAL_BanVeXe.NHANVIEN;
+                            var date = Convert.ToDateTime(x.NGAYSINH);
+                            var ngay = "";
+                            var thang = "";
+                            var ngaysinh = "";
+                            if (date.Month < 10)
+                            {
+                                thang = "0" + date.Month.ToString();
+                            }
+                            else
+                            {
+                                thang = date.Month.ToString();
+                            }
+
+                            if (date.Day < 10)
+                            {
+                                ngay = "0" + date.Day.ToString();
+                            }
+                            else
+                            {
+                                ngay = date.Day.ToString();
+                            }
+                            ngaysinh = date.Year + "-" + thang + "-" + ngay;
+                            <form id="form" method="post">
+                                <input id="id" style="display : none" />
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Họ tên nhân viên:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:1px">
+                                        <input maxlength="30" required class="au-input au-input--xl" value="@x.HOTENNV" name="hoten" placeholder="Nhập họ tên" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Ngày sinh:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:54px">
+                                        <input required class="au-input au-input--xl" type="date" value="@ngaysinh" name="ngaysinh" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right" style="margin-bottom:12px">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Giới tính:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:68px">
+                                        <select class="au-input au-input--xl" style="height:45px;" id="gioitinh">
+                                          
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                        </select>
+                                        <input id="gioitinhSelect" name="gioitinhSelect" value="@x.GIOITINH" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Số điện thoại:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:37px">
+                                        <input maxlength="11" required class="au-input au-input--xl" value="@x.SDT" name="sdt" placeholder="Nhập số điện thoại" />
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Địa chỉ:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:80px">
+                                        <input maxlength="100" required type="text" class="au-input au-input--xl" value="@x.DIACHI" name="diachi" placeholder="Nhập địa chỉ" />
+                                    </span>
+                                </div>
+
+                                <div class="table-data__tool-right">
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-2">Loại nhân viên:&nbsp;</span>
+                                    <span class="col-md-4" style="margin-left:21px">
+                                        <input maxlength="100" required type="text" class="au-input au-input--xl" value="Nhân viên bán vé" name="loainv" readonly />
+
+                                    </span>
+                                    <span class="col-md-3"></span>
+                                </div>
+                                <br />
+                                <div class="table-data__tool-right" style="text-align:center;">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <a style="color:white" href='@Url.Action("Index", "TaiVaPhuXe")'>
+                                            <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                        </a>
+                                    </button>
+                                    <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>Cập nhật
+                                    </button>
+                                </div>
+                            </form>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('#gioitinh').change(function () {
+            console.log($('#gioitinh').val())
+                document.getElementById('gioitinhSelect').value = $('#gioitinh').val();
+
+
+        });
+        $('#loainv').change(function () {
+            console.log($('#loainv').val())
+            document.getElementById('loainvSelect').value = $('#loainv').val();
+        });
+    });
+</script>
+
+

@@ -10,6 +10,10 @@ namespace DAL_BanVeXe
     public class DAL_NhanVien
     {
         Data_BanVeXeDataContext _db = new Data_BanVeXeDataContext();
+        public List<LOAINHANVIEN> LoadLoaiNhanVien()
+        {
+            return _db.LOAINHANVIENs.Select(p => p).ToList<LOAINHANVIEN>();
+        }
         public List<DTO_TaiXe> LoadTaiXe()
         {
             var phuong = from taixe in _db.TAIXEs
@@ -102,7 +106,19 @@ namespace DAL_BanVeXe
             });
             return result.ToList<DTO_NhanVienBanVe>();
         }
-        //thêm xóa sửa admin tài xế, phụ xe
+        public TAIXE LoadTaiXeByID(int id)
+        {
+            return _db.TAIXEs.Where(p => p.ID == id).SingleOrDefault();
+        }
+        public PHUXE LoadPhuXeByID(int id)
+        {
+            return _db.PHUXEs.Where(p => p.ID == id).SingleOrDefault();
+        }
+        public NHANVIEN LoadNVBanVeByID(int id)
+        {
+            return _db.NHANVIENs.Where(p => p.ID == id).SingleOrDefault();
+        }
+        //thêm xóa sửa admin tài xế
         public bool InsertTaiXe(TAIXE tx)
         {
             try
@@ -141,6 +157,102 @@ namespace DAL_BanVeXe
                 update.NGAYSINH = tx.NGAYSINH;
                 update.GIOITINH = tx.GIOITINH;
                 update.SDT = tx.SDT;
+                _db.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        //thêm xóa sửa admin phụ xế
+        public bool InsertPhuXe(PHUXE px)
+        {
+            try
+            {
+                _db.PHUXEs.InsertOnSubmit(px);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeletePhuXeByID(int id)
+        {
+            try
+            {
+                PHUXE del = _db.PHUXEs.Where(p => p.ID == id).SingleOrDefault();
+                _db.PHUXEs.DeleteOnSubmit(del);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdatePhuXeByID(int id, PHUXE px)
+        {
+            PHUXE update = _db.PHUXEs.Where(p => p.ID == id).SingleOrDefault();
+            try
+            {
+                update.ID_LOAINV = px.ID_LOAINV;
+                update.DIACHI = px.DIACHI;
+                update.HOTENPX = px.HOTENPX;
+                update.NGAYSINH = px.NGAYSINH;
+                update.GIOITINH = px.GIOITINH;
+                update.SDT = px.SDT;
+                _db.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        //thêm xóa sửa admin nhân viên bán vé
+        public bool InsertNVBanVe(NHANVIEN nvbv)
+        {
+            try
+            {
+                _db.NHANVIENs.InsertOnSubmit(nvbv);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteNVBanVeByID(int id)
+        {
+            try
+            {
+                NHANVIEN del = _db.NHANVIENs.Where(p => p.ID == id).SingleOrDefault();
+                _db.NHANVIENs.DeleteOnSubmit(del);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdateNVBanVeByID(int id, NHANVIEN nvbv)
+        {
+            NHANVIEN update = _db.NHANVIENs.Where(p => p.ID == id).SingleOrDefault();
+            try
+            {
+                update.ID_LOAINV = nvbv.ID_LOAINV;
+                update.DIACHI = nvbv.DIACHI;
+                update.HOTENNV = nvbv.HOTENNV;
+                update.NGAYSINH = nvbv.NGAYSINH;
+                update.GIOITINH = nvbv.GIOITINH;
+                update.SDT = nvbv.SDT;
                 _db.SubmitChanges();
 
                 return true;

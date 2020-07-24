@@ -1,8 +1,10 @@
-﻿
+﻿n
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
     var dem = 1;
+
+    
 }
 
 <section class="p-t-20">
@@ -15,18 +17,29 @@
                         <div class="rs-select2--light rs-select2--md">
                             <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
                                 <option selected="selected">Tất cả nhân viên</option>
-                                <option value="">Nam</option>
-                                <option value="">Nữ</option>
+                               
                             </select> <div class="dropDownSelect2"></div>
                         </div>
-                       
+
                         <button class="au-btn-filter">
                             <i class="zmdi zmdi-filter-list"></i>Lọc
                         </button>
                     </div>
                     <div class="table-data__tool-right">
                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                            <i class="zmdi zmdi-plus"></i>Thêm nhân viên
+                            <a href="TaiVaPhuXe/CreateTaiXe" style="color:white">
+                                <i class="zmdi zmdi-plus"></i>Thêm tài xế
+                            </a>
+                        </button>
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <a href="TaiVaPhuXe/CreatePhuXe" style="color:white">
+                                <i class="zmdi zmdi-plus"></i>Thêm phụ xe
+                            </a>
+                        </button>
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <a href="TaiVaPhuXe/CreateNVBanVe" style="color:white">
+                                <i class="zmdi zmdi-plus"></i>Thêm nhân viên bán vé
+                            </a>
                         </button>
                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                             <select class="js-select2 select2-hidden-accessible" name="type" tabindex="-1" aria-hidden="true">
@@ -44,7 +57,7 @@
                                 <th>STT</th>
                                 <th>Họ tên nhân viên</th>
                                 <th>Giới tính</th>
-                                <th>Ngày sinh</th>
+                                <th style="width:130px">Ngày sinh</th>
                                 <th>Số điện thoại</th>
                                 <th>Địa chỉ</th>
                                 <th>Loại nhân viên</th>
@@ -54,23 +67,45 @@
                         <tbody>
                             @foreach (var item in ViewData["taixe"] as List<DTO_BanVeXe.DTO_TaiXe>)
                             {
+                                var date = Convert.ToDateTime(item.NgaySinhTX);
+                                var ngay = "";
+                                var thang = "";
+                                var ngaysinh = "";
+                                if (date.Month < 10)
+                                {
+                                    thang = "0" + date.Month.ToString();
+                                }
+                                else
+                                {
+                                    thang = date.Month.ToString();
+                                }
+
+                                if (date.Day < 10)
+                                {
+                                    ngay = "0" + date.Day.ToString();
+                                }
+                                else
+                                {
+                                    ngay = date.Day.ToString();
+                                }
+                                ngaysinh = ngay + "-" + thang + "-" + date.Year;
                                 <tr class="tr-shadow">
                                     <td>@dem</td>
                                     <td>@item.HoTenTX</td>
                                     <td>@item.GioiTinhTX</td>
-                                    <td>@item.NgaySinhTX</td>
+                                    <td>@ngaysinh</td>
                                     <td>@item.SDTTX</td>
                                     <td>@item.DiaChiTX</td>
                                     <td>@item.TenLoaiNhanVien</td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
+                                                <a href="TaiVaPhuXe/EditTaiXe/@item.ID_TaiXe"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <button onclick="deleteTaiXe(@item.ID_TaiXe)" class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
-                                           
+
                                         </div>
                                     </td>
                                 </tr>
@@ -79,23 +114,45 @@
                             }
                             @foreach (var item in ViewData["phuxe"] as List<DTO_BanVeXe.DTO_PhuXe>)
                             {
+                                var date = Convert.ToDateTime(item.NgaySinhPX);
+                                var ngay = "";
+                                var thang = "";
+                                var ngaysinh = "";
+                                if (date.Month < 10)
+                                {
+                                    thang = "0" + date.Month.ToString();
+                                }
+                                else
+                                {
+                                    thang = date.Month.ToString();
+                                }
+
+                                if (date.Day < 10)
+                                {
+                                    ngay = "0" + date.Day.ToString();
+                                }
+                                else
+                                {
+                                    ngay = date.Day.ToString();
+                                }
+                                ngaysinh = ngay + "-" + thang + "-" + date.Year;
                                 <tr class="tr-shadow">
                                     <td>@dem</td>
                                     <td>@item.HoTenPX</td>
                                     <td>@item.GioiTinhPX</td>
-                                    <td>@item.NgaySinhPX</td>
+                                    <td>@ngaysinh</td>
                                     <td>@item.SDTPX</td>
                                     <td>@item.DiaChiPX</td>
                                     <td>@item.TenLoaiNhanVien</td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
+                                                <a href="TaiVaPhuXe/EditPhuXe/@item.ID_PhuXe"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <button onclick="deletePhuXe(@item.ID_PhuXe)" class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
-                                           
+
                                         </div>
                                     </td>
                                 </tr>
@@ -104,23 +161,45 @@
                             }
                             @foreach (var item in ViewData["nvbanve"] as List<DTO_BanVeXe.DTO_NhanVienBanVe>)
                             {
+                                var date = Convert.ToDateTime(item.NgaySinhNVBV);
+                                var ngay = "";
+                                var thang = "";
+                                var ngaysinh = "";
+                                if (date.Month < 10)
+                                {
+                                    thang = "0" + date.Month.ToString();
+                                }
+                                else
+                                {
+                                    thang = date.Month.ToString();
+                                }
+
+                                if (date.Day < 10)
+                                {
+                                    ngay = "0" + date.Day.ToString();
+                                }
+                                else
+                                {
+                                    ngay = date.Day.ToString();
+                                }
+                                ngaysinh = ngay + "-" + thang + "-" + date.Year;
                                 <tr class="tr-shadow">
                                     <td>@dem</td>
                                     <td>@item.HoTenNVBV</td>
                                     <td>@item.GioiTinhNVBV</td>
-                                    <td>@item.NgaySinhNVBV</td>
+                                    <td>@ngaysinh</td>
                                     <td>@item.SDTNVBV</td>
                                     <td>@item.DiaChiNVBV</td>
                                     <td>@item.TenLoaiNhanVien</td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
+                                                <a href="TaiVaPhuXe/EditNVBanVe/@item.ID_NVBanVe"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <button onclick="deleteNVBanVe(@item.ID_NVBanVe)" class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
-                                          
+
                                         </div>
                                     </td>
                                 </tr>
@@ -134,4 +213,34 @@
         </div>
     </div>
 </section>
+<script>
+    function deleteTaiXe(id) {
+        var r = confirm("Bạn có muốn xóa tài xế này không!");
+        if (r == true) {
+            return location.href = `/Admin/TaiVaPhuXe/DeleteTaiXe/${id}`;
+        } else {
+            // cancel
+        }
+    }
+</script>
+<script>
+    function deletePhuXe(id) {
+        var r = confirm("Bạn có muốn xóa phụ xe này không!");
+        if (r == true) {
+            return location.href = `/Admin/TaiVaPhuXe/DeletePhuXe/${id}`;
+        } else {
+            // cancel
+        }
+    }
+</script>
+<script>
+    function deleteNVBanVe(id) {
+        var r = confirm("Bạn có muốn xóa nhân viên bán vé này không!");
+        if (r == true) {
+            return location.href = `/Admin/TaiVaPhuXe/DeleteNVBanVe/${id}`;
+        } else {
+            // cancel
+        }
+    }
+</script>
 

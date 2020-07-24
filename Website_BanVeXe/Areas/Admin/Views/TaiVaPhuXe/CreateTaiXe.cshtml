@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "CreateTaiXe";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+    var a = ViewData["loainhanvien"] as List<DAL_BanVeXe.LOAINHANVIEN>;
+
+}
+
+
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">THÊM TÀI XẾ</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        <form id="form" method="post">
+                            <input id="id" style="display : none" />
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Họ tên tài xế:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:36px">
+                                    <input maxlength="30" required class="au-input au-input--xl" name="hoten" placeholder="Nhập họ tên" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Ngày sinh:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:54px">
+                                    <input required class="au-input au-input--xl" type="date" name="ngaysinh" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Giới tính:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:67px">
+                                    <select class="au-input au-input--xl" style="height:48px;" id="gioitinh">
+                                        <option disabled selected>Chọn giới tính</option>
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                    </select>
+                                    <input id="gioitinhSelect" name="gioitinhSelect"  />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                           
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Số điện thoại:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:37px">
+                                    <input maxlength="11" required class="au-input au-input--xl" name="sdt" placeholder="Nhập số điện thoại" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Địa chỉ:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:80px">
+                                    <input maxlength="100" required type="text" class="au-input au-input--xl" name="diachi" placeholder="Nhập địa chỉ" />
+                                </span>
+                            </div>
+
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Loại nhân viên:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:21px">
+                                        <input maxlength="100" required type="text" class="au-input au-input--xl" name="loainv" readonly value="@a[1].TENLOAINV" />
+                                    <input id="loainvSelect" name="loainvSelect" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <br />
+                            <div class="table-data__tool-right" style="text-align:center;">
+                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <a style="color:white" href='@Url.Action("Index", "TaiVaPhuXe")'>
+                                        <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                    </a>
+                                </button>
+                                <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-plus"></i>Thêm
+                                </button>
+                            </div>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('#gioitinh').change(function () {
+            console.log($('#gioitinh').val())
+            document.getElementById('gioitinhSelect').value = $('#gioitinh').val();
+        });
+        $('#loainv').change(function () {
+            console.log($('#loainv').val())
+            document.getElementById('loainvSelect').value = $('#loainv').val();
+        });
+    });
+</script>
+
+
+

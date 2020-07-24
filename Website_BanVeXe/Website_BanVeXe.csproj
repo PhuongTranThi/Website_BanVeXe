@@ -131,9 +131,11 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuyenDiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DatVeChoKhachController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\DSKhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogoutAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiVaPhuXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TuyenDiController.cs" />
     <Compile Include="Areas\Admin\Controllers\XeController.cs" />
@@ -497,7 +499,20 @@
     <Content Include="Areas\Admin\Views\DSKhachHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DSKhachHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiVaPhuXe\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\EditTaiXe.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\CreateTaiXe.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\CreatePhuXe.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\EditPhuXe.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\CreateNVBanVe.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiVaPhuXe\EditNVBanVe.cshtml" />
+    <Content Include="Areas\Admin\Views\Xe\CreateXe.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDon\CreateDD.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenDi\CreateTuyenDi.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenDi\EditTuyenDi.cshtml" />
+    <Content Include="Areas\Admin\Views\Xe\CreateLoaiXe.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenDi\CreateChuyenDi.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenDi\EditChuyenDi.cshtml" />
+    <Content Include="Areas\Admin\Views\DatVeChoKhach\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -824,6 +839,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\LogoutAdmin\" />
     <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>
