@@ -52,6 +52,24 @@
     <Compile Include="DAL_LichTrinh.cs" />
     <Compile Include="DAL_NhanVien.cs" />
     <Compile Include="DAL_TuyenDi.cs" />
+    <Compile Include="DAL_Winform_ChuyenDi.cs" />
+    <Compile Include="DAL_Winform_DiaDiemDon.cs" />
+    <Compile Include="DAL_Winform_KhachHang.cs" />
+    <Compile Include="DAL_Winform_LoaiNhanVien.cs" />
+    <Compile Include="DAL_Winform_LoaiXe.cs" />
+    <Compile Include="DAL_Winform_NoiDen.cs" />
+    <Compile Include="DAL_Winform_NVBanVe.cs" />
+    <Compile Include="DAL_Winform_PhanQuyen.cs" />
+    <Compile Include="DAL_Winform_PhuXe.cs" />
+    <Compile Include="DAL_Winform_QL_NguoiDung.cs" />
+    <Compile Include="DAL_Winform_QL_NguoiDungNhomNguoiDung.cs" />
+    <Compile Include="DAL_Winform_QL_NhomNguoiDung.cs" />
+    <Compile Include="DAL_Winform_QuanLyNguoiDung.cs" />
+    <Compile Include="DAL_Winform_TaiXe.cs" />
+    <Compile Include="DAL_Winform_TuyenDi.cs" />
+    <Compile Include="DAL_Winform_Ve.cs" />
+    <Compile Include="DAL_Winform_Xe.cs" />
+    <Compile Include="DAL_Winfrom_NoiDi.cs" />
     <Compile Include="DAL_Xe.cs" />
     <Compile Include="Data_BanVeXe.designer.cs">
       <AutoGen>True</AutoGen>
@@ -63,6 +81,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="QL_PhanQuyen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QL_PhanQuyen.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +101,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QL_PhanQuyen.xsc">
+      <DependentUpon>QL_PhanQuyen.xsd</DependentUpon>
+    </None>
+    <None Include="QL_PhanQuyen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QL_PhanQuyen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QL_PhanQuyen.xss">
+      <DependentUpon>QL_PhanQuyen.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

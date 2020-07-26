@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO_BanVeXe", "DTO_BanVeXe\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS_BanVeXe", "BUS_BanVeXe\BUS_BanVeXe.csproj", "{E3B2CF50-727C-4A48-8D0E-6F5DE11239AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_BanVeXe", "GUI_BanVeXe\GUI_BanVeXe.csproj", "{C5442240-91AD-492A-9EC9-381CDA9FBB37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E3B2CF50-727C-4A48-8D0E-6F5DE11239AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3B2CF50-727C-4A48-8D0E-6F5DE11239AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3B2CF50-727C-4A48-8D0E-6F5DE11239AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5442240-91AD-492A-9EC9-381CDA9FBB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5442240-91AD-492A-9EC9-381CDA9FBB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5442240-91AD-492A-9EC9-381CDA9FBB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5442240-91AD-492A-9EC9-381CDA9FBB37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
