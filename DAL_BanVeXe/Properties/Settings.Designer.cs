@@ -55,5 +55,18 @@ namespace DAL_BanVeXe.Properties {
                 return ((string)(this["DB_XEKHACHConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2FGDGJI\\SQLEXPRESS;Initial Catalog=DB_XEKHACH;User ID=sa;Pass" +
+            "word=123456")]
+        public string QL_PhanQuyen {
+            get {
+                return ((string)(this["QL_PhanQuyen"]));
+            }
+            set {
+                this["QL_PhanQuyen"] = value;
+            }
+        }
     }
 }

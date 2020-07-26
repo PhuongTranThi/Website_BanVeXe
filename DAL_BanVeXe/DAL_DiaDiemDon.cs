@@ -32,5 +32,61 @@ namespace DAL_BanVeXe
             });
             return result.ToList<DTO_DiaDiemDon>();
         }
+        //load tuyến đi
+        public List<TUYENDI> LoadTuyenDi()
+        {
+            return _db.TUYENDIs.Select(p => p).ToList<TUYENDI>();
+        }
+        //thêm xóa sửa admin
+        public DIADIEMLENXE LoadDDByID(int id)
+        {
+            return _db.DIADIEMLENXEs.Where(p => p.ID == id).SingleOrDefault();
+        }
+
+        public bool UpdateDDByID(int id, DIADIEMLENXE dd)
+        {
+            DIADIEMLENXE update = _db.DIADIEMLENXEs.Where(p => p.ID == id).SingleOrDefault();
+            try
+            {
+                update.ID_TUYENDI = dd.ID_TUYENDI;
+                update.TENDD = dd.TENDD;
+                _db.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteDDByID(int id)
+        {
+            try
+            {
+                DIADIEMLENXE del = _db.DIADIEMLENXEs.Where(p => p.ID == id).SingleOrDefault();
+                _db.DIADIEMLENXEs.DeleteOnSubmit(del);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool InsertDD(DIADIEMLENXE dd)
+        {
+            try
+            {
+                _db.DIADIEMLENXEs.InsertOnSubmit(dd);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

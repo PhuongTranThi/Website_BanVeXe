@@ -30,6 +30,12 @@ namespace DAL_BanVeXe
            
 
         }
+        public List<LOAIXE> LoadLoaiXe ()
+        {
+            return _db.LOAIXEs.Select(p => p).ToList<LOAIXE>();
+
+
+        }
         public List<DTO_Admin_TuyenDi> LoadTuyenDiAdmin()
         {
             var phuong = from tuyen in _db.TUYENDIs
@@ -75,6 +81,59 @@ namespace DAL_BanVeXe
             return result.ToList<DTO_Admin_TuyenDi>();
         }
 
+        //thêm xxoas sửa admin
+        public TUYENDI LoadTuyenDiByID(int id)
+        {
+            return _db.TUYENDIs.Where(p => p.ID == id).SingleOrDefault();
+        }
+        public bool InsertTuyenDi(TUYENDI td)
+        {
+            try
+            {
+                _db.TUYENDIs.InsertOnSubmit(td);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteTuyenDiByID(int id)
+        {
+            try
+            {
+                TUYENDI del = _db.TUYENDIs.Where(p => p.ID == id).SingleOrDefault();
+                _db.TUYENDIs.DeleteOnSubmit(del);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdateTuyenDiByID(int id, TUYENDI td)
+        {
+            TUYENDI update = _db.TUYENDIs.Where(p => p.ID == id).SingleOrDefault();
+            try
+            {
+                update.ID_NOIDI = td.ID_NOIDI;
+                update.ID_NOIDEN = td.ID_NOIDEN;
+                update.ID_LOAIXE = td.ID_LOAIXE;
+                update.TENTUYEN = td.TENTUYEN;
+                update.DONGIA = td.DONGIA;
+                update.KHOANGCACH = td.KHOANGCACH;
+                update.SOGIOCHAY = td.SOGIOCHAY;
+                _db.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
 }

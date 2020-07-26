@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "CreateXe";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">THÊM XE</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        <form id="form" method="post">
+                            <input id="id" style="display : none" />
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Biển số xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:36px">
+                                    <input maxlength="12" required class="au-input au-input--xl" name="bienso" placeholder="Nhập biển số" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Loại xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:61px">
+                                    <select id="loaixe" class="au-input au-input--xl" name="loaixe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn loại xe</option>
+                                        @foreach (var item in ViewData["loaixe"] as List<DAL_BanVeXe.LOAIXE>)
+                                        {
+                                            <option value="@item.ID">@item.TENLOAIXE</option>
+                                        }
+                                    </select>
+                                    <input id="loaixeSelect" name="loaixeSelect" style="display:none"/>
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <br />
+                            <div class="table-data__tool-right" style="text-align:center;">
+                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <a style="color:white" href='@Url.Action("Index", "Xe")'>
+                                        <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                    </a>
+                                </button>
+                                <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-plus"></i>Thêm
+                                </button>
+                            </div>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('#loaixe').change(function () {
+            console.log($('#loaixeSelect').val())
+            document.getElementById('loaixeSelect').value = $('#loaixe').val();
+        });
+    });
+</script>
+
+
+

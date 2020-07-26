@@ -35,12 +35,12 @@ namespace Website_BanVeXe.Areas.Admin.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "DSKhachHang");
+                    return RedirectToAction("Index", "LoginAdmin");
                 }
             }
             catch
             {
-                return RedirectToAction("Index", "DSKhachHang");
+                return RedirectToAction("Index", "LoginAdmin");
             }
 
         }

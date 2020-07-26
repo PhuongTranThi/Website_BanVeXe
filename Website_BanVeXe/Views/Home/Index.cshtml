@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var mindate = DateTime.Now.ToString("yyyy-MM-dd");
     var tomorow = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
-    var maxdate = DateTime.Today.AddDays(29).ToString("yyyy-MM-dd");
+    var maxdate = DateTime.Today.AddDays(5).ToString("yyyy-MM-dd");
 }
 <script type="text/javascript">
     $(document).ready(
@@ -50,7 +50,7 @@
                             </select>
                           
                            
-                            <input id="ngaydi" type="date" class="form-control" name="dateStart"value="@mindate" min="@mindate" max="@maxdate"/>
+                            <input id="ngaydi" type="date" class="form-control" name="dateStart"value="@tomorow" min="@tomorow" max="@maxdate"/>
 
 
                             @*<button id="submit" class="btn btn-primary text-white px-4" value="Mua vé" />*@

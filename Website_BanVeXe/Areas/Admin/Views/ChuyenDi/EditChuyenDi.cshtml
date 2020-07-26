@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "EditChuyenDi";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">CẬP NHẬT CHUYẾN ĐI</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        @if (ViewData["data"] != null)
+                        {
+                            var x = ViewData["data"] as DAL_BanVeXe.CHUYENDI;
+                            var date = Convert.ToDateTime(x.NGAYKHOIHANH);
+                            var ngay = "";
+                            var thang = "";
+                            var ngaykhoihanh = "";
+                            if (date.Month < 10)
+                            {
+                                thang = "0" + date.Month.ToString();
+                            }
+                            else
+                            {
+                                thang = date.Month.ToString();
+                            }
+
+                            if (date.Day < 10)
+                            {
+                                ngay = "0" + date.Day.ToString();
+                            }
+                            else
+                            {
+                                ngay = date.Day.ToString();
+                            }
+                            ngaykhoihanh = date.Year + "-" + thang + "-" + ngay;
+                        <form id="form" method="post">
+
+
+                            <input id="id" style="display : none" />
+
+
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Tuyến đi:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:71px">
+                                    <select id="tuyendi" class="au-input au-input--xl" name="tuyendi" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn tuyến đi</option>
+                                        <option value="1">BX. Miền Đông - Qui Nhơn</option>
+                                        <option value="2">BX. Miền Đông - Hà Tĩnh</option>
+                                        <option value="3">BX. Miền Đông - Đà Lạt</option>
+                                        <option value="4">BX. Miền Tây - Bến Tre</option>
+                                        <option value="5">Qui Nhơn - BX. Miền Đông</option>
+                                        <option value="6">Hà Tĩnh - BX. Miền Đông</option>
+                                        <option value="7">Đà Lạt - BX. Miền Đông</option>
+                                        <option value="8">Bến Tre - BX. Miền Tây</option>
+                                    </select>
+                                    <input id="tuyendiSelect" name="tuyendiSelect" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Ngày khởi hành:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:11px">
+                                    <input type="date" required class="au-input au-input--xl" name="ngaykhoihanh" value="@ngaykhoihanh"/>
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Giờ đi:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:91px">
+                                    <input required class="au-input au-input--xl" name="giodi" type="time" value="@x.GIODI"/>
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:115px">
+                                    <select id="xe" class="au-input au-input--xl" name="xe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn xe</option>
+                                        <option value="1">55A-31589</option>
+                                        <option value="2">51A-27705</option>
+                                        <option value="3">59A-14566</option>
+                                        <option value="4">52A-48434</option>
+                                        <option value="5">55A-29219</option>
+                                    </select>
+                                    <input id="xeSelect" name="xeSelect"  />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Tài xế:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:90px">
+                                    <select id="taixe" class="au-input au-input--xl" name="taixe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn tài xế</option>
+                                        <option value="1">Nguyễn Văn Thành</option>
+                                        <option value="2">Trần Hoàng Nam</option>
+                                        <option value="3">Phạm Văn Tuấn</option>
+                                        <option value="4">Lê Văn Hoàng</option>
+                                        <option value="6">Trương Hữu Thắng</option>
+                                    </select>
+                                    <input id="taixeSelect" name="taixeSelect"  />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Phụ xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:82px">
+                                    <select id="phuxe" class="au-input au-input--xl" name="phuxe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn phụ xế</option>
+                                        <option value="1">Trần Ngọc Hải</option>
+                                        <option value="2">Phạm Văn Thanh</option>
+                                        <option value="3">Lê Minh Thắng</option>
+                                        <option value="4">Phạm Hùng Dũng</option>
+                                        <option value="5">Nguyễn Anh Tú </option>
+                                    </select>
+                                    <input id="phuxeSelect" name="phuxeSelect" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+
+                            <br />
+                            <div class="table-data__tool-right" style="text-align:center;">
+                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <a style="color:white" href='@Url.Action("Index", "TuyenDi")'>
+                                        <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                    </a>
+                                </button>
+                                <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-plus"></i>Cập nhật
+                                </button>
+                            </div>
+                        </form>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#tuyendi').change(function () {
+            console.log($('#tuyendiSelect').val())
+            document.getElementById('tuyendiSelect').value = $('#tuyendi').val();
+        });
+        $('#xe').change(function () {
+            console.log($('#xeSelect').val())
+            document.getElementById('xeSelect').value = $('#xe').val();
+        });
+        $('#taixe').change(function () {
+            console.log($('#taixeSelect').val())
+            document.getElementById('taixeSelect').value = $('#taixe').val();
+        });
+        $('#phuxe').change(function () {
+            console.log($('#phuxeSelect').val())
+            document.getElementById('phuxeSelect').value = $('#phuxe').val();
+        });
+    });
+</script>
+

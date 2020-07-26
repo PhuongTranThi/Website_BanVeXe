@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "CreateChuyenDi";
+    Layout = "~/Areas/Admin/Views/AdminHome/Index.cshtml";
+}
+<style>
+    span {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+</style>
+<section class="p-t-20" style="height:585px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">THÊM CHUYẾN ĐI</h3>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2" style="text-align:center">
+                        <form id="form" method="post">
+                            <input id="id" style="display : none" />
+
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Tuyến đi:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:71px">
+                                    <select id="tuyendi" class="au-input au-input--xl" name="tuyendi" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn tuyến đi</option>
+                                        @foreach (var item in ViewData["tuyendi"] as List<DAL_BanVeXe.TUYENDI>)
+                                        {
+                                            <option value="@item.ID">@item.TENTUYEN</option>
+                                        }
+                                    </select>
+                                    <input id="tuyendiSelect" name="tuyendiSelect" style="display:none"/>
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Ngày khởi hành:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:11px">
+                                    <input type="date" required class="au-input au-input--xl" name="ngaykhoihanh" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Giờ đi:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:91px">
+                                    <input required class="au-input au-input--xl" name="giodi" type="time" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:115px">
+                                    <select id="xe" class="au-input au-input--xl" name="xe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn xe</option>
+                                        @foreach (var item in ViewData["xe"] as List<DAL_BanVeXe.XE>)
+                                        {
+                                            <option value="@item.ID">@item.BIENSO</option>
+                                        }
+                                    </select>
+                                    <input id="xeSelect" name="xeSelect" style="display:none" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Tài xế:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:90px">
+                                    <select id="taixe" class="au-input au-input--xl" name="taixe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn tài xế</option>
+                                        @foreach (var item in ViewData["taixe"] as List<DAL_BanVeXe.TAIXE>)
+                                        {
+                                            <option value="@item.ID">@item.HOTENTX</option>
+                                        }
+                                    </select>
+                                    <input id="taixeSelect" name="taixeSelect" style="display:none" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+                            <div class="table-data__tool-right" style="margin-bottom:13px;">
+                                <span class="col-md-3"></span>
+                                <span class="col-md-2">Phụ xe:&nbsp;</span>
+                                <span class="col-md-4" style="margin-left:82px">
+                                    <select id="phuxe" class="au-input au-input--xl" name="phuxe" style="height:48px">
+                                        <option value="-1" disabled selected>Chọn phụ xế</option>
+                                        @foreach (var item in ViewData["phuxe"] as List<DAL_BanVeXe.PHUXE>)
+                                        {
+                                            <option value="@item.ID">@item.HOTENPX</option>
+                                        }
+                                    </select>
+                                    <input id="phuxeSelect" name="phuxeSelect" style="display:none" />
+                                </span>
+                                <span class="col-md-3"></span>
+                            </div>
+
+
+
+
+                            <div class="table-data__tool-right" style="text-align:center;">
+                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <a style="color:white" href='@Url.Action("Index", "ChuyenDi")'>
+                                        <i class="zmdi zmdi-long-arrow-left"></i> &nbsp;Quay lại
+                                    </a>
+                                </button>
+                                <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-plus"></i>Thêm
+                                </button>
+                            </div>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('#tuyendi').change(function () {
+            console.log($('#tuyendiSelect').val())
+            document.getElementById('tuyendiSelect').value = $('#tuyendi').val();
+        });
+        $('#xe').change(function () {
+            console.log($('#xeSelect').val())
+            document.getElementById('xeSelect').value = $('#xe').val();
+        });
+        $('#taixe').change(function () {
+            console.log($('#taixeSelect').val())
+            document.getElementById('taixeSelect').value = $('#taixe').val();
+        });
+        $('#phuxe').change(function () {
+            console.log($('#phuxeSelect').val())
+            document.getElementById('phuxeSelect').value = $('#phuxe').val();
+        });
+    });
+</script>
+
+

@@ -14,7 +14,7 @@ namespace DAL_BanVeXe
         {
             return _db.KHACHHANGs.Select(p => p).ToList<KHACHHANG>();
         }
-
+        //thêm xóa sửa admin
         public KHACHHANG LoadKhachHangByID(int id)
         {
             return _db.KHACHHANGs.Where(p => p.ID == id).SingleOrDefault();

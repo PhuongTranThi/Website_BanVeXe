@@ -65,30 +65,27 @@ namespace DAL_BanVeXe
                             from phuxe in _db.PHUXEs
                             where chuyen.ID_TUYENDI == tuyen.ID
                             && chuyen.ID_XE == xe.ID
-                            && chuyen.ID_TAIXE1 == taixe.ID
+                            && chuyen.ID_TAIXE == taixe.ID
                             && chuyen.ID_PHUXE == phuxe.ID
                             select new
                             {
                                 id_chuyen = chuyen.ID,
                                 id_xe = chuyen.ID_XE,
                                 id_tuyen = chuyen.ID_TUYENDI,
-                                id_tentaixe1 = chuyen.ID_TAIXE1,
-                                id_tentaixe2 = chuyen.ID_TAIXE2,
+                                id_tentaixe = chuyen.ID_TAIXE,
                                 id_phuxe = chuyen.ID_PHUXE,
                                 ngaykhoihanh = chuyen.NGAYKHOIHANH,
                                 giodi = chuyen.GIODI,
                                 tentuyendi = tuyen.TENTUYEN,
                                 bienso = xe.BIENSO,
-                                tentaixe1 = taixe.HOTENTX,
-                                tentaixe2 = taixe.HOTENTX,
+                                tentaixe = taixe.HOTENTX,
                                 tenphuxe = phuxe.HOTENPX,
                             };
             List<DTO_Admin_ChuyenDi> result = phuong.ToList().ConvertAll(t => new DTO_Admin_ChuyenDi
             {
                 ID_ChuyenDi = t.id_chuyen,
                 ID_Xe = int.Parse(t.id_xe.ToString()),
-                ID_TaiXe1 = int.Parse(t.id_tentaixe1.ToString()),
-                ID_TaiXe2 = int.Parse(t.id_tentaixe2.ToString()),
+                ID_TaiXe = int.Parse(t.id_tentaixe.ToString()),
                 ID_PhuXe = int.Parse(t.id_phuxe.ToString()),
                 ID_TuyenDi = int.Parse(t.id_tuyen.ToString()),
                 NgayKhoiHanh = t.ngaykhoihanh.ToString(),
@@ -96,10 +93,83 @@ namespace DAL_BanVeXe
                 TenTuyenDi = t.tentuyendi,
                 BienSoXe = t.bienso,
                 TenPhuXe = t.tenphuxe,
-                TenTaiXe1 = t.tentaixe1,
-                TenTaiXe2 = t.tentaixe2
+                TenTaiXe = t.tentaixe,
             });
             return result.ToList<DTO_Admin_ChuyenDi>();
         }
+        //thêm xóa swae admin 
+        public List<TUYENDI> LoadTuyenDi()
+        {
+            return _db.TUYENDIs.Select(p => p).ToList<TUYENDI>();
+
+        }
+        public List<XE> LoadXe()
+        {
+            return _db.XEs.Select(p => p).ToList<XE>();
+
+        }
+        public List<TAIXE> LoadTaiXe()
+        {
+            return _db.TAIXEs.Select(p => p).ToList<TAIXE>();
+
+        }
+        public List<PHUXE> LoadPhuXe()
+        {
+            return _db.PHUXEs.Select(p => p).ToList<PHUXE>();
+
+        }
+
+        public CHUYENDI LoadChuyenDiByID(int id)
+        {
+            return _db.CHUYENDIs.Where(p => p.ID == id).SingleOrDefault();
+        }
+        public bool InsertChuyenDi(CHUYENDI cd)
+        {
+            try
+            {
+                _db.CHUYENDIs.InsertOnSubmit(cd);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteChuyenDiByID(int id)
+        {
+            try
+            {
+                CHUYENDI del = _db.CHUYENDIs.Where(p => p.ID == id).SingleOrDefault();
+                _db.CHUYENDIs.DeleteOnSubmit(del);
+                _db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdateChuyenDiByID(int id, CHUYENDI cd)
+        {
+            CHUYENDI update = _db.CHUYENDIs.Where(p => p.ID == id).SingleOrDefault();
+            try
+            {
+                update.ID_TUYENDI = cd.ID_TUYENDI;
+                update.ID_XE = cd.ID_XE;
+                update.ID_TAIXE = cd.ID_TAIXE;
+                update.ID_PHUXE = cd.ID_PHUXE;
+                update.NGAYKHOIHANH = cd.NGAYKHOIHANH;
+                update.GIODI = cd.GIODI;
+                _db.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }
